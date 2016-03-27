@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
 
     private var name = String?()
@@ -20,6 +21,11 @@ class ViewController: UIViewController {
         
         self.createSubView()
 
+
+        let home:String = NSHomeDirectory()
+        
+        print(home);
+        
         
         // Do any additional setup after loading the view, typically from a nib.
     }
