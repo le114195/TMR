@@ -14,6 +14,8 @@
 		7501E17B1CA7BDFB0047B6D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7501E1791CA7BDFB0047B6D0 /* LaunchScreen.storyboard */; };
 		7501E1861CA7BDFB0047B6D0 /* TMRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7501E1851CA7BDFB0047B6D0 /* TMRTests.swift */; };
 		7501E1911CA7BDFB0047B6D0 /* TMRUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7501E1901CA7BDFB0047B6D0 /* TMRUITests.swift */; };
+		755B24331CA8213600ECC369 /* TMRSQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B24321CA8213600ECC369 /* TMRSQLite.swift */; };
+		755B24711CA82ADF00ECC369 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 755B24701CA82ADF00ECC369 /* libsqlite3.0.tbd */; };
 		7563B3CC1CA7CCFF00BC84BB /* TMRProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7563B3CB1CA7CCFF00BC84BB /* TMRProcessing.swift */; };
 		7563B3CE1CA7CD4200BC84BB /* TMRProcessed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7563B3CD1CA7CD4200BC84BB /* TMRProcessed.swift */; };
 		7563B3D31CA7CD8700BC84BB /* TMRWorksheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7563B3D11CA7CD8700BC84BB /* TMRWorksheet.swift */; };
@@ -21,8 +23,6 @@
 		7563B3D71CA7CDA200BC84BB /* TMRNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7563B3D51CA7CDA200BC84BB /* TMRNetwork.swift */; };
 		7563B3D81CA7CDA200BC84BB /* TMRNetwork.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7563B3D61CA7CDA200BC84BB /* TMRNetwork.xib */; };
 		7563B3DA1CA7CF4300BC84BB /* GlobalValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7563B3D91CA7CF4300BC84BB /* GlobalValue.swift */; };
-		75DD03E71CA7D581005EDD65 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DD03E61CA7D581005EDD65 /* libsqlite3.0.tbd */; };
-		9A3C7E07D049E3504542DAA1 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFA5EA0C61C89B1FEEEDB9D /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +45,6 @@
 /* Begin PBXFileReference section */
 		0C9101593111FE2403F88E22 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		0D147B0D512A9A222F3727F9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		0FFA5EA0C61C89B1FEEEDB9D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7501E16D1CA7BDFB0047B6D0 /* TMR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7501E1701CA7BDFB0047B6D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7501E1721CA7BDFB0047B6D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,7 +58,9 @@
 		7501E18C1CA7BDFB0047B6D0 /* TMRUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMRUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7501E1901CA7BDFB0047B6D0 /* TMRUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMRUITests.swift; sourceTree = "<group>"; };
 		7501E1921CA7BDFB0047B6D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		752B33651CA7E3230031FD15 /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/TMR-fprasgjcmekztzeczejyoyzytymk/Build/Products/Debug-iphonesimulator/SQLite.framework"; sourceTree = "<group>"; };
+		755B242B1CA8200000ECC369 /* TMR-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TMR-Bridging-Header.h"; sourceTree = "<group>"; };
+		755B24321CA8213600ECC369 /* TMRSQLite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMRSQLite.swift; sourceTree = "<group>"; };
+		755B24701CA82ADF00ECC369 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		7563B3CB1CA7CCFF00BC84BB /* TMRProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMRProcessing.swift; sourceTree = "<group>"; };
 		7563B3CD1CA7CD4200BC84BB /* TMRProcessed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMRProcessed.swift; sourceTree = "<group>"; };
 		7563B3D11CA7CD8700BC84BB /* TMRWorksheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMRWorksheet.swift; sourceTree = "<group>"; };
@@ -67,7 +68,6 @@
 		7563B3D51CA7CDA200BC84BB /* TMRNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMRNetwork.swift; sourceTree = "<group>"; };
 		7563B3D61CA7CDA200BC84BB /* TMRNetwork.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMRNetwork.xib; sourceTree = "<group>"; };
 		7563B3D91CA7CF4300BC84BB /* GlobalValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalValue.swift; sourceTree = "<group>"; };
-		75DD03E61CA7D581005EDD65 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75DD03E71CA7D581005EDD65 /* libsqlite3.0.tbd in Frameworks */,
-				9A3C7E07D049E3504542DAA1 /* Pods.framework in Frameworks */,
+				755B24711CA82ADF00ECC369 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +150,22 @@
 			path = TMRUITests;
 			sourceTree = "<group>";
 		};
+		755B242E1CA820E600ECC369 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				755B242F1CA820E600ECC369 /* SQLite */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		755B242F1CA820E600ECC369 /* SQLite */ = {
+			isa = PBXGroup;
+			children = (
+				755B24321CA8213600ECC369 /* TMRSQLite.swift */,
+			);
+			path = SQLite;
+			sourceTree = "<group>";
+		};
 		7563B3B81CA7CCAE00BC84BB /* Class */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +223,8 @@
 		7563B3BE1CA7CCAE00BC84BB /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				755B242E1CA820E600ECC369 /* Lib */,
+				755B242B1CA8200000ECC369 /* TMR-Bridging-Header.h */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -312,9 +329,7 @@
 		8AC7097A3CE5DE98CA2BDDEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				752B33651CA7E3230031FD15 /* SQLite.framework */,
-				75DD03E61CA7D581005EDD65 /* libsqlite3.0.tbd */,
-				0FFA5EA0C61C89B1FEEEDB9D /* Pods.framework */,
+				755B24701CA82ADF00ECC369 /* libsqlite3.0.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -519,6 +534,7 @@
 				7501E1731CA7BDFB0047B6D0 /* ViewController.swift in Sources */,
 				7563B3CC1CA7CCFF00BC84BB /* TMRProcessing.swift in Sources */,
 				7501E1711CA7BDFB0047B6D0 /* AppDelegate.swift in Sources */,
+				755B24331CA8213600ECC369 /* TMRSQLite.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,7 +682,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = BTBU.TMR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "TMR/Class/Other/TMR-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -681,7 +697,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = BTBU.TMR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "TMR/Class/Other/TMR-Bridging-Header.h";
 			};
 			name = Release;
 		};

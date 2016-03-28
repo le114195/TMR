@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+
 
 
 class ViewController: UIViewController {
@@ -20,11 +22,10 @@ class ViewController: UIViewController {
         self.view.backgroundColor = UIColor.whiteColor()
         
         self.createSubView()
-
-
-        let home:String = NSHomeDirectory()
         
-        print(home);
+        let tmrsql = TMRSQLite()
+        
+        tmrsql.openDatabase()
         
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -87,5 +88,24 @@ class ViewController: UIViewController {
             break
         }
     }
+    
+    
+    func afamofireTest() {
+        
+        Alamofire.request(.GET, "http://139.129.8.9/php/jsonData.php", parameters: ["foo": "bar"])
+            .responseJSON { response in
+                print(response.request)  // original URL request
+                print(response.response) // URL response
+                print(response.data)     // server data
+                print(response.result)   // result of response serialization
+                
+                if let JSON = response.result.value {
+                    print("JSON: \(JSON)")
+                }
+        }
+    }
+    
+    
+    
 }
 
