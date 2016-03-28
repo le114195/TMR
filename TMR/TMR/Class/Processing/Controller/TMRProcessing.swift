@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TMRProcessing: UIViewController {
+class TMRProcessing: TMRBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

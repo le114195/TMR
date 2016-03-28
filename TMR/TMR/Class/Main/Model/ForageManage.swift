@@ -16,4 +16,38 @@ class ForageManage: NSObject {
     var proportoin:Int32 = 0
     var forage_type:String = ""
 
+    
+    static func getAllData() -> NSMutableArray {
+        
+        let arrM = NSMutableArray()
+        var stmt:COpaquePointer = nil
+        
+        let tmrsql = TMRSQLite()
+        
+        if !tmrsql.openDatabase() {
+            print("打开数据库失败！！！")
+        }
+        let sql = "select * from forage_manage"
+        let result = tmrsql.sqlite_prepared(sql, stmt: &stmt)
+        
+        if result == SQLITE_OK {
+            
+            while tmrsql.sqlite_step(stmt) == SQLITE_ROW {
+                let forage = ForageManage()
+                forage.forage_name = tmrsql.sqlite_column_text(stmt, index: 0)
+                forage.forage_id = tmrsql.sqlite_column_int(stmt, index: 1)
+                forage.repertory = tmrsql.sqlite_column_int(stmt, index: 2)
+                forage.proportoin = tmrsql.sqlite_column_int(stmt, index: 3)
+                forage.forage_type = tmrsql.sqlite_column_text(stmt, index: 4)
+                arrM.addObject(forage)
+            }
+            tmrsql.sqlite_finalize(stmt)
+        }
+        return arrM
+        
+    }
+    
+    
+    
+    
 }

@@ -18,6 +18,8 @@ class TMRSQLite: NSObject {
     func openDatabase() -> Bool {
         if sqlite3_open(sqlite_path, &db) == SQLITE_OK {
             return true
+        }else {
+            print("打开数据库失败！！！")
         }
         return false
     }
@@ -50,6 +52,20 @@ class TMRSQLite: NSObject {
     func sqlite_close() -> (Int32) {
         return sqlite3_close(db)
     }
+    
+    func sqlite_column_text(stmt:COpaquePointer, index:Int32) -> String {
+        let xx:UnsafePointer<CChar> = UnsafePointer.init(sqlite3_column_text(stmt, index))
+        return String.init(UTF8String: xx)!
+    }
+    
+    func sqlite_column_int(stmt:COpaquePointer, index:Int32) -> Int32 {
+        return sqlite3_column_int(stmt, index)
+    }
+    
+    func sqlite_column_double(stmt:COpaquePointer, index:Int32) -> Double {
+        return sqlite3_column_double(stmt, index)
+    }
+    
 }
 
 
