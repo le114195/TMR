@@ -23,6 +23,10 @@
 		7563B3D71CA7CDA200BC84BB /* TMRNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7563B3D51CA7CDA200BC84BB /* TMRNetwork.swift */; };
 		7563B3D81CA7CDA200BC84BB /* TMRNetwork.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7563B3D61CA7CDA200BC84BB /* TMRNetwork.xib */; };
 		7563B3DA1CA7CF4300BC84BB /* GlobalValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7563B3D91CA7CF4300BC84BB /* GlobalValue.swift */; };
+		75C9A9BF1CA8C89B00F95090 /* Worksheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C9A9BE1CA8C89B00F95090 /* Worksheet.swift */; };
+		75C9A9C11CA8C8BF00F95090 /* ForageManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C9A9C01CA8C8BF00F95090 /* ForageManage.swift */; };
+		75C9A9C31CA8C8DD00F95090 /* CattleManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C9A9C21CA8C8DD00F95090 /* CattleManage.swift */; };
+		75C9A9C51CA8C8F300F95090 /* FoundationManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C9A9C41CA8C8F300F95090 /* FoundationManage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +72,10 @@
 		7563B3D51CA7CDA200BC84BB /* TMRNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMRNetwork.swift; sourceTree = "<group>"; };
 		7563B3D61CA7CDA200BC84BB /* TMRNetwork.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMRNetwork.xib; sourceTree = "<group>"; };
 		7563B3D91CA7CF4300BC84BB /* GlobalValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalValue.swift; sourceTree = "<group>"; };
+		75C9A9BE1CA8C89B00F95090 /* Worksheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Worksheet.swift; sourceTree = "<group>"; };
+		75C9A9C01CA8C8BF00F95090 /* ForageManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForageManage.swift; sourceTree = "<group>"; };
+		75C9A9C21CA8C8DD00F95090 /* CattleManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CattleManage.swift; sourceTree = "<group>"; };
+		75C9A9C41CA8C8F300F95090 /* FoundationManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationManage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +190,7 @@
 		7563B3B91CA7CCAE00BC84BB /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				75C9A9BD1CA8C87600F95090 /* Model */,
 				7563B3D91CA7CF4300BC84BB /* GlobalValue.swift */,
 			);
 			path = Main;
@@ -324,6 +333,17 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		75C9A9BD1CA8C87600F95090 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				75C9A9BE1CA8C89B00F95090 /* Worksheet.swift */,
+				75C9A9C01CA8C8BF00F95090 /* ForageManage.swift */,
+				75C9A9C21CA8C8DD00F95090 /* CattleManage.swift */,
+				75C9A9C41CA8C8F300F95090 /* FoundationManage.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		8AC7097A3CE5DE98CA2BDDEA /* Frameworks */ = {
@@ -528,10 +548,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7563B3CE1CA7CD4200BC84BB /* TMRProcessed.swift in Sources */,
+				75C9A9C51CA8C8F300F95090 /* FoundationManage.swift in Sources */,
 				7563B3D31CA7CD8700BC84BB /* TMRWorksheet.swift in Sources */,
+				75C9A9C11CA8C8BF00F95090 /* ForageManage.swift in Sources */,
 				7563B3D71CA7CDA200BC84BB /* TMRNetwork.swift in Sources */,
+				75C9A9BF1CA8C89B00F95090 /* Worksheet.swift in Sources */,
 				7563B3DA1CA7CF4300BC84BB /* GlobalValue.swift in Sources */,
 				7501E1731CA7BDFB0047B6D0 /* ViewController.swift in Sources */,
+				75C9A9C31CA8C8DD00F95090 /* CattleManage.swift in Sources */,
 				7563B3CC1CA7CCFF00BC84BB /* TMRProcessing.swift in Sources */,
 				7501E1711CA7BDFB0047B6D0 /* AppDelegate.swift in Sources */,
 				755B24331CA8213600ECC369 /* TMRSQLite.swift in Sources */,

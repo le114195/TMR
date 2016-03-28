@@ -18,15 +18,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(sqlite_path)
         
         self.view.backgroundColor = UIColor.whiteColor()
         
         self.createSubView()
         
-        let tmrsql = TMRSQLite()
-        
-        tmrsql.openDatabase()
-        
+        self.createAllTable()
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -52,6 +50,30 @@ class ViewController: UIViewController {
             
             btn1.addTarget(self, action: #selector(ViewController.clickBtn(_:)), forControlEvents: UIControlEvents.TouchUpInside)
             self.view.addSubview(btn1)
+            
+            btn1.titleLabel?.font = UIFont.systemFontOfSize(34)
+            
+            switch i {
+            case 0:
+                btn1.setTitle("数据处理", forState: UIControlState.Normal)
+                break
+                
+            case 1:
+                btn1.setTitle("历史数据查看", forState: UIControlState.Normal)
+                break
+                
+            case 2:
+                btn1.setTitle("制作加工单", forState: UIControlState.Normal)
+                break
+                
+            case 3:
+                btn1.setTitle("网络", forState: UIControlState.Normal)
+                break
+            default:
+                break
+            }
+            
+            
         }
         
     }
@@ -104,6 +126,43 @@ class ViewController: UIViewController {
                 }
         }
     }
+    
+    
+    private func createAllTable() {
+        let tmrsql = TMRSQLite()
+        if !tmrsql.openDatabase() {
+            print("打开数据库失败！！！")
+            return
+        }
+        let work_sheet = "create table if not exists work_sheet (forage_name text, originWeight integer, processedWeight integer, percent text, status integer, sheet_name text)"
+        self.createTable(work_sheet, tmrsql: tmrsql)
+        
+        let forage_manage = "create table if not exists forage_manage (forage_name text primary key, forage_id integer, repertory integer, proportion integer, forage_type text)"
+        self.createTable(forage_manage, tmrsql: tmrsql)
+        
+        let cattle_manage = "create table if not exists cattle_manage (cattle_name text primary key, cattle_type text, cattle_num integer, morning_proportion integer, nooning_proportion integer, evening_proportion integer)"
+        self.createTable(cattle_manage, tmrsql: tmrsql)
+        
+        let foundation_manage = "create table if not exists foundation_manage (foundation_name text, forage_name text, foundation_type text, forage_weight integer)"
+        self.createTable(foundation_manage, tmrsql: tmrsql)
+        
+        tmrsql.sqlite_close()
+        
+    }
+    
+    private func createTable(sql:String, tmrsql:TMRSQLite){
+        
+        var stmt:COpaquePointer = nil
+        if tmrsql.sqlite_prepared(sql, stmt: &stmt) != SQLITE_OK {
+            print("sqlite_prepared error!!!")
+        }
+        if tmrsql.sqlite_step(stmt) == SQLITE_ERROR {
+            print("sqlite_step error!!!")
+        }
+        tmrsql.sqlite_finalize(stmt)
+        
+    }
+    
     
     
     
