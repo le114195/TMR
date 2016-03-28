@@ -26,6 +26,7 @@ class ViewController: UIViewController {
         
         self.createAllTable()
         
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -72,10 +73,7 @@ class ViewController: UIViewController {
             default:
                 break
             }
-            
-            
         }
-        
     }
     
     func clickBtn(btn:UIButton) {
@@ -148,6 +146,8 @@ class ViewController: UIViewController {
         
         tmrsql.sqlite_close()
         
+        
+        
     }
     
     private func createTable(sql:String, tmrsql:TMRSQLite){
@@ -162,9 +162,5 @@ class ViewController: UIViewController {
         tmrsql.sqlite_finalize(stmt)
         
     }
-    
-    
-    
-    
 }
 

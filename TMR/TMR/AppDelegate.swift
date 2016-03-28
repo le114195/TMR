@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let mainVC = ViewController()
         
-        let navi = UINavigationController.init(rootViewController: mainVC)
+        let navi = TMRNavigationController.init(rootViewController: mainVC)
         self.window?.rootViewController = navi
         
         self.window?.makeKeyAndVisible()

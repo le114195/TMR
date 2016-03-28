@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TMRWorksheet: UIViewController {
+class TMRWorksheet: TMRBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +23,6 @@ class TMRWorksheet: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    
     
     
     private func createSubView() {
@@ -72,6 +69,9 @@ class TMRWorksheet: UIViewController {
         
         switch btn.tag {
         case 0:
+            
+            let forage = TMRForageManage()
+            self.navigationController?.pushViewController(forage, animated: true)
             
             break
             

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TMRNetwork: UIViewController {
+class TMRNetwork: TMRBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
