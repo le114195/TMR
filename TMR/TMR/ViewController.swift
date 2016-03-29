@@ -134,16 +134,16 @@ class ViewController: UIViewController {
             print("打开数据库失败！！！")
             return
         }
-        let work_sheet = "create table if not exists work_sheet (forage_name text, originWeight integer, processedWeight integer, percent text, status integer, sheet_name text)"
+        let work_sheet = "create table if not exists work_sheet (forage_name text, originWeight integer, processedWeight integer, percent text, status integer, sheet_name text, worksheet_id integer auto_increment primary key)"
         self.createTable(work_sheet, tmrsql: tmrsql)
         
-        let forage_manage = "create table if not exists forage_manage (forage_name text primary key, forage_id integer, repertory integer, proportion integer, forage_type text)"
+        let forage_manage = "create table if not exists forage_manage (forage_name text, forage_id integer primary key, repertory integer, proportion integer, forage_type text)"
         self.createTable(forage_manage, tmrsql: tmrsql)
         
-        let cattle_manage = "create table if not exists cattle_manage (cattle_name text primary key, cattle_type text, cattle_num integer, morning_proportion integer, nooning_proportion integer, evening_proportion integer)"
+        let cattle_manage = "create table if not exists cattle_manage (cattle_name text, cattle_type text, cattle_num integer, morning_proportion integer, nooning_proportion integer, evening_proportion integer, cttle_id integer auto_increment primary key)"
         self.createTable(cattle_manage, tmrsql: tmrsql)
         
-        let foundation_manage = "create table if not exists foundation_manage (foundation_name text, forage_name text, foundation_type text, forage_weight integer)"
+        let foundation_manage = "create table if not exists foundation_manage (foundation_name text, forage_name text, foundation_type text, forage_weight integer, foundation_id integer auto_increment primary key)"
         self.createTable(foundation_manage, tmrsql: tmrsql)
         
         tmrsql.sqlite_close()

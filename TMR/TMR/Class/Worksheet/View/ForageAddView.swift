@@ -12,7 +12,6 @@ class ForageAddView: UIView {
     
     var isAdd:Bool?
     
-    
     var forage:ForageManage?
     
     var cancelBlock:(()->())?
@@ -31,28 +30,25 @@ class ForageAddView: UIView {
         }
     }
     
-    
     @IBAction func sure(sender: AnyObject) {
 
         if forage == nil {
             forage = ForageManage()
         }
         
-        forage!.forage_name = forageName.text!
-        forage!.forage_id = Int32(forageID.text!)!
         forage!.repertory = Int32(repository.text!)!
-        forage!.forage_type = forage_type.text!
+        if isAdd == true {
+            forage!.forage_name = forageName.text!
+            forage!.forage_id = Int32(forageID.text!)!
+            forage!.forage_type = forage_type.text!
+            self.insertData(forage!)
+        }else if isAdd == false {
+            let sql = "update forage_manage set repertory=\(forage!.repertory) where forage_id=\(forage!.forage_id)"
+            TMRSQLite().updateData(sql)
+        }
         
         if (sureBlock != nil) {
             sureBlock!(forage: forage!)
-        }
-        
-        if isAdd == true {
-            
-            self.insertData(forage!)
-            
-        }else {
-            
         }
         
     }
@@ -76,7 +72,6 @@ class ForageAddView: UIView {
         tmrsql.sqlite_bind_int(stmt, index: 2, param: model.forage_id)
         tmrsql.sqlite_bind_int(stmt, index: 3, param: model.repertory)
         tmrsql.sqlite_bind_int(stmt, index: 4, param: model.proportoin)
-        tmrsql.sqlite_bind_text(stmt, index: 5, param: model.forage_type)
         
         result = tmrsql.sqlite_step(stmt)
         tmrsql.sqlite_finalize(stmt)
@@ -84,12 +79,29 @@ class ForageAddView: UIView {
         if result == SQLITE_ERROR {
             print("sqlite_step error")
         }
-        
         tmrsql.sqlite_close()
         
+        let sqll = "update forage_manage set forage_type='\(model.forage_type)' where forage_id=\(model.forage_id)"
+        
+        tmrsql.updateData(sqll)
+
     }
     
+    func setModel(model:ForageManage) {
+        
+        self.forage = model
+        self.forageName.text = model.forage_name
+        self.forageID.text = String(model.forage_id)
+        self.forage_type.text = model.forage_type
+        self.repository.text = String(model.repertory)
+    }
     
+    func clearData() {
+        self.forageName.text = ""
+        self.forageID.text = ""
+        self.forage_type.text = ""
+        self.repository.text = ""
+    }
     
     
 }

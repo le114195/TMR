@@ -14,6 +14,6 @@ class FoundationManage: NSObject {
     var forage_name:String = ""
     var foundation_type:String = ""
     var forage_weight:Int32 = 0
+    var foundation_id:Int32 = 0
 
-    
 }

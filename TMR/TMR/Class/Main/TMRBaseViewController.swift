@@ -50,4 +50,10 @@ class TMRBaseViewController: UIViewController {
     func clickRightBtn() {
         
     }
+    
+    deinit {
+        print("free!!!")
+    }
+    
+    
 }

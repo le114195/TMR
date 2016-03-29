@@ -72,11 +72,12 @@ class TMRWorksheet: TMRBaseViewController {
             
             let forage = TMRForageManage()
             self.navigationController?.pushViewController(forage, animated: true)
-            
             break
             
         case 1:
             
+            let cattle = TMRCattleManage()
+            self.navigationController?.pushViewController(cattle, animated: true)
             break
             
         case 2:
@@ -91,10 +92,7 @@ class TMRWorksheet: TMRBaseViewController {
         default:
             break
         }
-        
-        
     }
-    
     
 
 }

@@ -14,6 +14,12 @@
 		7501E17B1CA7BDFB0047B6D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7501E1791CA7BDFB0047B6D0 /* LaunchScreen.storyboard */; };
 		7501E1861CA7BDFB0047B6D0 /* TMRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7501E1851CA7BDFB0047B6D0 /* TMRTests.swift */; };
 		7501E1911CA7BDFB0047B6D0 /* TMRUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7501E1901CA7BDFB0047B6D0 /* TMRUITests.swift */; };
+		7543FBA11CA9673D0041228D /* TMRCattleManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543FB9F1CA9673D0041228D /* TMRCattleManage.swift */; };
+		7543FBA21CA9673D0041228D /* TMRCattleManage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7543FBA01CA9673D0041228D /* TMRCattleManage.xib */; };
+		7543FBA51CA96B0A0041228D /* CattleManageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543FBA31CA96B0A0041228D /* CattleManageCell.swift */; };
+		7543FBA61CA96B0A0041228D /* CattleManageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7543FBA41CA96B0A0041228D /* CattleManageCell.xib */; };
+		7543FBA81CA9794D0041228D /* CattleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543FBA71CA9794D0041228D /* CattleView.swift */; };
+		7543FBAA1CA9795C0041228D /* CattleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7543FBA91CA9795C0041228D /* CattleView.xib */; };
 		755B24331CA8213600ECC369 /* TMRSQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B24321CA8213600ECC369 /* TMRSQLite.swift */; };
 		755B24711CA82ADF00ECC369 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 755B24701CA82ADF00ECC369 /* libsqlite3.0.tbd */; };
 		755C96E81CA8D87900C83667 /* TMRForageManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C96E61CA8D87900C83667 /* TMRForageManage.swift */; };
@@ -80,6 +86,12 @@
 		7501E18C1CA7BDFB0047B6D0 /* TMRUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMRUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7501E1901CA7BDFB0047B6D0 /* TMRUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMRUITests.swift; sourceTree = "<group>"; };
 		7501E1921CA7BDFB0047B6D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7543FB9F1CA9673D0041228D /* TMRCattleManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMRCattleManage.swift; sourceTree = "<group>"; };
+		7543FBA01CA9673D0041228D /* TMRCattleManage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMRCattleManage.xib; sourceTree = "<group>"; };
+		7543FBA31CA96B0A0041228D /* CattleManageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CattleManageCell.swift; sourceTree = "<group>"; };
+		7543FBA41CA96B0A0041228D /* CattleManageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CattleManageCell.xib; sourceTree = "<group>"; };
+		7543FBA71CA9794D0041228D /* CattleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CattleView.swift; sourceTree = "<group>"; };
+		7543FBA91CA9795C0041228D /* CattleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CattleView.xib; sourceTree = "<group>"; };
 		755B242B1CA8200000ECC369 /* TMR-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TMR-Bridging-Header.h"; sourceTree = "<group>"; };
 		755B24321CA8213600ECC369 /* TMRSQLite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMRSQLite.swift; sourceTree = "<group>"; };
 		755B24701CA82ADF00ECC369 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -391,6 +403,8 @@
 				7563B3D21CA7CD8700BC84BB /* TMRWorksheet.xib */,
 				755C96E61CA8D87900C83667 /* TMRForageManage.swift */,
 				755C96E71CA8D87900C83667 /* TMRForageManage.xib */,
+				7543FB9F1CA9673D0041228D /* TMRCattleManage.swift */,
+				7543FBA01CA9673D0041228D /* TMRCattleManage.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -409,6 +423,10 @@
 				7595C4181CA913D0000EECAB /* ForageManageCell.xib */,
 				7595C41B1CA91962000EECAB /* ForageAddView.swift */,
 				7595C41D1CA91987000EECAB /* ForageAddView.xib */,
+				7543FBA31CA96B0A0041228D /* CattleManageCell.swift */,
+				7543FBA41CA96B0A0041228D /* CattleManageCell.xib */,
+				7543FBA71CA9794D0041228D /* CattleView.swift */,
+				7543FBA91CA9795C0041228D /* CattleView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -553,8 +571,10 @@
 				7595C41A1CA913D0000EECAB /* ForageManageCell.xib in Resources */,
 				755C96F81CA8DC0600C83667 /* return_gray.png in Resources */,
 				755C96F51CA8DC0600C83667 /* return_black.png in Resources */,
+				7543FBA61CA96B0A0041228D /* CattleManageCell.xib in Resources */,
 				755C96FA1CA8DC0600C83667 /* return_gray@3x.png in Resources */,
 				755C96F91CA8DC0600C83667 /* return_gray@2x.png in Resources */,
+				7543FBA21CA9673D0041228D /* TMRCattleManage.xib in Resources */,
 				755C96F71CA8DC0600C83667 /* return_black@3x.png in Resources */,
 				7563B3D41CA7CD8700BC84BB /* TMRWorksheet.xib in Resources */,
 				7595C41E1CA91987000EECAB /* ForageAddView.xib in Resources */,
@@ -565,6 +585,7 @@
 				7501E1761CA7BDFB0047B6D0 /* Main.storyboard in Resources */,
 				755C96E91CA8D87900C83667 /* TMRForageManage.xib in Resources */,
 				7563B3D81CA7CDA200BC84BB /* TMRNetwork.xib in Resources */,
+				7543FBAA1CA9795C0041228D /* CattleView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,6 +658,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7543FBA81CA9794D0041228D /* CattleView.swift in Sources */,
+				7543FBA11CA9673D0041228D /* TMRCattleManage.swift in Sources */,
 				755C97021CA8E21600C83667 /* Controller.swift in Sources */,
 				7563B3CE1CA7CD4200BC84BB /* TMRProcessed.swift in Sources */,
 				755C96FF1CA8E0F600C83667 /* TMRNavigationController.swift in Sources */,
@@ -655,6 +678,7 @@
 				7501E1711CA7BDFB0047B6D0 /* AppDelegate.swift in Sources */,
 				7595C41C1CA91962000EECAB /* ForageAddView.swift in Sources */,
 				755B24331CA8213600ECC369 /* TMRSQLite.swift in Sources */,
+				7543FBA51CA96B0A0041228D /* CattleManageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,5 +16,6 @@ class Worksheet: NSObject {
     var percent:String = ""
     var status:Int32 = 0
     var sheet_name:String = ""
+    var worksheet_id:Int32 = 0
     
 }

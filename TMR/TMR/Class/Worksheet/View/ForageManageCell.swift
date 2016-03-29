@@ -20,8 +20,7 @@ class ForageManageCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        self.selectionStyle = UITableViewCellSelectionStyle.None
+
         
         // Initialization code
     }

@@ -47,7 +47,4 @@ class ForageManage: NSObject {
         
     }
     
-    
-    
-    
 }

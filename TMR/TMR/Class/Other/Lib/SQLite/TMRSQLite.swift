@@ -12,6 +12,9 @@ import UIKit
 let sqlite_path = NSHomeDirectory().stringByAppendingString("/Library/Caches/worksheet.db")
 
 class TMRSQLite: NSObject {
+    
+    var lock = NSLock()
+    
 
     var db:COpaquePointer = nil
     
@@ -29,10 +32,13 @@ class TMRSQLite: NSObject {
     }
     
     func sqlite_bind_text(stmt:COpaquePointer, index:Int32, param:String) {
+        
         sqlite3_bind_text(stmt, index, param.cStringUsingEncoding(NSUTF8StringEncoding)!, -1) { (SQLITE_TRANSIENT) in
         }
+        
+        
     }
-    
+
     func sqlite_bind_int(stmt:COpaquePointer, index:Int32, param:Int32) {
         sqlite3_bind_int(stmt, index, param)
     }
@@ -65,6 +71,44 @@ class TMRSQLite: NSObject {
     func sqlite_column_double(stmt:COpaquePointer, index:Int32) -> Double {
         return sqlite3_column_double(stmt, index)
     }
+    
+    
+    func updateData(sql:String) {
+
+        self.openDatabase()
+        var stmt:COpaquePointer = nil
+        var result:Int32 = self.sqlite_prepared(sql, stmt: &stmt)
+        if result == SQLITE_ERROR {
+            print("sqlite_prepared error!!!")
+            return
+        }
+        result = self.sqlite_step(stmt)
+        self.sqlite_finalize(stmt)
+        
+        if result == SQLITE_ERROR {
+            print("sqlite_step error")
+        }
+        self.sqlite_close()
+    }
+    
+    
+    func deleteData(sql:String) {
+        self.openDatabase()
+        var stmt:COpaquePointer = nil
+        var result:Int32 = self.sqlite_prepared(sql, stmt: &stmt)
+        if result == SQLITE_ERROR {
+            print("sqlite_prepared error!!!")
+            return
+        }
+        result = self.sqlite_step(stmt)
+        self.sqlite_finalize(stmt)
+        
+        if result == SQLITE_ERROR {
+            print("sqlite_step error")
+        }
+        self.sqlite_close()
+    }
+    
     
 }
 
