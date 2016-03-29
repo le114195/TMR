@@ -92,7 +92,7 @@ class TMRForageManage: TMRBaseViewController, UITableViewDelegate, UITableViewDa
             
             let model:ForageManage = self.arrayData![indexPath.row] as! ForageManage
             let sql = "delete from forage_manage where forage_id=" + String(model.forage_id)
-            TMRSQLite().deleteData(sql)
+            TMRSQLite().updateData(sql)
             self.arrayData?.removeObjectAtIndex(indexPath.row)
             self.tableview.reloadData()
         }

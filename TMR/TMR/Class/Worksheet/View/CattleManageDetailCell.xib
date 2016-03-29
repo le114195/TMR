@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="61" id="KGk-i7-Jjw" customClass="CattleManageDetailCell" customModule="TMR" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="402" height="61"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="402" height="60.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKV-Il-hEz">
+                        <rect key="frame" x="0.0" y="0.0" width="130.5" height="60.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ga-k4-kMI">
+                        <rect key="frame" x="130.5" y="0.0" width="131" height="60.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="95I-Ti-vlB">
+                        <rect key="frame" x="266.5" y="12" width="130.5" height="36.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="95I-Ti-vlB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="2f4-3Q-ewv"/>
+                    <constraint firstItem="3ga-k4-kMI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="LE2-ej-uFl"/>
+                    <constraint firstItem="3ga-k4-kMI" firstAttribute="width" secondItem="mKV-Il-hEz" secondAttribute="width" id="Op2-WF-pi0"/>
+                    <constraint firstAttribute="bottom" secondItem="3ga-k4-kMI" secondAttribute="bottom" id="emn-2C-jyo"/>
+                    <constraint firstItem="95I-Ti-vlB" firstAttribute="leading" secondItem="3ga-k4-kMI" secondAttribute="trailing" constant="5" id="gHa-e1-nK3"/>
+                    <constraint firstItem="mKV-Il-hEz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="hbi-f3-hz9"/>
+                    <constraint firstItem="95I-Ti-vlB" firstAttribute="width" secondItem="mKV-Il-hEz" secondAttribute="width" id="hsi-If-EbA"/>
+                    <constraint firstAttribute="bottom" secondItem="mKV-Il-hEz" secondAttribute="bottom" id="pIK-0W-nQn"/>
+                    <constraint firstItem="3ga-k4-kMI" firstAttribute="leading" secondItem="mKV-Il-hEz" secondAttribute="trailing" id="qNH-6W-e9X"/>
+                    <constraint firstItem="mKV-Il-hEz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="uLn-A7-Z24"/>
+                    <constraint firstAttribute="trailing" secondItem="95I-Ti-vlB" secondAttribute="trailing" constant="5" id="yKB-XS-fc9"/>
+                    <constraint firstAttribute="bottom" secondItem="95I-Ti-vlB" secondAttribute="bottom" constant="12" id="z7N-DD-jIb"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="forage_name" destination="mKV-Il-hEz" id="8f8-nD-geS"/>
+                <outlet property="forage_type" destination="3ga-k4-kMI" id="Vvt-ca-5uR"/>
+                <outlet property="forage_weight" destination="95I-Ti-vlB" id="63s-s8-buY"/>
+            </connections>
+            <point key="canvasLocation" x="309" y="260.5"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -31,21 +31,6 @@ class TMRSQLite: NSObject {
         return sqlite3_prepare_v2(db, sql.cStringUsingEncoding(NSUTF8StringEncoding)!, -1, stmt, nil)
     }
     
-    func sqlite_bind_text(stmt:COpaquePointer, index:Int32, param:String) {
-        
-        sqlite3_bind_text(stmt, index, param.cStringUsingEncoding(NSUTF8StringEncoding)!, -1) { (SQLITE_TRANSIENT) in
-        }
-        
-        
-    }
-
-    func sqlite_bind_int(stmt:COpaquePointer, index:Int32, param:Int32) {
-        sqlite3_bind_int(stmt, index, param)
-    }
-    
-    func sqlite_bind_double(stmt:COpaquePointer, index:Int32, param:Double) {
-        sqlite3_bind_double(stmt, index, param)
-    }
     
     func sqlite_step(stmt:COpaquePointer) -> (Int32) {
         return sqlite3_step(stmt)
@@ -90,25 +75,6 @@ class TMRSQLite: NSObject {
         }
         self.sqlite_close()
     }
-    
-    
-    func deleteData(sql:String) {
-        self.openDatabase()
-        var stmt:COpaquePointer = nil
-        var result:Int32 = self.sqlite_prepared(sql, stmt: &stmt)
-        if result == SQLITE_ERROR {
-            print("sqlite_prepared error!!!")
-            return
-        }
-        result = self.sqlite_step(stmt)
-        self.sqlite_finalize(stmt)
-        
-        if result == SQLITE_ERROR {
-            print("sqlite_step error")
-        }
-        self.sqlite_close()
-    }
-    
     
 }
 

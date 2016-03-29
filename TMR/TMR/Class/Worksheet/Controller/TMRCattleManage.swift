@@ -38,6 +38,7 @@ class TMRCattleManage: TMRBaseViewController, UITableViewDelegate, UITableViewDa
     
     override func clickRightBtn() {
         
+        self.cattleView.clearData()
         UIView.animateWithDuration(0.5) {
             self.cover.alpha = 0.99
             self.cattleView.alpha = 0.99
@@ -106,7 +107,9 @@ class TMRCattleManage: TMRBaseViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        let cattleDetail = CattleManageDetail()
+        cattleDetail.cattleModel = self.arrayData[indexPath.row] as! CattleManage
+        self.navigationController?.pushViewController(cattleDetail, animated: true)
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -118,7 +121,7 @@ class TMRCattleManage: TMRBaseViewController, UITableViewDelegate, UITableViewDa
         if editingStyle == UITableViewCellEditingStyle.Delete {
             let model:CattleManage = self.arrayData[indexPath.row] as! CattleManage
             let sql = "delete from cattle_manage where cattle_name=" + "'" +  String(model.cattle_name) + "'"
-            TMRSQLite().deleteData(sql)
+            TMRSQLite().updateData(sql)
             self.arrayData.removeObjectAtIndex(indexPath.row)
             self.tableView.reloadData()
         }

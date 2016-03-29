@@ -57,21 +57,14 @@ class ForageAddView: UIView {
         
         let tmrsql = TMRSQLite()
         tmrsql.openDatabase()
-        
         var stmt:COpaquePointer = nil
-        
-        let sql = "insert into forage_manage (forage_name, forage_id, repertory, proportion, forage_type) values (?, ?, ?, ?, ?)"
+        let sql = "insert into forage_manage (forage_name, forage_id, repertory, proportion, forage_type) values ('\(model.forage_name)', \(model.forage_id), \(model.repertory), \(model.proportoin), '\(model.forage_type)')"
         var result:Int32 = tmrsql.sqlite_prepared(sql, stmt: &stmt)
         
         if result == SQLITE_ERROR {
             print("sqlite_prepared error!!!")
             return
         }
-        
-        tmrsql.sqlite_bind_text(stmt, index: 1, param: model.forage_name)
-        tmrsql.sqlite_bind_int(stmt, index: 2, param: model.forage_id)
-        tmrsql.sqlite_bind_int(stmt, index: 3, param: model.repertory)
-        tmrsql.sqlite_bind_int(stmt, index: 4, param: model.proportoin)
         
         result = tmrsql.sqlite_step(stmt)
         tmrsql.sqlite_finalize(stmt)
@@ -80,10 +73,6 @@ class ForageAddView: UIView {
             print("sqlite_step error")
         }
         tmrsql.sqlite_close()
-        
-        let sqll = "update forage_manage set forage_type='\(model.forage_type)' where forage_id=\(model.forage_id)"
-        
-        tmrsql.updateData(sqll)
 
     }
     

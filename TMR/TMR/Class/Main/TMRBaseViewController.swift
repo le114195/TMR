@@ -15,7 +15,7 @@ class TMRBaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.backgroundColor = UIColor.whiteColor()
         self.createItemBtn()
         
         
@@ -45,15 +45,26 @@ class TMRBaseViewController: UIViewController {
     }
     
     func clickLeftBtn() {
+        self.view.endEditing(true)
         self.navigationController?.popViewControllerAnimated(true)
     }
     func clickRightBtn() {
         
     }
     
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        self.view.endEditing(true)
+        
+    }
+    
+    
     deinit {
         print("free!!!")
     }
+    
+    
     
     
 }

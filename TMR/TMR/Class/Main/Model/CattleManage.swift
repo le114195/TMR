@@ -10,7 +10,6 @@ import UIKit
 
 class CattleManage: NSObject {
 
-    
     var cattle_name:String = ""
     var cattle_type:String = ""
     var cattle_num:Int32 = 0
@@ -40,7 +39,6 @@ class CattleManage: NSObject {
                 cattle.cattle_name = tmrsql.sqlite_column_text(stmt, index: 0)
                 cattle.cattle_type = tmrsql.sqlite_column_text(stmt, index: 1)
                 cattle.cattle_num = tmrsql.sqlite_column_int(stmt, index: 2)
-                
                 cattle.morning_proportion = tmrsql.sqlite_column_int(stmt, index: 3)
                 cattle.nooning_proportion = tmrsql.sqlite_column_int(stmt, index: 4)
                 cattle.evening_proportion = tmrsql.sqlite_column_int(stmt, index: 5)

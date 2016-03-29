@@ -51,20 +51,14 @@ class CattleView: UIView {
         
         var stmt:COpaquePointer = nil
         
-        let sql = "insert into cattle_manage (cattle_name, cattle_type, cattle_num, morning_proportion, nooning_proportion, evening_proportion) values (?, ?, ?, ?, ?, ?)"
+        let sql = "insert into cattle_manage (cattle_name, cattle_type, cattle_num, morning_proportion, nooning_proportion, evening_proportion) values ('\(model.cattle_name)', '\(model.cattle_type)', \(model.cattle_num), \(model.morning_proportion), \(model.nooning_proportion), \(model.evening_proportion))"
+        
         var result:Int32 = tmrsql.sqlite_prepared(sql, stmt: &stmt)
         
         if result == SQLITE_ERROR {
             print("sqlite_prepared error!!!")
             return
         }
-        
-        tmrsql.sqlite_bind_text(stmt, index: 1, param: model.cattle_name)
-        tmrsql.sqlite_bind_text(stmt, index: 2, param: model.cattle_type)
-        tmrsql.sqlite_bind_int(stmt, index: 3, param: model.cattle_num)
-        tmrsql.sqlite_bind_int(stmt, index: 4, param: model.morning_proportion)
-        tmrsql.sqlite_bind_int(stmt, index: 5, param: model.nooning_proportion)
-        tmrsql.sqlite_bind_int(stmt, index: 6, param: model.evening_proportion)
         
         result = tmrsql.sqlite_step(stmt)
         tmrsql.sqlite_finalize(stmt)
@@ -76,7 +70,12 @@ class CattleView: UIView {
     }
     
     
+    func clearData() {
+        self.cattle_name.text = ""
+        self.cattle_type.text = ""
+        self.cattle_num.text = ""
+    }
     
     
- 
+
 }
