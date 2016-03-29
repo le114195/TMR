@@ -22,7 +22,8 @@ class TMRCattleManage: TMRBaseViewController, UITableViewDelegate, UITableViewDa
         self.rightBtn?.hidden = false
         self.view.backgroundColor = UIColor.whiteColor()
         
-        self.arrayData = CattleManage.getAllData()
+        let sql = "select * from \(tableName_cattle)"
+        self.arrayData = CattleManage.getData(sql)
         
         self.initTableView()
         

@@ -22,7 +22,9 @@ class TMRForageManage: TMRBaseViewController, UITableViewDelegate, UITableViewDa
         self.rightBtn?.hidden = false
         self.initTableView()
         self.createForageAddView()
-        self.arrayData = ForageManage .getAllData()
+        
+        let sql = "select * from \(tableName_forage)"
+        self.arrayData = ForageManage .getData(sql)
         
         // Do any additional setup after loading the view.
     }

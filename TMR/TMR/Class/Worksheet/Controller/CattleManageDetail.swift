@@ -14,6 +14,12 @@ class CattleManageDetail: TMRBaseViewController, UITableViewDelegate, UITableVie
     
     var arrayData = NSMutableArray()
     
+    var foundationView:FoundationMakeView!
+    var cover:UIView!
+    
+    
+    @IBOutlet weak var addBtn: UIButton!
+    
     @IBOutlet weak var cattle_name: UITextField!
     @IBOutlet weak var cattle_type: UITextField!
     @IBOutlet weak var cattle_num: UITextField!
@@ -22,13 +28,18 @@ class CattleManageDetail: TMRBaseViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.rightBtn?.hidden = false
         
         self.initTableView()
+        
+        self.createFoundationView()
+        
+        let sql = "select * from \(tableName_foundation) where cattle_name='\(cattleModel.cattle_name)'"
+        self.arrayData = FoundationManage.getData(sql)
         
         self.cattle_type.userInteractionEnabled = false
         self.cattle_name.userInteractionEnabled = false
         
+        self.addBtn.layer.cornerRadius = 5
         
         self.cattle_name?.text = self.cattleModel.cattle_name
         self.cattle_type?.text = self.cattleModel.cattle_type
@@ -40,12 +51,6 @@ class CattleManageDetail: TMRBaseViewController, UITableViewDelegate, UITableVie
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override func clickRightBtn() {
-        
-        
-        
     }
     
     private func initTableView(){
@@ -74,6 +79,39 @@ class CattleManageDetail: TMRBaseViewController, UITableViewDelegate, UITableVie
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         self.view.endEditing(true)
     }
+    
+    
+    private func createFoundationView()
+    {
+        self.cover = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screen_width, height: screen_height))
+        self.cover.backgroundColor = UIColor.init(colorLiteralRed: 0.3, green: 0.3, blue: 0.3, alpha: 0.9)
+        self.cover.alpha = 0
+        self.view.addSubview(self.cover)
+        
+        self.foundationView = FoundationMakeView.init(frame: CGRect.init(x: 100, y: 100, width: screen_width - 200, height: screen_height - 200))
+        self.foundationView.alpha = 0
+        self.view.addSubview(self.foundationView)
+        weak var weakSelf = self
+        self.foundationView.closeBlock = {()->()in
+            UIView.animateWithDuration(0.5, animations: {
+                weakSelf?.foundationView.alpha = 0
+                weakSelf?.cover.alpha = 0
+            })
+        }
+    }
+    
+    
+    @IBAction func addAction(sender: AnyObject) {
+        
+        UIView.animateWithDuration(0.5) { 
+            
+            self.cover?.alpha = 0.99
+            self.foundationView?.alpha = 0.99
+            
+        }
+        
+    }
+    
     
     
 }

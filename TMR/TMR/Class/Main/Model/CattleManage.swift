@@ -18,7 +18,7 @@ class CattleManage: NSObject {
     var evening_proportion:Int32 = 0
     var cattle_id:Int32 = 0
     
-    static func getAllData() -> NSMutableArray {
+    static func getData(sql:String) -> NSMutableArray {
         
         let arrM = NSMutableArray()
         var stmt:COpaquePointer = nil
@@ -28,7 +28,6 @@ class CattleManage: NSObject {
         if !tmrsql.openDatabase() {
             print("打开数据库失败！！！")
         }
-        let sql = "select * from cattle_manage"
         let result = tmrsql.sqlite_prepared(sql, stmt: &stmt)
         
         if result == SQLITE_OK {

@@ -51,6 +51,9 @@
 		75C9A9C11CA8C8BF00F95090 /* ForageManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C9A9C01CA8C8BF00F95090 /* ForageManage.swift */; };
 		75C9A9C31CA8C8DD00F95090 /* CattleManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C9A9C21CA8C8DD00F95090 /* CattleManage.swift */; };
 		75C9A9C51CA8C8F300F95090 /* FoundationManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C9A9C41CA8C8F300F95090 /* FoundationManage.swift */; };
+		75D168661CAAD4A000BAE849 /* FoundationMakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D168651CAAD4A000BAE849 /* FoundationMakeView.swift */; };
+		75D1686B1CAAD66000BAE849 /* FoundationMakeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D168691CAAD66000BAE849 /* FoundationMakeCell.swift */; };
+		75D1686C1CAAD66000BAE849 /* FoundationMakeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75D1686A1CAAD66000BAE849 /* FoundationMakeCell.xib */; };
 		75E369E51CAA2CA000263D6D /* CattleManageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E369E31CAA2CA000263D6D /* CattleManageDetail.swift */; };
 		75E369E61CAA2CA000263D6D /* CattleManageDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75E369E41CAA2CA000263D6D /* CattleManageDetail.xib */; };
 		75E369E91CAA360400263D6D /* CattleManageDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E369E71CAA360400263D6D /* CattleManageDetailCell.swift */; };
@@ -128,6 +131,9 @@
 		75C9A9C01CA8C8BF00F95090 /* ForageManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForageManage.swift; sourceTree = "<group>"; };
 		75C9A9C21CA8C8DD00F95090 /* CattleManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CattleManage.swift; sourceTree = "<group>"; };
 		75C9A9C41CA8C8F300F95090 /* FoundationManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationManage.swift; sourceTree = "<group>"; };
+		75D168651CAAD4A000BAE849 /* FoundationMakeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationMakeView.swift; sourceTree = "<group>"; };
+		75D168691CAAD66000BAE849 /* FoundationMakeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationMakeCell.swift; sourceTree = "<group>"; };
+		75D1686A1CAAD66000BAE849 /* FoundationMakeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoundationMakeCell.xib; sourceTree = "<group>"; };
 		75E369E31CAA2CA000263D6D /* CattleManageDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CattleManageDetail.swift; sourceTree = "<group>"; };
 		75E369E41CAA2CA000263D6D /* CattleManageDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CattleManageDetail.xib; sourceTree = "<group>"; };
 		75E369E71CAA360400263D6D /* CattleManageDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CattleManageDetailCell.swift; sourceTree = "<group>"; };
@@ -439,6 +445,9 @@
 				7543FBA91CA9795C0041228D /* CattleView.xib */,
 				75E369E71CAA360400263D6D /* CattleManageDetailCell.swift */,
 				75E369E81CAA360400263D6D /* CattleManageDetailCell.xib */,
+				75D168651CAAD4A000BAE849 /* FoundationMakeView.swift */,
+				75D168691CAAD66000BAE849 /* FoundationMakeCell.swift */,
+				75D1686A1CAAD66000BAE849 /* FoundationMakeCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -594,6 +603,7 @@
 				7501E17B1CA7BDFB0047B6D0 /* LaunchScreen.storyboard in Resources */,
 				7501E1781CA7BDFB0047B6D0 /* Assets.xcassets in Resources */,
 				755C96FB1CA8DC0600C83667 /* return_white.png in Resources */,
+				75D1686C1CAAD66000BAE849 /* FoundationMakeCell.xib in Resources */,
 				755C96F61CA8DC0600C83667 /* return_black@2x.png in Resources */,
 				7501E1761CA7BDFB0047B6D0 /* Main.storyboard in Resources */,
 				75E369E61CAA2CA000263D6D /* CattleManageDetail.xib in Resources */,
@@ -675,6 +685,7 @@
 				7543FBA81CA9794D0041228D /* CattleView.swift in Sources */,
 				7543FBA11CA9673D0041228D /* TMRCattleManage.swift in Sources */,
 				755C97021CA8E21600C83667 /* Controller.swift in Sources */,
+				75D168661CAAD4A000BAE849 /* FoundationMakeView.swift in Sources */,
 				7563B3CE1CA7CD4200BC84BB /* TMRProcessed.swift in Sources */,
 				755C96FF1CA8E0F600C83667 /* TMRNavigationController.swift in Sources */,
 				755C97041CA8E34400C83667 /* TMRBaseViewController.swift in Sources */,
@@ -691,6 +702,7 @@
 				75C9A9C31CA8C8DD00F95090 /* CattleManage.swift in Sources */,
 				75E369E51CAA2CA000263D6D /* CattleManageDetail.swift in Sources */,
 				7563B3CC1CA7CCFF00BC84BB /* TMRProcessing.swift in Sources */,
+				75D1686B1CAAD66000BAE849 /* FoundationMakeCell.swift in Sources */,
 				7501E1711CA7BDFB0047B6D0 /* AppDelegate.swift in Sources */,
 				7595C41C1CA91962000EECAB /* ForageAddView.swift in Sources */,
 				755B24331CA8213600ECC369 /* TMRSQLite.swift in Sources */,

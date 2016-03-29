@@ -17,7 +17,7 @@ class ForageManage: NSObject {
     var forage_type:String = ""
 
     
-    static func getAllData() -> NSMutableArray {
+    static func getData(sql:String) -> NSMutableArray {
         
         let arrM = NSMutableArray()
         var stmt:COpaquePointer = nil
@@ -27,7 +27,6 @@ class ForageManage: NSObject {
         if !tmrsql.openDatabase() {
             print("打开数据库失败！！！")
         }
-        let sql = "select * from forage_manage"
         let result = tmrsql.sqlite_prepared(sql, stmt: &stmt)
         
         if result == SQLITE_OK {
