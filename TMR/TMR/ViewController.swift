@@ -112,20 +112,6 @@ class ViewController: UIViewController {
     }
     
     
-    func afamofireTest() {
-        
-        Alamofire.request(.GET, "http://139.129.8.9/php/jsonData.php", parameters: ["foo": "bar"])
-            .responseJSON { response in
-                print(response.request)  // original URL request
-                print(response.response) // URL response
-                print(response.data)     // server data
-                print(response.result)   // result of response serialization
-                
-                if let JSON = response.result.value {
-                    print("JSON: \(JSON)")
-                }
-        }
-    }
     
     
     private func createAllTable() {

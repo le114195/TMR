@@ -12,7 +12,7 @@ class TMRWorksheet: TMRBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.title = "加工单的制作"
         self.createSubView()
         
         

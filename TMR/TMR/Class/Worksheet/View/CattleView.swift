@@ -25,6 +25,7 @@ class CattleView: UIView {
         if cancelBlock != nil {
             cancelBlock()
         }
+        self.endEditing(true)
     }
     
     @IBAction func sureAction(sender: AnyObject) {
@@ -40,7 +41,7 @@ class CattleView: UIView {
         if sureBlock != nil {
             sureBlock(model: model)
         }
-        
+        self.endEditing(true)
         self.insertData(model)
     }
     

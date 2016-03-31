@@ -16,6 +16,9 @@ class CattleManageDetailCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var forage_weight: UITextField!
     var oldValue:Double = 0
     
+    var didselectEdit:((indexPath:NSIndexPath)->())!
+    var indexPath:NSIndexPath!
+    
     var model:FoundationManage!
     
     override func awakeFromNib() {
@@ -51,4 +54,13 @@ class CattleManageDetailCell: UITableViewCell, UITextFieldDelegate {
         let sql = "update foundation_manage set forage_weight=\(model.forage_weight) where forage_name='\(model.forage_name)'"
         TMRSQLite().updateData(sql)
     }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        
+        if self.didselectEdit != nil {
+            self.didselectEdit(indexPath: self.indexPath)
+        }
+        
+    }
+    
 }

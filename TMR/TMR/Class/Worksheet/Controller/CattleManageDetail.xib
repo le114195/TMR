@@ -11,7 +11,6 @@
                 <outlet property="cattle_name" destination="uc1-Rb-ZgP" id="YSV-Qg-USK"/>
                 <outlet property="cattle_num" destination="HCg-8O-dn4" id="ldY-9p-EWf"/>
                 <outlet property="cattle_type" destination="SWN-z6-Mt3" id="WQp-QV-RHj"/>
-                <outlet property="tableView" destination="U2j-6F-T34" id="XJX-im-z6b"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -98,10 +97,6 @@
                         <constraint firstItem="za2-BZ-vJd" firstAttribute="leading" secondItem="Gfy-8G-bBu" secondAttribute="trailing" id="xO6-au-hdq"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="U2j-6F-T34">
-                    <rect key="frame" x="0.0" y="156" width="414" height="452"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1R-qw-jCP">
                     <rect key="frame" x="52" y="664" width="310" height="44"/>
                     <color key="backgroundColor" red="1" green="0.83200431034482758" blue="0.63375538793103448" alpha="1" colorSpace="calibratedRGB"/>
@@ -119,14 +114,10 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="x1R-qw-jCP" secondAttribute="trailing" constant="52" id="02p-FU-Hc3"/>
-                <constraint firstAttribute="trailing" secondItem="U2j-6F-T34" secondAttribute="trailing" id="6rO-1h-mEN"/>
                 <constraint firstItem="x1R-qw-jCP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="52" id="DZx-PJ-EpU"/>
                 <constraint firstItem="H4c-vN-Je1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="T8W-fw-FHC"/>
                 <constraint firstAttribute="trailing" secondItem="H4c-vN-Je1" secondAttribute="trailing" id="VXD-hx-eda"/>
-                <constraint firstAttribute="bottom" secondItem="U2j-6F-T34" secondAttribute="bottom" constant="128" id="Z7A-PE-gob"/>
-                <constraint firstItem="U2j-6F-T34" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dvz-FI-HH5"/>
                 <constraint firstItem="H4c-vN-Je1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="gvX-Eq-YIS"/>
-                <constraint firstItem="U2j-6F-T34" firstAttribute="top" secondItem="H4c-vN-Je1" secondAttribute="bottom" constant="2" id="wl3-if-xIj"/>
                 <constraint firstAttribute="bottom" secondItem="x1R-qw-jCP" secondAttribute="bottom" constant="28" id="z5i-zD-9ii"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>

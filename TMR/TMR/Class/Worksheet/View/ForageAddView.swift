@@ -28,6 +28,7 @@ class ForageAddView: UIView {
         if (cancelBlock != nil) {
             cancelBlock!()
         }
+        self.endEditing(true)
     }
     
     @IBAction func sure(sender: AnyObject) {
@@ -35,7 +36,7 @@ class ForageAddView: UIView {
         if forage == nil {
             forage = ForageManage()
         }
-        
+        self.endEditing(true)
         forage!.repertory = Int32(repository.text!)!
         if isAdd == true {
             forage!.forage_name = forageName.text!

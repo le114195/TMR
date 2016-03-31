@@ -16,17 +16,24 @@ class CattleManageDetail: TMRBaseViewController, UITableViewDelegate, UITableVie
     var foundationView:FoundationMakeView!
     var cover:UIView!
     
+    var keyboardHeight:CGFloat = 0
+    var cellY:CGFloat = 0
+    var offset:CGFloat = 0
+    var currentIndexPath:NSIndexPath!
     
     @IBOutlet weak var addBtn: UIButton!
     
     @IBOutlet weak var cattle_name: UITextField!
     @IBOutlet weak var cattle_type: UITextField!
     @IBOutlet weak var cattle_num: UITextField!
-    @IBOutlet weak var tableView: UITableView!
+    
+    var tableView: UITableView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "牛舍基础配方设置"
         
         self.initTableView()
         
@@ -45,9 +52,50 @@ class CattleManageDetail: TMRBaseViewController, UITableViewDelegate, UITableVie
         self.cattle_num?.text = "\(self.cattleModel.cattle_num)"
         self.cattle_num.delegate = self
         
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TMRFoundationMake.keyboardDidShow(_:)), name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TMRFoundationMake.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TMRFoundationMake.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        
         // Do any additional setup after loading the view.
     }
 
+    
+    
+    func keyboardWillShow(notifcation:NSNotification) {
+        
+        let cell:CattleManageDetailCell = self.tableView.cellForRowAtIndexPath(self.currentIndexPath) as! CattleManageDetailCell
+        self.cellY = self.tableView.convertPoint(cell.frame.origin, toView: self.view).y
+        
+    }
+    
+    func keyboardDidShow(notifcation:NSNotification) {
+        
+        let info = notifcation.userInfo
+        let value = info![UIKeyboardFrameEndUserInfoKey]
+        let rawFram = value?.CGRectValue()
+        keyboardHeight = (rawFram?.size.height)!
+        
+        self.offset = self.cellY + 60 - (screen_height - keyboardHeight)
+        if self.offset > 0 {
+            var rect:CGRect = self.tableView.frame
+            rect.origin.y -= self.offset
+            UIView.animateWithDuration(0.15, animations: {
+                self.tableView.frame = rect
+            })
+        }
+    }
+    
+    func keyboardWillHide(notifcation:NSNotification) {
+        
+        var rect:CGRect = self.tableView.frame
+        rect.origin.y = 154
+        self.tableView.frame = rect
+        self.offset = 0
+    }
+
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -55,6 +103,9 @@ class CattleManageDetail: TMRBaseViewController, UITableViewDelegate, UITableVie
 
     
     private func initTableView(){
+        
+        self.tableView = UITableView.init(frame: CGRect.init(x: 0, y: 154, width: screen_width, height: screen_height - 275), style: UITableViewStyle.Plain)
+        self.view.addSubview(self.tableView)
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -71,8 +122,12 @@ class CattleManageDetail: TMRBaseViewController, UITableViewDelegate, UITableVie
         let cell:CattleManageDetailCell = self.tableView.dequeueReusableCellWithIdentifier("CattleManageDetailCell", forIndexPath: indexPath) as! CattleManageDetailCell
         
         cell.setDataModel(self.arrayData[indexPath.row] as! FoundationManage
-)
-        
+        )
+        cell.indexPath = NSIndexPath.init(forRow: indexPath.row, inSection: indexPath.section)
+        weak var weakSelf = self
+        cell.didselectEdit = {(indexP:NSIndexPath)->() in
+            weakSelf!.currentIndexPath = indexP
+        }
         return cell
     }
     
