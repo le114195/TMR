@@ -55,11 +55,7 @@ class TMRFoundationMake: TMRBaseViewController, UITableViewDelegate, UITableView
             UIView.animateWithDuration(0.15, animations: { 
                 self.tableView.frame = rect
             })
-            
         }
-        
-        print(rawFram)
-        
     }
     
     func keyboardWillHide(notifcation:NSNotification) {
@@ -70,7 +66,6 @@ class TMRFoundationMake: TMRBaseViewController, UITableViewDelegate, UITableView
         self.offset = 0
     }
     
-    
     private func initTableview() {
         
         self.tableView = UITableView.init(frame: CGRect.init(x: 0, y: 0, width: screen_width, height: screen_height), style: UITableViewStyle.Plain)
@@ -79,8 +74,6 @@ class TMRFoundationMake: TMRBaseViewController, UITableViewDelegate, UITableView
         self.tableView.dataSource = self
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         self.tableView.registerNib(UINib.init(nibName: "TMRFoundationMakeCell", bundle: nil), forCellReuseIdentifier: "TMRFoundationMakeCell")
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -115,6 +108,4 @@ class TMRFoundationMake: TMRBaseViewController, UITableViewDelegate, UITableView
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         self.view.endEditing(true)
     }
-    
-
 }
