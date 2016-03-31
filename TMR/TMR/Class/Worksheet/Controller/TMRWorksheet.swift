@@ -82,9 +82,15 @@ class TMRWorksheet: TMRBaseViewController {
             
         case 2:
             
+            let foundation = TMRFoundationMake()
+            self.navigationController?.pushViewController(foundation, animated: true)
+            
             break
             
         case 3:
+            
+            let worksheetMake = TMRWorksheetMake()
+            self.navigationController?.pushViewController(worksheetMake, animated: true)
             
             break
             

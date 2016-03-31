@@ -12,9 +12,8 @@ class FoundationManage: NSObject {
     
     var cattle_name:String = ""
     var forage_name:String = ""
-    var cattle_type:String = ""
+    var forage_type:String = ""
     var forage_weight:Double = 0
-    var foundation_id:Int32 = 0
 
     
     static func getData(sql:String) -> NSMutableArray {
@@ -36,14 +35,14 @@ class FoundationManage: NSObject {
 
                 model.cattle_name = tmrsql.sqlite_column_text(stmt, index: 0)
                 model.forage_name = tmrsql.sqlite_column_text(stmt, index: 1)
-                model.cattle_type = tmrsql.sqlite_column_text(stmt, index: 2)
+                model.forage_type = tmrsql.sqlite_column_text(stmt, index: 2)
                 model.forage_weight = tmrsql.sqlite_column_double(stmt, index: 3)
-                model.foundation_id = tmrsql.sqlite_column_int(stmt, index: 4)
                 arrM.addObject(model)
             }
             tmrsql.sqlite_finalize(stmt)
         }
         return arrM
     }
+    
     
 }

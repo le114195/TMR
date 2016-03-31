@@ -143,7 +143,7 @@ class ViewController: UIViewController {
         let cattle_manage = "create table if not exists cattle_manage (cattle_name text, cattle_type text, cattle_num integer, morning_proportion integer, nooning_proportion integer, evening_proportion integer, cttle_id integer auto_increment primary key)"
         self.createTable(cattle_manage, tmrsql: tmrsql)
         
-        let foundation_manage = "create table if not exists foundation_manage (cattle_name text, forage_name text, cattle_type text, forage_weight double, foundation_id integer auto_increment primary key)"
+        let foundation_manage = "create table if not exists foundation_manage (cattle_name text, forage_name text, forage_type text, forage_weight double)"
         self.createTable(foundation_manage, tmrsql: tmrsql)
         
         tmrsql.sqlite_close()

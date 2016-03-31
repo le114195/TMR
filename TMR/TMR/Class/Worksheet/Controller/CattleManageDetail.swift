@@ -8,10 +8,9 @@
 
 import UIKit
 
-class CattleManageDetail: TMRBaseViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
+class CattleManageDetail: TMRBaseViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, FoundationMakeViewDelegate, UITextFieldDelegate {
     
     var cattleModel:CattleManage!
-    
     var arrayData = NSMutableArray()
     
     var foundationView:FoundationMakeView!
@@ -31,10 +30,10 @@ class CattleManageDetail: TMRBaseViewController, UITableViewDelegate, UITableVie
         
         self.initTableView()
         
-        self.createFoundationView()
-        
         let sql = "select * from \(tableName_foundation) where cattle_name='\(cattleModel.cattle_name)'"
         self.arrayData = FoundationManage.getData(sql)
+        
+        self.createFoundationView()
         
         self.cattle_type.userInteractionEnabled = false
         self.cattle_name.userInteractionEnabled = false
@@ -44,6 +43,7 @@ class CattleManageDetail: TMRBaseViewController, UITableViewDelegate, UITableVie
         self.cattle_name?.text = self.cattleModel.cattle_name
         self.cattle_type?.text = self.cattleModel.cattle_type
         self.cattle_num?.text = "\(self.cattleModel.cattle_num)"
+        self.cattle_num.delegate = self
         
         // Do any additional setup after loading the view.
     }
@@ -52,6 +52,7 @@ class CattleManageDetail: TMRBaseViewController, UITableViewDelegate, UITableVie
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
     private func initTableView(){
         
@@ -62,18 +63,36 @@ class CattleManageDetail: TMRBaseViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.arrayData.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell:CattleManageDetailCell = self.tableView.dequeueReusableCellWithIdentifier("CattleManageDetailCell", forIndexPath: indexPath) as! CattleManageDetailCell
         
+        cell.setDataModel(self.arrayData[indexPath.row] as! FoundationManage
+)
+        
         return cell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 60
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            let dataModel = self.arrayData[indexPath.row] as! FoundationManage
+            let sql = "delete from \(tableName_foundation) where forage_name='\(dataModel.forage_name)'"
+            TMRSQLite().updateData(sql)
+            self.arrayData.removeObjectAtIndex(indexPath.row)
+            self.tableView.reloadData()
+        }
     }
 
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
@@ -89,6 +108,8 @@ class CattleManageDetail: TMRBaseViewController, UITableViewDelegate, UITableVie
         self.view.addSubview(self.cover)
         
         self.foundationView = FoundationMakeView.init(frame: CGRect.init(x: 100, y: 100, width: screen_width - 200, height: screen_height - 200))
+        
+        self.foundationView.setModel(self.cattleModel, oldArrM: self.arrayData)
         self.foundationView.alpha = 0
         self.view.addSubview(self.foundationView)
         weak var weakSelf = self
@@ -98,18 +119,27 @@ class CattleManageDetail: TMRBaseViewController, UITableViewDelegate, UITableVie
                 weakSelf?.cover.alpha = 0
             })
         }
+        self.foundationView.delegate = self
     }
     
     
     @IBAction func addAction(sender: AnyObject) {
         
-        UIView.animateWithDuration(0.5) { 
-            
+        UIView.animateWithDuration(0.5) {
             self.cover?.alpha = 0.99
             self.foundationView?.alpha = 0.99
-            
         }
-        
+    }
+    func didselect(model: ForageManage) {
+        let sql = "select * from \(tableName_foundation) where cattle_name='\(cattleModel.cattle_name)'"
+        self.arrayData = FoundationManage.getData(sql)
+        self.tableView.reloadData()
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        self.cattleModel.cattle_num = Int32(self.cattle_num.text!)!
+        let sql = "update cattle_manage set cattle_num=\(self.cattleModel.cattle_num) where cattle_name='\(self.cattleModel.cattle_name)'"
+        TMRSQLite().updateData(sql)
     }
     
     

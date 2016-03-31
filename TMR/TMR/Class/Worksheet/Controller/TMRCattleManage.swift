@@ -32,6 +32,16 @@ class TMRCattleManage: TMRBaseViewController, UITableViewDelegate, UITableViewDa
         // Do any additional setup after loading the view.
     }
 
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        
+        self.tableView.reloadData()
+        
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -8,21 +8,33 @@
 
 import UIKit
 
-class CattleManageDetailCell: UITableViewCell {
+class CattleManageDetailCell: UITableViewCell, UITextFieldDelegate {
 
     
     @IBOutlet weak var forage_name: UILabel!
-    
     @IBOutlet weak var forage_type: UILabel!
-    
     @IBOutlet weak var forage_weight: UITextField!
+    var oldValue:Double = 0
     
+    var model:FoundationManage!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        self.forage_weight.delegate = self
+                // Initialization code
     }
 
+    func setDataModel(dataModel:FoundationManage) {
+        
+        self.model = dataModel
+        
+        self.forage_name.text = model?.forage_name
+        self.forage_type.text = model?.forage_type
+        self.forage_weight.text = "\(model.forage_weight)"
+    }
+    
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -34,6 +46,9 @@ class CattleManageDetailCell: UITableViewCell {
         self.endEditing(true)
         
     }
-    
-    
+    func textFieldDidEndEditing(textField: UITextField) {
+        self.model.forage_weight = Double(self.forage_weight.text!)!
+        let sql = "update foundation_manage set forage_weight=\(model.forage_weight) where forage_name='\(model.forage_name)'"
+        TMRSQLite().updateData(sql)
+    }
 }

@@ -8,27 +8,49 @@
 
 import UIKit
 
+
+protocol FoundationMakeViewDelegate:NSObjectProtocol {
+    
+    func didselect(model:ForageManage)
+}
+
+
+
+
 class FoundationMakeView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     var arrayData = NSMutableArray()
+    var oldArrayData = NSMutableArray()
     
     var tableView:UITableView!
     var closeBtn:UIButton!
+    var cattleModel:CattleManage!
     
     var closeBlock:(()->())!
-    var selectBlock:((model:ForageManage)->())!
     
-    
+    weak var delegate:FoundationMakeViewDelegate!
     
     override init(frame: CGRect) {
         
         super.init(frame: frame)
         
         self.initTableview(frame)
+    }
+    
+    
+    func setModel(cattleModel:CattleManage, oldArrM:NSMutableArray) {
+        
+        self.cattleModel = cattleModel
+        self.oldArrayData = oldArrM
         
         let sql = "select * from \(tableName_forage)"
-        self.arrayData = ForageManage.getData(sql)
+        if oldArrayData.count > 0 {
+            self.arrayData = ForageManage.getData(sql, oldArray: oldArrayData)
+        }else {
+            self.arrayData = ForageManage.getData(sql)
+        }
         
+        self.tableView.reloadData()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -71,11 +93,16 @@ class FoundationMakeView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if selectBlock != nil {
-            selectBlock(model: self.arrayData[indexPath.row] as! ForageManage)
-        }
+        let model:ForageManage = self.arrayData[indexPath.row] as! ForageManage
+        let sql = "insert into foundation_manage (cattle_name, forage_name, forage_type, forage_weight) values ('\(cattleModel.cattle_name)', '\(model.forage_name)', '\(model.forage_type)', 0)"
+        TMRSQLite().updateData(sql)
+        
+        self.delegate.didselect(model)
+        self.arrayData.removeObjectAtIndex(indexPath.row)
+        self.tableView.reloadData()
         
     }
     
-
+    
+    
 }
