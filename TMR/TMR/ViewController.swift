@@ -110,17 +110,15 @@ class ViewController: UIViewController {
             break
         }
     }
-    
-    
-    
-    
+
     private func createAllTable() {
         let tmrsql = TMRSQLite()
         if !tmrsql.openDatabase() {
             print("打开数据库失败！！！")
             return
         }
-        let work_sheet = "create table if not exists work_sheet (forage_name text, originWeight integer, processedWeight integer, percent text, status integer, sheet_name text, worksheet_id integer auto_increment primary key)"
+        let work_sheet = "create table if not exists work_sheet (worksheet_id integer primary key, sheet_name text, forage_name text, originWeight double, processedWeight double, percent text, status integer)"
+        
         self.createTable(work_sheet, tmrsql: tmrsql)
         
         let forage_manage = "create table if not exists forage_manage (forage_name text, forage_id integer primary key, repertory integer, proportion integer, forage_type text)"
@@ -133,9 +131,7 @@ class ViewController: UIViewController {
         self.createTable(foundation_manage, tmrsql: tmrsql)
         
         tmrsql.sqlite_close()
-        
-        
-        
+
     }
     
     private func createTable(sql:String, tmrsql:TMRSQLite){
