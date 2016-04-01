@@ -129,11 +129,12 @@ class TMRForageManage: TMRBaseViewController, UITableViewDelegate, UITableViewDa
             
             if self.forageAddView?.isAdd == true {
                 self.arrayData?.addObject(forage)
+                weakSelf!.tableview.reloadData()
             }
             UIView.animateWithDuration(0.5, animations: {
                 weakSelf!.forageAddView?.alpha = 0
                 weakSelf!.cover?.alpha = 0
-                weakSelf!.tableview.reloadData()
+                
             })
         }
     }

@@ -54,6 +54,15 @@ class ForageAddView: UIView {
         
     }
     
+    override func awakeFromNib() {
+        
+        self.forageName.keyboardType = UIKeyboardType.Default
+        self.forageID.keyboardType = UIKeyboardType.NumberPad
+        self.forage_type.keyboardType = UIKeyboardType.Default
+        self.repository.keyboardType = UIKeyboardType.NumberPad
+    }
+    
+    
     private func insertData(model:ForageManage){
         
         let tmrsql = TMRSQLite()
@@ -81,9 +90,13 @@ class ForageAddView: UIView {
         
         self.forage = model
         self.forageName.text = model.forage_name
+        
         self.forageID.text = String(model.forage_id)
+        
         self.forage_type.text = model.forage_type
+        
         self.repository.text = String(model.repertory)
+        
     }
     
     func clearData() {

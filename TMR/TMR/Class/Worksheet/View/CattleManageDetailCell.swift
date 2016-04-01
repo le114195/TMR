@@ -35,6 +35,7 @@ class CattleManageDetailCell: UITableViewCell, UITextFieldDelegate {
         self.forage_name.text = model?.forage_name
         self.forage_type.text = model?.forage_type
         self.forage_weight.text = "\(model.forage_weight)"
+        self.forage_weight.keyboardType = UIKeyboardType.NumberPad
     }
     
     
@@ -50,6 +51,7 @@ class CattleManageDetailCell: UITableViewCell, UITextFieldDelegate {
         
     }
     func textFieldDidEndEditing(textField: UITextField) {
+        
         self.model.forage_weight = Double(self.forage_weight.text!)!
         let sql = "update foundation_manage set forage_weight=\(model.forage_weight) where forage_name='\(model.forage_name)'"
         TMRSQLite().updateData(sql)

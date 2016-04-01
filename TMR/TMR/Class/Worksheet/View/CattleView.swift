@@ -45,6 +45,15 @@ class CattleView: UIView {
         self.insertData(model)
     }
     
+    override func awakeFromNib() {
+        
+        self.cattle_num.keyboardType = UIKeyboardType.NumberPad
+        self.cattle_name.keyboardType = UIKeyboardType.Default
+        self.cattle_type.keyboardType = UIKeyboardType.Default
+        
+    }
+    
+    
     private func insertData(model:CattleManage){
         
         let tmrsql = TMRSQLite()

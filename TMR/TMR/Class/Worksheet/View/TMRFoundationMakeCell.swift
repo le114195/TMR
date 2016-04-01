@@ -30,6 +30,10 @@ class TMRFoundationMakeCell: UITableViewCell, UITextFieldDelegate {
         self.nooning.delegate = self
         self.evening.delegate = self
         
+        self.morning.keyboardType = UIKeyboardType.NumberPad
+        self.nooning.keyboardType = UIKeyboardType.NumberPad
+        self.evening.keyboardType = UIKeyboardType.NumberPad
+        
         
         // Initialization code
     }
