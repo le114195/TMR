@@ -17,6 +17,7 @@ class TMRWorksheetMake: TMRBaseViewController, FSCalendarDelegate, FSCalendarDat
     
     var formatter:NSDateFormatter!
     var worksheetTime:String = ""
+    var alert:UIAlertController!
     
     
     override func viewDidLoad() {
@@ -24,7 +25,7 @@ class TMRWorksheetMake: TMRBaseViewController, FSCalendarDelegate, FSCalendarDat
         self.view.backgroundColor = UIColor.whiteColor()
         self.title = "开始制作加工单"
         self.createFSCalendar()
-        
+        self.createAlert()
         // Do any additional setup after loading the view.
     }
 
@@ -35,8 +36,18 @@ class TMRWorksheetMake: TMRBaseViewController, FSCalendarDelegate, FSCalendarDat
         let workArray = Worksheet.getData(workSql)
         if workArray.count > 0 {
             print(self.worksheetTime + "的加工单已经存在")
+            
+            TMRHintView.show(self.worksheetTime + "的加工单已经存在", view: self.view)
+            
             return
         }
+        
+        self.presentViewController(self.alert, animated: true, completion: nil)
+        
+    }
+    
+    private func createSheet(){
+        
         
         let cattleSql = "select * from cattle_manage"
         let cattleArray = CattleManage.getData(cattleSql)
@@ -48,7 +59,7 @@ class TMRWorksheetMake: TMRBaseViewController, FSCalendarDelegate, FSCalendarDat
                 continue
             }
             for j in 0...foundationArray.count-1 {
-            
+                
                 let foundationModel:FoundationManage = foundationArray[j] as! FoundationManage
                 
                 self.createWorksheet(cattleModel, foundation_model: foundationModel, index: 0)
@@ -56,6 +67,9 @@ class TMRWorksheetMake: TMRBaseViewController, FSCalendarDelegate, FSCalendarDat
                 self.createWorksheet(cattleModel, foundation_model: foundationModel, index: 2)
             }
         }
+
+        
+        
     }
     
     private func createWorksheet(cattle_model:CattleManage, foundation_model:FoundationManage, index:Int32) {
@@ -109,6 +123,18 @@ class TMRWorksheetMake: TMRBaseViewController, FSCalendarDelegate, FSCalendarDat
         
         self.worksheetTime = self.formatter.stringFromDate(NSDate.init())
         
+    }
+    
+    private func createAlert(){
+        
+        self.alert = UIAlertController.init(title: "是否确定制作加工单", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let cancelAction = UIAlertAction.init(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil)
+        weak var weakSelf = self
+        let okAction = UIAlertAction.init(title: "确定", style: UIAlertActionStyle.Default) { (okAction) in
+            weakSelf!.createSheet()
+        }
+        self.alert.addAction(cancelAction)
+        self.alert.addAction(okAction)
     }
     
     func minimumDateForCalendar(calendar: FSCalendar) -> NSDate {
