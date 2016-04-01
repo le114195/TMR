@@ -16,12 +16,13 @@ class ForageAddView: UIView {
     
     var cancelBlock:(()->())?
     var sureBlock:((forage:ForageManage)->())?
+    var showText:(()->())!
+    var showError:(()->())!
     
     @IBOutlet weak var forageName: UITextField!
     @IBOutlet weak var forageID: UITextField!
     @IBOutlet weak var repository: UITextField!
     @IBOutlet weak var forage_type: UITextField!
-    
     
     @IBAction func cancel(sender: AnyObject) {
         
@@ -32,7 +33,30 @@ class ForageAddView: UIView {
     }
     
     @IBAction func sure(sender: AnyObject) {
-
+        
+        if self.forageName.text?.characters.count == 0 ||
+             self.forageID.text?.characters.count == 0 ||
+           self.repository.text?.characters.count == 0 ||
+        self.forage_type.text?.characters.count == 0
+        {
+            
+            if self.showText != nil {
+                self.showText()
+            }
+            return
+        }
+        
+        if Int32(self.forageID.text!) == nil ||
+            Double(self.repository.text!) == nil
+        {
+            if self.showError != nil {
+                self.showError()
+            }
+            return
+        }
+        
+        
+        
         if forage == nil {
             forage = ForageManage()
         }
@@ -51,7 +75,6 @@ class ForageAddView: UIView {
         if (sureBlock != nil) {
             sureBlock!(forage: forage!)
         }
-        
     }
     
     override func awakeFromNib() {
@@ -61,7 +84,6 @@ class ForageAddView: UIView {
         self.forage_type.keyboardType = UIKeyboardType.Default
         self.repository.keyboardType = UIKeyboardType.NumberPad
     }
-    
     
     private func insertData(model:ForageManage){
         
@@ -89,12 +111,10 @@ class ForageAddView: UIView {
     func setModel(model:ForageManage) {
         
         self.forage = model
+        
         self.forageName.text = model.forage_name
-        
         self.forageID.text = String(model.forage_id)
-        
         self.forage_type.text = model.forage_type
-        
         self.repository.text = String(model.repertory)
         
     }

@@ -97,7 +97,9 @@ class TMRFoundationMake: TMRBaseViewController, UITableViewDelegate, UITableView
         cell.didselectEdit = {(indexP:NSIndexPath)->() in
             weakSelf!.currentIndexPath = indexP
         }
-        
+        cell.showText = {()->() in
+            TMRHintView.show("输入格式不正确", view: (weakSelf?.view)!)
+        }
         return cell
     }
     

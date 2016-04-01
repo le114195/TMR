@@ -11,12 +11,11 @@ import UIKit
 class TMRFoundationMakeCell: UITableViewCell, UITextFieldDelegate {
     
     @IBOutlet weak var cattle_name: UILabel!
-    
     @IBOutlet weak var morning: UITextField!
-    
     @IBOutlet weak var nooning: UITextField!
-    
     @IBOutlet weak var evening: UITextField!
+    
+    var showText:(()->())!
     
     var didselectEdit:((indexPath:NSIndexPath)->())!
     var indexPath:NSIndexPath!
@@ -67,19 +66,39 @@ class TMRFoundationMakeCell: UITableViewCell, UITextFieldDelegate {
         var sql:String = ""
         var proportion:Int32 = 0
         
-        
-        
         if textField.isEqual(self.morning) {
             
+            if Int32(self.morning.text!) == nil {
+                if self.showText != nil {
+                    self.showText()
+                }
+                self.morning.text = "\(self.model.morning_proportion)"
+                return
+            }
             proportion = Int32(self.morning.text!)!
             sql = "update cattle_manage set morning_proportion=\(proportion) where cattle_name='\(self.model.cattle_name)'"
             TMRSQLite().updateData(sql)
         }else if textField.isEqual(self.nooning) {
+            if Int32(self.nooning.text!) == nil {
+                
+                if self.showText != nil {
+                    self.showText()
+                }
+                self.nooning.text = "\(self.model.nooning_proportion)"
+                return
+            }
             proportion = Int32(self.nooning.text!)!
             sql = "update cattle_manage set nooning_proportion=\(proportion) where cattle_name='\(self.model.cattle_name)'"
             TMRSQLite().updateData(sql)
         }else if textField.isEqual(self.evening) {
-            
+            if Int32(self.evening.text!) == nil {
+                
+                if self.showText != nil {
+                    self.showText()
+                }
+                self.evening.text = "\(self.model.evening_proportion)"
+                return
+            }
             proportion = Int32(self.evening.text!)!
             sql = "update cattle_manage set evening_proportion=\(proportion) where cattle_name='\(self.model.cattle_name)'"
             TMRSQLite().updateData(sql)

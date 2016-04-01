@@ -51,6 +51,7 @@ class CattleManageDetail: TMRBaseViewController, UITableViewDelegate, UITableVie
         self.cattle_type?.text = self.cattleModel.cattle_type
         self.cattle_num?.text = "\(self.cattleModel.cattle_num)"
         self.cattle_num.delegate = self
+        self.cattle_num.keyboardType = UIKeyboardType.NumberPad
         
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TMRFoundationMake.keyboardDidShow(_:)), name: UIKeyboardDidShowNotification, object: nil)
@@ -128,6 +129,9 @@ class CattleManageDetail: TMRBaseViewController, UITableViewDelegate, UITableVie
         cell.didselectEdit = {(indexP:NSIndexPath)->() in
             weakSelf!.currentIndexPath = indexP
         }
+        cell.showText = {()->() in
+            TMRHintView.show("输入格式不正确", view: (weakSelf?.view)!)
+        }
         return cell
     }
     
@@ -153,8 +157,6 @@ class CattleManageDetail: TMRBaseViewController, UITableViewDelegate, UITableVie
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         self.view.endEditing(true)
     }
-    
-    
     private func createFoundationView()
     {
         self.cover = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screen_width, height: screen_height))
@@ -192,6 +194,11 @@ class CattleManageDetail: TMRBaseViewController, UITableViewDelegate, UITableVie
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
+        if Int32(self.cattle_num.text!) == nil {
+            TMRHintView.show("牛群数量输入格式不正确", view: self.view)
+            self.cattle_num.text = "\(self.cattleModel.cattle_num)"
+            return
+        }
         self.cattleModel.cattle_num = Int32(self.cattle_num.text!)!
         let sql = "update cattle_manage set cattle_num=\(self.cattleModel.cattle_num) where cattle_name='\(self.cattleModel.cattle_name)'"
         TMRSQLite().updateData(sql)

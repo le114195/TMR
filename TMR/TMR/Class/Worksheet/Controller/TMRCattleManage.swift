@@ -37,10 +37,7 @@ class TMRCattleManage: TMRBaseViewController, UITableViewDelegate, UITableViewDa
     override func viewWillAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        
         self.tableView.reloadData()
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -96,10 +93,8 @@ class TMRCattleManage: TMRBaseViewController, UITableViewDelegate, UITableViewDa
                 weakSelf?.cover.alpha = 0
             })
             weakSelf?.tableView.reloadData()
-        
         }
     }
-    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.arrayData.count
@@ -132,11 +127,13 @@ class TMRCattleManage: TMRBaseViewController, UITableViewDelegate, UITableViewDa
         
         if editingStyle == UITableViewCellEditingStyle.Delete {
             let model:CattleManage = self.arrayData[indexPath.row] as! CattleManage
-            let sql = "delete from cattle_manage where cattle_name=" + "'" +  String(model.cattle_name) + "'"
+            let sql = "delete from cattle_manage where cattle_name='\(model.cattle_name)'"
             TMRSQLite().updateData(sql)
             self.arrayData.removeObjectAtIndex(indexPath.row)
             self.tableView.reloadData()
+            
+            let foundationSql = "delete from foundation_manage where cattle_name='\(model.cattle_name)'"
+            TMRSQLite().updateData(foundationSql)
         }
     }
-    
 }

@@ -115,18 +115,12 @@ class TMRForageManage: TMRBaseViewController, UITableViewDelegate, UITableViewDa
 
         weak var weakSelf = self
         forageAddView?.cancelBlock = {()->() in
-            
-            UIView.animateWithDuration(0.5, animations: { 
-                
+            UIView.animateWithDuration(0.5, animations: {
                 weakSelf!.forageAddView?.alpha = 0
                 weakSelf!.cover?.alpha = 0
-                
             })
-            
         }
-        
         forageAddView?.sureBlock = {(forage:ForageManage) -> ()in
-            
             if self.forageAddView?.isAdd == true {
                 self.arrayData?.addObject(forage)
                 weakSelf!.tableview.reloadData()
@@ -136,6 +130,12 @@ class TMRForageManage: TMRBaseViewController, UITableViewDelegate, UITableViewDa
                 weakSelf!.cover?.alpha = 0
                 
             })
+        }
+        forageAddView?.showText = {()->() in
+            TMRHintView.show("请将信息填写完整", view: (weakSelf?.view)!)
+        }
+        forageAddView?.showError = {()->() in
+            TMRHintView.show("输入格式不正确", view: (weakSelf?.view)!)
         }
     }
 
