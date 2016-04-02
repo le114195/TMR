@@ -78,6 +78,9 @@ class ViewController: UIViewController {
         }
     }
     
+
+    
+    
     func clickBtn(btn:UIButton) {
         
         

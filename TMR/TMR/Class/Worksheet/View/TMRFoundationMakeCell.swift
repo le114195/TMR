@@ -103,9 +103,5 @@ class TMRFoundationMakeCell: UITableViewCell, UITextFieldDelegate {
             sql = "update cattle_manage set evening_proportion=\(proportion) where cattle_name='\(self.model.cattle_name)'"
             TMRSQLite().updateData(sql)
         }
-        
-        
     }
-    
-    
 }

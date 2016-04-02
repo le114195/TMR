@@ -37,7 +37,6 @@
 		755C96FF1CA8E0F600C83667 /* TMRNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C96FE1CA8E0F600C83667 /* TMRNavigationController.swift */; };
 		755C97021CA8E21600C83667 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C97011CA8E21600C83667 /* Controller.swift */; };
 		755C97041CA8E34400C83667 /* TMRBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C97031CA8E34400C83667 /* TMRBaseViewController.swift */; };
-		7563B3CC1CA7CCFF00BC84BB /* TMRProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7563B3CB1CA7CCFF00BC84BB /* TMRProcessing.swift */; };
 		7563B3CE1CA7CD4200BC84BB /* TMRProcessed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7563B3CD1CA7CD4200BC84BB /* TMRProcessed.swift */; };
 		7563B3D31CA7CD8700BC84BB /* TMRWorksheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7563B3D11CA7CD8700BC84BB /* TMRWorksheet.swift */; };
 		7563B3D41CA7CD8700BC84BB /* TMRWorksheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7563B3D21CA7CD8700BC84BB /* TMRWorksheet.xib */; };
@@ -55,6 +54,20 @@
 		759D4B011CACAEC100B103A5 /* TMRWorksheetMake.xib in Resources */ = {isa = PBXBuildFile; fileRef = 759D4AFF1CACAEC100B103A5 /* TMRWorksheetMake.xib */; };
 		759D4B041CACB27800B103A5 /* TMRFoundationMakeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759D4B021CACB27800B103A5 /* TMRFoundationMakeCell.swift */; };
 		759D4B051CACB27800B103A5 /* TMRFoundationMakeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 759D4B031CACB27800B103A5 /* TMRFoundationMakeCell.xib */; };
+		75C2429D1CAEC7400060197E /* SDBallProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C2428F1CAEC7400060197E /* SDBallProgressView.m */; };
+		75C2429E1CAEC7400060197E /* SDBaseProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C242911CAEC7400060197E /* SDBaseProgressView.m */; };
+		75C2429F1CAEC7400060197E /* SDLoopProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C242931CAEC7400060197E /* SDLoopProgressView.m */; };
+		75C242A01CAEC7400060197E /* SDPieLoopProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C242951CAEC7400060197E /* SDPieLoopProgressView.m */; };
+		75C242A11CAEC7400060197E /* SDPieProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C242971CAEC7400060197E /* SDPieProgressView.m */; };
+		75C242A21CAEC7400060197E /* SDRotationLoopProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C2429A1CAEC7400060197E /* SDRotationLoopProgressView.m */; };
+		75C242A31CAEC7400060197E /* SDTransparentPieProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C2429C1CAEC7400060197E /* SDTransparentPieProgressView.m */; };
+		75C242A61CAF8F560060197E /* TMRProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C242A41CAF8F560060197E /* TMRProcessing.swift */; };
+		75C242A71CAF8F560060197E /* TMRProcessing.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75C242A51CAF8F560060197E /* TMRProcessing.xib */; };
+		75C242AE1CAF9F810060197E /* TMRProcessingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C242AC1CAF9F810060197E /* TMRProcessingCell.swift */; };
+		75C242AF1CAF9F810060197E /* TMRProcessingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75C242AD1CAF9F810060197E /* TMRProcessingCell.xib */; };
+		75C242B11CAFA8600060197E /* WorksheetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C242B01CAFA8600060197E /* WorksheetModel.swift */; };
+		75C242B31CAFB5A10060197E /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C242B21CAFB5A10060197E /* ProcessingView.swift */; };
+		75C242B51CAFB5B60060197E /* ProcessingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75C242B41CAFB5B60060197E /* ProcessingView.xib */; };
 		75C9A9BF1CA8C89B00F95090 /* Worksheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C9A9BE1CA8C89B00F95090 /* Worksheet.swift */; };
 		75C9A9C11CA8C8BF00F95090 /* ForageManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C9A9C01CA8C8BF00F95090 /* ForageManage.swift */; };
 		75C9A9C31CA8C8DD00F95090 /* CattleManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C9A9C21CA8C8DD00F95090 /* CattleManage.swift */; };
@@ -125,7 +138,6 @@
 		755C96FE1CA8E0F600C83667 /* TMRNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMRNavigationController.swift; sourceTree = "<group>"; };
 		755C97011CA8E21600C83667 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		755C97031CA8E34400C83667 /* TMRBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMRBaseViewController.swift; sourceTree = "<group>"; };
-		7563B3CB1CA7CCFF00BC84BB /* TMRProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMRProcessing.swift; sourceTree = "<group>"; };
 		7563B3CD1CA7CD4200BC84BB /* TMRProcessed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMRProcessed.swift; sourceTree = "<group>"; };
 		7563B3D11CA7CD8700BC84BB /* TMRWorksheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMRWorksheet.swift; sourceTree = "<group>"; };
 		7563B3D21CA7CD8700BC84BB /* TMRWorksheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMRWorksheet.xib; sourceTree = "<group>"; };
@@ -143,6 +155,28 @@
 		759D4AFF1CACAEC100B103A5 /* TMRWorksheetMake.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMRWorksheetMake.xib; sourceTree = "<group>"; };
 		759D4B021CACB27800B103A5 /* TMRFoundationMakeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMRFoundationMakeCell.swift; sourceTree = "<group>"; };
 		759D4B031CACB27800B103A5 /* TMRFoundationMakeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMRFoundationMakeCell.xib; sourceTree = "<group>"; };
+		75C2428E1CAEC7400060197E /* SDBallProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBallProgressView.h; sourceTree = "<group>"; };
+		75C2428F1CAEC7400060197E /* SDBallProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBallProgressView.m; sourceTree = "<group>"; };
+		75C242901CAEC7400060197E /* SDBaseProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBaseProgressView.h; sourceTree = "<group>"; };
+		75C242911CAEC7400060197E /* SDBaseProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBaseProgressView.m; sourceTree = "<group>"; };
+		75C242921CAEC7400060197E /* SDLoopProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLoopProgressView.h; sourceTree = "<group>"; };
+		75C242931CAEC7400060197E /* SDLoopProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLoopProgressView.m; sourceTree = "<group>"; };
+		75C242941CAEC7400060197E /* SDPieLoopProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPieLoopProgressView.h; sourceTree = "<group>"; };
+		75C242951CAEC7400060197E /* SDPieLoopProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPieLoopProgressView.m; sourceTree = "<group>"; };
+		75C242961CAEC7400060197E /* SDPieProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPieProgressView.h; sourceTree = "<group>"; };
+		75C242971CAEC7400060197E /* SDPieProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPieProgressView.m; sourceTree = "<group>"; };
+		75C242981CAEC7400060197E /* SDProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDProgressView.h; sourceTree = "<group>"; };
+		75C242991CAEC7400060197E /* SDRotationLoopProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDRotationLoopProgressView.h; sourceTree = "<group>"; };
+		75C2429A1CAEC7400060197E /* SDRotationLoopProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDRotationLoopProgressView.m; sourceTree = "<group>"; };
+		75C2429B1CAEC7400060197E /* SDTransparentPieProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTransparentPieProgressView.h; sourceTree = "<group>"; };
+		75C2429C1CAEC7400060197E /* SDTransparentPieProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTransparentPieProgressView.m; sourceTree = "<group>"; };
+		75C242A41CAF8F560060197E /* TMRProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMRProcessing.swift; sourceTree = "<group>"; };
+		75C242A51CAF8F560060197E /* TMRProcessing.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMRProcessing.xib; sourceTree = "<group>"; };
+		75C242AC1CAF9F810060197E /* TMRProcessingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMRProcessingCell.swift; sourceTree = "<group>"; };
+		75C242AD1CAF9F810060197E /* TMRProcessingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMRProcessingCell.xib; sourceTree = "<group>"; };
+		75C242B01CAFA8600060197E /* WorksheetModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorksheetModel.swift; sourceTree = "<group>"; };
+		75C242B21CAFB5A10060197E /* ProcessingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessingView.swift; sourceTree = "<group>"; };
+		75C242B41CAFB5B60060197E /* ProcessingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessingView.xib; sourceTree = "<group>"; };
 		75C9A9BE1CA8C89B00F95090 /* Worksheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Worksheet.swift; sourceTree = "<group>"; };
 		75C9A9C01CA8C8BF00F95090 /* ForageManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForageManage.swift; sourceTree = "<group>"; };
 		75C9A9C21CA8C8DD00F95090 /* CattleManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CattleManage.swift; sourceTree = "<group>"; };
@@ -243,6 +277,7 @@
 		755B242E1CA820E600ECC369 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				75C2428D1CAEC7400060197E /* SDProgressView */,
 				755B242F1CA820E600ECC369 /* SQLite */,
 			);
 			path = Lib;
@@ -402,7 +437,8 @@
 		7563B3C41CA7CCAE00BC84BB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7563B3CB1CA7CCFF00BC84BB /* TMRProcessing.swift */,
+				75C242A41CAF8F560060197E /* TMRProcessing.swift */,
+				75C242A51CAF8F560060197E /* TMRProcessing.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -417,6 +453,10 @@
 		7563B3C61CA7CCAE00BC84BB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				75C242AC1CAF9F810060197E /* TMRProcessingCell.swift */,
+				75C242AD1CAF9F810060197E /* TMRProcessingCell.xib */,
+				75C242B21CAFB5A10060197E /* ProcessingView.swift */,
+				75C242B41CAFB5B60060197E /* ProcessingView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -479,6 +519,28 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		75C2428D1CAEC7400060197E /* SDProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				75C2428E1CAEC7400060197E /* SDBallProgressView.h */,
+				75C2428F1CAEC7400060197E /* SDBallProgressView.m */,
+				75C242901CAEC7400060197E /* SDBaseProgressView.h */,
+				75C242911CAEC7400060197E /* SDBaseProgressView.m */,
+				75C242921CAEC7400060197E /* SDLoopProgressView.h */,
+				75C242931CAEC7400060197E /* SDLoopProgressView.m */,
+				75C242941CAEC7400060197E /* SDPieLoopProgressView.h */,
+				75C242951CAEC7400060197E /* SDPieLoopProgressView.m */,
+				75C242961CAEC7400060197E /* SDPieProgressView.h */,
+				75C242971CAEC7400060197E /* SDPieProgressView.m */,
+				75C242981CAEC7400060197E /* SDProgressView.h */,
+				75C242991CAEC7400060197E /* SDRotationLoopProgressView.h */,
+				75C2429A1CAEC7400060197E /* SDRotationLoopProgressView.m */,
+				75C2429B1CAEC7400060197E /* SDTransparentPieProgressView.h */,
+				75C2429C1CAEC7400060197E /* SDTransparentPieProgressView.m */,
+			);
+			path = SDProgressView;
+			sourceTree = "<group>";
+		};
 		75C9A9BD1CA8C87600F95090 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,6 +548,7 @@
 				75C9A9C01CA8C8BF00F95090 /* ForageManage.swift */,
 				75C9A9C21CA8C8DD00F95090 /* CattleManage.swift */,
 				75C9A9C41CA8C8F300F95090 /* FoundationManage.swift */,
+				75C242B01CAFA8600060197E /* WorksheetModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -624,8 +687,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				755C96FD1CA8DC0600C83667 /* return_white@3x.png in Resources */,
+				75C242B51CAFB5B60060197E /* ProcessingView.xib in Resources */,
 				755C96FC1CA8DC0600C83667 /* return_white@2x.png in Resources */,
 				759D4B051CACB27800B103A5 /* TMRFoundationMakeCell.xib in Resources */,
+				75C242A71CAF8F560060197E /* TMRProcessing.xib in Resources */,
 				7595C41A1CA913D0000EECAB /* ForageManageCell.xib in Resources */,
 				755C96F81CA8DC0600C83667 /* return_gray.png in Resources */,
 				75E369EA1CAA360400263D6D /* CattleManageDetailCell.xib in Resources */,
@@ -640,6 +705,7 @@
 				7501E17B1CA7BDFB0047B6D0 /* LaunchScreen.storyboard in Resources */,
 				759D4B011CACAEC100B103A5 /* TMRWorksheetMake.xib in Resources */,
 				7501E1781CA7BDFB0047B6D0 /* Assets.xcassets in Resources */,
+				75C242AF1CAF9F810060197E /* TMRProcessingCell.xib in Resources */,
 				755C96FB1CA8DC0600C83667 /* return_white.png in Resources */,
 				75D1686C1CAAD66000BAE849 /* FoundationMakeCell.xib in Resources */,
 				755C96F61CA8DC0600C83667 /* return_black@2x.png in Resources */,
@@ -726,30 +792,40 @@
 				755C97021CA8E21600C83667 /* Controller.swift in Sources */,
 				75D168661CAAD4A000BAE849 /* FoundationMakeView.swift in Sources */,
 				7563B3CE1CA7CD4200BC84BB /* TMRProcessed.swift in Sources */,
+				75C242A01CAEC7400060197E /* SDPieLoopProgressView.m in Sources */,
 				755C96FF1CA8E0F600C83667 /* TMRNavigationController.swift in Sources */,
 				755C97041CA8E34400C83667 /* TMRBaseViewController.swift in Sources */,
 				75C9A9C51CA8C8F300F95090 /* FoundationManage.swift in Sources */,
 				759D4B001CACAEC100B103A5 /* TMRWorksheetMake.swift in Sources */,
+				75C242A61CAF8F560060197E /* TMRProcessing.swift in Sources */,
 				755C96E81CA8D87900C83667 /* TMRForageManage.swift in Sources */,
+				75C242B11CAFA8600060197E /* WorksheetModel.swift in Sources */,
 				7595C4191CA913D0000EECAB /* ForageManageCell.swift in Sources */,
 				75E369E91CAA360400263D6D /* CattleManageDetailCell.swift in Sources */,
+				75C2429D1CAEC7400060197E /* SDBallProgressView.m in Sources */,
+				75C242A11CAEC7400060197E /* SDPieProgressView.m in Sources */,
 				7563B3D31CA7CD8700BC84BB /* TMRWorksheet.swift in Sources */,
 				75C9A9C11CA8C8BF00F95090 /* ForageManage.swift in Sources */,
 				7563B3D71CA7CDA200BC84BB /* TMRNetwork.swift in Sources */,
 				75E061BD1CAD8C2900CF1E9A /* TMRHintView.swift in Sources */,
+				75C2429E1CAEC7400060197E /* SDBaseProgressView.m in Sources */,
+				75C242A21CAEC7400060197E /* SDRotationLoopProgressView.m in Sources */,
 				759D4AFC1CACAEA300B103A5 /* TMRFoundationMake.swift in Sources */,
 				75C9A9BF1CA8C89B00F95090 /* Worksheet.swift in Sources */,
 				75975B731CAE17B400839BC2 /* TMRString.swift in Sources */,
 				7563B3DA1CA7CF4300BC84BB /* GlobalValue.swift in Sources */,
 				759D4B041CACB27800B103A5 /* TMRFoundationMakeCell.swift in Sources */,
 				7501E1731CA7BDFB0047B6D0 /* ViewController.swift in Sources */,
+				75C242AE1CAF9F810060197E /* TMRProcessingCell.swift in Sources */,
 				75C9A9C31CA8C8DD00F95090 /* CattleManage.swift in Sources */,
+				75C242B31CAFB5A10060197E /* ProcessingView.swift in Sources */,
 				75E369E51CAA2CA000263D6D /* CattleManageDetail.swift in Sources */,
-				7563B3CC1CA7CCFF00BC84BB /* TMRProcessing.swift in Sources */,
+				75C242A31CAEC7400060197E /* SDTransparentPieProgressView.m in Sources */,
 				75D1686B1CAAD66000BAE849 /* FoundationMakeCell.swift in Sources */,
 				7501E1711CA7BDFB0047B6D0 /* AppDelegate.swift in Sources */,
 				7595C41C1CA91962000EECAB /* ForageAddView.swift in Sources */,
 				755B24331CA8213600ECC369 /* TMRSQLite.swift in Sources */,
+				75C2429F1CAEC7400060197E /* SDLoopProgressView.m in Sources */,
 				7543FBA51CA96B0A0041228D /* CattleManageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

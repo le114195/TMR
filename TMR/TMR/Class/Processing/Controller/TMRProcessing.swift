@@ -2,35 +2,175 @@
 //  TMRProcessing.swift
 //  TMR
 //
-//  Created by 勒俊 on 16/3/27.
+//  Created by 勒俊 on 16/4/2.
 //  Copyright © 2016年 勒俊. All rights reserved.
 //
 
 import UIKit
 
-class TMRProcessing: TMRBaseViewController {
 
+class TMRProcessing: TMRBaseViewController, UITableViewDelegate, UITableViewDataSource {
+
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var morningBtn: UIButton!
+    @IBOutlet weak var nooningBtn: UIButton!
+    @IBOutlet weak var eveningBtn: UIButton!
+    
+    var alertController:UIAlertController!
+    
+    var morningArrayData = NSMutableArray()
+    var nooningArrayData = NSMutableArray()
+    var eveningArrayData = NSMutableArray()
+    
+    var processView:ProcessingView!
+    
+    var arrayData = NSMutableArray()
+    
+    var selectBtn = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.whiteColor()
-
-        // Do any additional setup after loading the view.
+        
+        self.initBtn()
+        self.initTableView()
+        self.initProcessView()
+        self.initAlertController()
+        
     }
+    
+    private func initTableView(){
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+        self.tableView.registerNib(UINib.init(nibName: "TMRProcessingCell", bundle: nil), forCellReuseIdentifier: "TMRProcessingCell")
+        
+    }
+    
 
+    private func initBtn(){
+        
+        self.morningBtn.layer.cornerRadius = 5.0
+        self.nooningBtn.layer.cornerRadius = 5.0
+        self.eveningBtn.layer.cornerRadius = 5.0
+        self.morningAction(self.morningBtn)
+    }
+    
+    private func initAlertController(){
+        
+        self.alertController = UIAlertController.init(title: "已经是最后一项，是否选择退出加工", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        let cancelAction = UIAlertAction.init(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil)
+        weak var weakSelf = self
+        let okAction = UIAlertAction.init(title: "退出加工", style: UIAlertActionStyle.Default, handler: { (okAction) in
+            UIView.animateWithDuration(0.25, animations: {
+                weakSelf?.processView.alpha = 0
+            })
+        })
+        self.alertController.addAction(cancelAction)
+        self.alertController.addAction(okAction)
+    }
+    
+    private func initProcessView(){
+        
+        self.processView = NSBundle.mainBundle().loadNibNamed("ProcessingView", owner: nil, options: nil).first as! ProcessingView
+        self.processView.frame = CGRect.init(x: 0, y: 0, width: screen_width, height: screen_height)
+        self.processView.alpha = 0
+        self.view.addSubview(self.processView)
+        weak var weakSelf = self
+        self.processView.closeBlock = {()->() in
+            UIView.animateWithDuration(0.25, animations: {
+                weakSelf?.processView.alpha = 0
+            })
+            weakSelf?.navigationController?.navigationBarHidden = false
+        }
+        self.processView.lastBlock = {()->() in
+            weakSelf?.presentViewController((weakSelf?.alertController)!, animated: true, completion: nil)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func morningAction(sender: AnyObject) {
+        if self.selectBtn .isEqual(sender as! UIButton) {
+            return
+        }
+        self.selectBtn = self.morningBtn
+        self.morningBtn.backgroundColor = UIColor.init(red: 0.3, green: 0.3, blue: 0.3, alpha: 1)
+        self.nooningBtn.backgroundColor = UIColor.init(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
+        self.eveningBtn.backgroundColor = UIColor.init(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
+        if self.morningArrayData.count == 0 {
+            self.morningArrayData = WorksheetModel.getData(0)
+        }
+        self.arrayData = self.morningArrayData
+        self.tableView.reloadData()
     }
-    */
+    
+    @IBAction func nooningAction(sender: AnyObject) {
+        if self.selectBtn .isEqual(sender as! UIButton) {
+            return
+        }
+        self.selectBtn = self.nooningBtn
+        self.morningBtn.backgroundColor = UIColor.init(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
+        self.nooningBtn.backgroundColor = UIColor.init(red: 0.3, green: 0.3, blue: 0.3, alpha: 1)
+        self.eveningBtn.backgroundColor = UIColor.init(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
+        if self.nooningArrayData.count == 0 {
+            self.nooningArrayData = WorksheetModel.getData(1)
+        }
+        self.arrayData = self.nooningArrayData
+        self.tableView.reloadData()
+
+    }
+    
+    @IBAction func eveningAction(sender: AnyObject) {
+        if self.selectBtn .isEqual(sender as! UIButton) {
+            return
+        }
+        self.selectBtn = self.eveningBtn
+        self.morningBtn.backgroundColor = UIColor.init(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
+        self.nooningBtn.backgroundColor = UIColor.init(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
+        self.eveningBtn.backgroundColor = UIColor.init(red: 0.3, green: 0.3, blue: 0.3, alpha: 1)
+        if self.eveningArrayData.count == 0 {
+            self.eveningArrayData = WorksheetModel.getData(2)
+        }
+        self.arrayData = self.eveningArrayData
+        self.tableView.reloadData()
+        
+    }
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return self.arrayData.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell:TMRProcessingCell = self.tableView.dequeueReusableCellWithIdentifier("TMRProcessingCell", forIndexPath: indexPath) as! TMRProcessingCell
+        
+        cell.setModelData(self.arrayData[indexPath.row] as! WorksheetModel)
+        
+        return cell
+        
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 90
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        
+        UIView.animateWithDuration(0.25) { 
+            self.processView.alpha = 0.99
+        }
+        self.processView.setModelData(self.arrayData[indexPath.row] as! WorksheetModel)
+        self.navigationController?.navigationBarHidden = true
+    }
+    
 
 }

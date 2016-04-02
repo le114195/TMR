@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMRProcessing" customModule="TMR" customModuleProvider="target">
+            <connections>
+                <outlet property="eveningBtn" destination="m63-fn-SDI" id="M1m-du-zYA"/>
+                <outlet property="morningBtn" destination="Pi0-04-pM8" id="sM2-tK-GaH"/>
+                <outlet property="nooningBtn" destination="F0e-dQ-fDh" id="LcL-u2-XtQ"/>
+                <outlet property="tableView" destination="54f-lh-7lA" id="e37-x4-2HD"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eti-WV-rP7" userLabel="btnView">
+                    <rect key="frame" x="0.0" y="672" width="414" height="64"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0e-dQ-fDh">
+                            <rect key="frame" x="164" y="8" width="86" height="48"/>
+                            <state key="normal" title="中"/>
+                            <connections>
+                                <action selector="nooningAction:" destination="-1" eventType="touchDown" id="Kp2-wd-eee"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m63-fn-SDI">
+                            <rect key="frame" x="302" y="8" width="86" height="48"/>
+                            <state key="normal" title="晚"/>
+                            <connections>
+                                <action selector="eveningAction:" destination="-1" eventType="touchDown" id="b75-bC-wG8"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pi0-04-pM8">
+                            <rect key="frame" x="26" y="8" width="86" height="48"/>
+                            <state key="normal" title="早"/>
+                            <connections>
+                                <action selector="morningAction:" destination="-1" eventType="touchDown" id="gZS-9L-8UP"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="96U-zj-b3B"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="54f-lh-7lA">
+                    <rect key="frame" x="0.0" y="64" width="414" height="608"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Eti-WV-rP7" secondAttribute="trailing" id="LH5-kd-F1S"/>
+                <constraint firstItem="54f-lh-7lA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Oah-3p-ocD"/>
+                <constraint firstAttribute="bottom" secondItem="Eti-WV-rP7" secondAttribute="bottom" id="TWP-qd-1vX"/>
+                <constraint firstItem="54f-lh-7lA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="qD6-ym-HVL"/>
+                <constraint firstItem="Eti-WV-rP7" firstAttribute="top" secondItem="54f-lh-7lA" secondAttribute="bottom" id="u38-U2-jiu"/>
+                <constraint firstAttribute="trailing" secondItem="54f-lh-7lA" secondAttribute="trailing" id="uzj-9a-GFf"/>
+                <constraint firstItem="Eti-WV-rP7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vsJ-fH-dA3"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+            <point key="canvasLocation" x="145" y="306"/>
+        </view>
+    </objects>
+</document>

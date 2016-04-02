@@ -81,22 +81,22 @@ class TMRWorksheetMake: TMRBaseViewController, FSCalendarDelegate, FSCalendarDat
         switch index {
         case 0:
             originWeight = Double(cattle_model.morning_proportion) * foundation_model.forage_weight * Double(cattle_model.cattle_num) / 100
-            sql = "insert into work_sheet (worksheet_id, sheet_name, forage_name, originWeight, processedWeight, percent, status) values (null, '\(worksheetTime)_\(cattle_model.cattle_name)_早_0', '\(foundation_model.forage_name)', \(originWeight), 0, '0%', 0)"
-            work_sheet = "\(worksheetTime)_\(cattle_model.cattle_name)_早_0\t\(foundation_model.forage_name)\t\(originWeight)"
+            sql = "insert into work_sheet (worksheet_id, sheet_name, forage_name, originWeight, processedWeight, percent, status) values (null, '\(worksheetTime)_0_\(cattle_model.cattle_name)_早', '\(foundation_model.forage_name)', \(originWeight), 0, '0%', 0)"
+            work_sheet = "\(worksheetTime)_0_\(cattle_model.cattle_name)_早\t\(foundation_model.forage_name)\t\(originWeight)"
             break
             
         case 1:
             
             originWeight = Double(cattle_model.nooning_proportion) * foundation_model.forage_weight * Double(cattle_model.cattle_num) / 100
-            sql = "insert into work_sheet (worksheet_id, sheet_name, forage_name, originWeight, processedWeight, percent, status) values (null, '\(worksheetTime)_\(cattle_model.cattle_name)_中_1', '\(foundation_model.forage_name)', \(originWeight), 0, '0%', 0)"
-            work_sheet = "\(worksheetTime)_\(cattle_model.cattle_name)_中_1\t\(foundation_model.forage_name)\t\(originWeight)"
+            sql = "insert into work_sheet (worksheet_id, sheet_name, forage_name, originWeight, processedWeight, percent, status) values (null, '\(worksheetTime)_1_\(cattle_model.cattle_name)_中', '\(foundation_model.forage_name)', \(originWeight), 0, '0%', 0)"
+            work_sheet = "\(worksheetTime)_1_\(cattle_model.cattle_name)_中\t\(foundation_model.forage_name)\t\(originWeight)"
             break
             
         case 2:
             
             originWeight = Double(cattle_model.evening_proportion) * foundation_model.forage_weight * Double(cattle_model.cattle_num) / 100
-            sql = "insert into work_sheet (worksheet_id, sheet_name, forage_name, originWeight, processedWeight, percent, status) values (null, '\(worksheetTime)_\(cattle_model.cattle_name)_晚_2', '\(foundation_model.forage_name)', \(originWeight), 0, '0%', 0)"
-            work_sheet = "\(worksheetTime)_\(cattle_model.cattle_name)_晚_2\t\(foundation_model.forage_name)\t\(originWeight)"
+            sql = "insert into work_sheet (worksheet_id, sheet_name, forage_name, originWeight, processedWeight, percent, status) values (null, '\(worksheetTime)_2_\(cattle_model.cattle_name)_晚', '\(foundation_model.forage_name)', \(originWeight), 0, '0%', 0)"
+            work_sheet = "\(worksheetTime)_2_\(cattle_model.cattle_name)_晚\t\(foundation_model.forage_name)\t\(originWeight)"
             break
         default:
             break
