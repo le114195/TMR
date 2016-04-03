@@ -17,35 +17,55 @@ class TMRProcessing: TMRBaseViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var nooningBtn: UIButton!
     @IBOutlet weak var eveningBtn: UIButton!
     
-    var alertController:UIAlertController!
+    private lazy var alertController:UIAlertController = {
+        
+        let tempAlert = UIAlertController.init(title: "已经是最后一项，是否选择退出加工", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        let cancelAction = UIAlertAction.init(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil)
+        weak var weakSelf = self
+        let okAction = UIAlertAction.init(title: "退出加工", style: UIAlertActionStyle.Default, handler: { (okAction) in
+            UIView.animateWithDuration(0.25, animations: {
+                weakSelf?.processView.alpha = 0
+            })
+            weakSelf?.tableView.reloadData()
+            weakSelf?.navigationController?.navigationBarHidden = false
+        })
+        tempAlert.addAction(cancelAction)
+        tempAlert.addAction(okAction)
+        return tempAlert
+    }()
     
-    var morningArrayData = NSMutableArray()
-    var nooningArrayData = NSMutableArray()
-    var eveningArrayData = NSMutableArray()
+    private lazy var morningArrayData:NSMutableArray = {
+        let tempArray = WorksheetModel.getData(0)
+        return tempArray
+    }()
     
-    var processView:ProcessingView!
+    private lazy var nooningArrayData:NSMutableArray = {
+        let tempArray = WorksheetModel.getData(1)
+        return tempArray
+    }()
+    private lazy var eveningArrayData:NSMutableArray = {
+        let tempArray = WorksheetModel.getData(2)
+        return tempArray
+    }()
     
-    var arrayData = NSMutableArray()
+    private var processView:ProcessingView!
     
-    var selectBtn = UIButton()
+    private var arrayData = NSMutableArray()
+    
+    private var selectBtn = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.initBtn()
         self.initTableView()
         self.initProcessView()
-        self.initAlertController()
-        
     }
     
     private func initTableView(){
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
         self.tableView.registerNib(UINib.init(nibName: "TMRProcessingCell", bundle: nil), forCellReuseIdentifier: "TMRProcessingCell")
-        
     }
     
 
@@ -55,20 +75,6 @@ class TMRProcessing: TMRBaseViewController, UITableViewDelegate, UITableViewData
         self.nooningBtn.layer.cornerRadius = 5.0
         self.eveningBtn.layer.cornerRadius = 5.0
         self.morningAction(self.morningBtn)
-    }
-    
-    private func initAlertController(){
-        
-        self.alertController = UIAlertController.init(title: "已经是最后一项，是否选择退出加工", message: "", preferredStyle: UIAlertControllerStyle.Alert)
-        let cancelAction = UIAlertAction.init(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil)
-        weak var weakSelf = self
-        let okAction = UIAlertAction.init(title: "退出加工", style: UIAlertActionStyle.Default, handler: { (okAction) in
-            UIView.animateWithDuration(0.25, animations: {
-                weakSelf?.processView.alpha = 0
-            })
-        })
-        self.alertController.addAction(cancelAction)
-        self.alertController.addAction(okAction)
     }
     
     private func initProcessView(){
@@ -82,6 +88,7 @@ class TMRProcessing: TMRBaseViewController, UITableViewDelegate, UITableViewData
             UIView.animateWithDuration(0.25, animations: {
                 weakSelf?.processView.alpha = 0
             })
+            weakSelf?.tableView.reloadData()
             weakSelf?.navigationController?.navigationBarHidden = false
         }
         self.processView.lastBlock = {()->() in
@@ -103,9 +110,6 @@ class TMRProcessing: TMRBaseViewController, UITableViewDelegate, UITableViewData
         self.morningBtn.backgroundColor = UIColor.init(red: 0.3, green: 0.3, blue: 0.3, alpha: 1)
         self.nooningBtn.backgroundColor = UIColor.init(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
         self.eveningBtn.backgroundColor = UIColor.init(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
-        if self.morningArrayData.count == 0 {
-            self.morningArrayData = WorksheetModel.getData(0)
-        }
         self.arrayData = self.morningArrayData
         self.tableView.reloadData()
     }
@@ -118,9 +122,6 @@ class TMRProcessing: TMRBaseViewController, UITableViewDelegate, UITableViewData
         self.morningBtn.backgroundColor = UIColor.init(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
         self.nooningBtn.backgroundColor = UIColor.init(red: 0.3, green: 0.3, blue: 0.3, alpha: 1)
         self.eveningBtn.backgroundColor = UIColor.init(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
-        if self.nooningArrayData.count == 0 {
-            self.nooningArrayData = WorksheetModel.getData(1)
-        }
         self.arrayData = self.nooningArrayData
         self.tableView.reloadData()
 
@@ -134,14 +135,10 @@ class TMRProcessing: TMRBaseViewController, UITableViewDelegate, UITableViewData
         self.morningBtn.backgroundColor = UIColor.init(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
         self.nooningBtn.backgroundColor = UIColor.init(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
         self.eveningBtn.backgroundColor = UIColor.init(red: 0.3, green: 0.3, blue: 0.3, alpha: 1)
-        if self.eveningArrayData.count == 0 {
-            self.eveningArrayData = WorksheetModel.getData(2)
-        }
         self.arrayData = self.eveningArrayData
         self.tableView.reloadData()
         
     }
-    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -164,13 +161,11 @@ class TMRProcessing: TMRBaseViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        
         UIView.animateWithDuration(0.25) { 
             self.processView.alpha = 0.99
         }
+        self.processView.startUpdateData()
         self.processView.setModelData(self.arrayData[indexPath.row] as! WorksheetModel)
         self.navigationController?.navigationBarHidden = true
     }
-    
-
 }

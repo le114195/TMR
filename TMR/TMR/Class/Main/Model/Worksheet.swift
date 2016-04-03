@@ -17,6 +17,7 @@ class Worksheet: NSObject {
     var processed_weight:Double = 0
     var percent:String = ""
     var status:Int32 = 0
+    var uploadStatus:Int32 = 0
     
 
     static func getData(sql:String) -> NSMutableArray {
@@ -42,6 +43,7 @@ class Worksheet: NSObject {
                 model.processed_weight = tmrsql.sqlite_column_double(stmt, index: 4)
                 model.percent = tmrsql.sqlite_column_text(stmt, index: 5)
                 model.status = tmrsql.sqlite_column_int(stmt, index: 6)
+                model.uploadStatus = tmrsql.sqlite_column_int(stmt, index: 7)
                 
                 arrM.addObject(model)
             }

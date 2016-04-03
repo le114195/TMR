@@ -24,8 +24,8 @@ class TMRProcessingCell: UITableViewCell {
     func setModelData(modelData:WorksheetModel) {
         
         self.worksheetTitle.text = modelData.sheet_name
-        self.shouldNum.text = "\(modelData.allShouldWeight)"
-        self.realityNum.text = "\(modelData.allRealityWeight)"
+        self.shouldNum.text = NSString(format: "%.2f", modelData.allShouldWeight) as String
+        self.realityNum.text = NSString(format: "%.2f", modelData.allRealityWeight) as String
     }
     
     override func setSelected(selected: Bool, animated: Bool) {

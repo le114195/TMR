@@ -25,11 +25,8 @@
     _progress = progress;
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (progress >= 1.0) {
-            [self removeFromSuperview];
-        } else {
-            [self setNeedsDisplay];
-        }
+
+        [self setNeedsDisplay];
     });
     
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 
 
@@ -19,17 +20,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(sqlite_path)
-        
         self.view.backgroundColor = UIColor.whiteColor()
-        
         self.createSubView()
-        
         self.createAllTable()
-        
-        
-        
-        
-        // Do any additional setup after loading the view, typically from a nib.
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -120,7 +114,7 @@ class ViewController: UIViewController {
             print("打开数据库失败！！！")
             return
         }
-        let work_sheet = "create table if not exists work_sheet (worksheet_id integer primary key, sheet_name text, forage_name text, originWeight double, processedWeight double, percent text, status integer)"
+        let work_sheet = "create table if not exists work_sheet (worksheet_id integer primary key, sheet_name text, forage_name text, originWeight double, processedWeight double, percent text, status integer, uploadStatus integer)"
         
         self.createTable(work_sheet, tmrsql: tmrsql)
         
@@ -149,5 +143,29 @@ class ViewController: UIViewController {
         tmrsql.sqlite_finalize(stmt)
         
     }
+    
+    
+    private func alamofireTest(){
+        
+        
+        var jsonData:JSON = ["name":"success", "age":18]
+        jsonData["id"].int = 1005
+        
+        jsonData["array"].arrayObject = [1, 2, 3, 4, 5]
+        
+        jsonData["dict"].dictionaryObject = ["kk":"aa", "age":14]
+        
+        let jsonObject: AnyObject = jsonData.rawString()!
+        
+        Alamofire.request(.POST, "http://localhost:8080/TestMysql/Demo1", parameters: ["foo": "gg", "data":jsonObject])
+            .responseJSON { response in
+                
+                let json = JSON(response.result.value!)
+                print(json["name"].string!)
+
+        }
+        
+    }
+
 }
 
