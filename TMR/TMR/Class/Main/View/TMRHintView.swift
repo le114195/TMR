@@ -26,6 +26,8 @@ class TMRHintView: UIView {
 
     }
     
+    
+    
     private func createLabel(str:NSString){
         
         self.showLabel = UILabel()

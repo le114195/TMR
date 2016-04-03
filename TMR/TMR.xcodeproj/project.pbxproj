@@ -54,6 +54,8 @@
 		759D4B011CACAEC100B103A5 /* TMRWorksheetMake.xib in Resources */ = {isa = PBXBuildFile; fileRef = 759D4AFF1CACAEC100B103A5 /* TMRWorksheetMake.xib */; };
 		759D4B041CACB27800B103A5 /* TMRFoundationMakeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759D4B021CACB27800B103A5 /* TMRFoundationMakeCell.swift */; };
 		759D4B051CACB27800B103A5 /* TMRFoundationMakeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 759D4B031CACB27800B103A5 /* TMRFoundationMakeCell.xib */; };
+		75A957941CB1025600A6EE9C /* NetWorkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A957921CB1025600A6EE9C /* NetWorkCell.swift */; };
+		75A957951CB1025600A6EE9C /* NetWorkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75A957931CB1025600A6EE9C /* NetWorkCell.xib */; };
 		75C2429D1CAEC7400060197E /* SDBallProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C2428F1CAEC7400060197E /* SDBallProgressView.m */; };
 		75C2429E1CAEC7400060197E /* SDBaseProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C242911CAEC7400060197E /* SDBaseProgressView.m */; };
 		75C2429F1CAEC7400060197E /* SDLoopProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C242931CAEC7400060197E /* SDLoopProgressView.m */; };
@@ -155,6 +157,8 @@
 		759D4AFF1CACAEC100B103A5 /* TMRWorksheetMake.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMRWorksheetMake.xib; sourceTree = "<group>"; };
 		759D4B021CACB27800B103A5 /* TMRFoundationMakeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMRFoundationMakeCell.swift; sourceTree = "<group>"; };
 		759D4B031CACB27800B103A5 /* TMRFoundationMakeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMRFoundationMakeCell.xib; sourceTree = "<group>"; };
+		75A957921CB1025600A6EE9C /* NetWorkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWorkCell.swift; sourceTree = "<group>"; };
+		75A957931CB1025600A6EE9C /* NetWorkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NetWorkCell.xib; sourceTree = "<group>"; };
 		75C2428E1CAEC7400060197E /* SDBallProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBallProgressView.h; sourceTree = "<group>"; };
 		75C2428F1CAEC7400060197E /* SDBallProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBallProgressView.m; sourceTree = "<group>"; };
 		75C242901CAEC7400060197E /* SDBaseProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBaseProgressView.h; sourceTree = "<group>"; };
@@ -378,6 +382,8 @@
 		7563B3BD1CA7CCAE00BC84BB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				75A957921CB1025600A6EE9C /* NetWorkCell.swift */,
+				75A957931CB1025600A6EE9C /* NetWorkCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -710,6 +716,7 @@
 				75D1686C1CAAD66000BAE849 /* FoundationMakeCell.xib in Resources */,
 				755C96F61CA8DC0600C83667 /* return_black@2x.png in Resources */,
 				7501E1761CA7BDFB0047B6D0 /* Main.storyboard in Resources */,
+				75A957951CB1025600A6EE9C /* NetWorkCell.xib in Resources */,
 				75E369E61CAA2CA000263D6D /* CattleManageDetail.xib in Resources */,
 				755C96E91CA8D87900C83667 /* TMRForageManage.xib in Resources */,
 				7563B3D81CA7CDA200BC84BB /* TMRNetwork.xib in Resources */,
@@ -819,6 +826,7 @@
 				75C242AE1CAF9F810060197E /* TMRProcessingCell.swift in Sources */,
 				75C9A9C31CA8C8DD00F95090 /* CattleManage.swift in Sources */,
 				75C242B31CAFB5A10060197E /* ProcessingView.swift in Sources */,
+				75A957941CB1025600A6EE9C /* NetWorkCell.swift in Sources */,
 				75E369E51CAA2CA000263D6D /* CattleManageDetail.swift in Sources */,
 				75C242A31CAEC7400060197E /* SDTransparentPieProgressView.m in Sources */,
 				75D1686B1CAAD66000BAE849 /* FoundationMakeCell.swift in Sources */,

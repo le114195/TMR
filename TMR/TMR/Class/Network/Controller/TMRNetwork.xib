@@ -1,19 +1,50 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMRNetwork" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMRNetwork" customModule="TMR" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="3t0-Mf-QS0" id="hAF-b2-UJ9"/>
+                <outlet property="uploadBtn" destination="Tmi-DB-cGA" id="mMK-BV-fqv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3t0-Mf-QS0">
+                    <rect key="frame" x="0.0" y="64" width="414" height="594"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tmi-DB-cGA">
+                    <rect key="frame" x="100" y="670" width="214" height="44"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="0.60768506205673756" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="yNP-u5-prP"/>
+                    </constraints>
+                    <color key="tintColor" red="0.0" green="1" blue="1" alpha="0.60768506205673756" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="全部上传"/>
+                    <connections>
+                        <action selector="uploadAction:" destination="-1" eventType="touchUpInside" id="cbs-vj-yFX"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Tmi-DB-cGA" firstAttribute="top" secondItem="3t0-Mf-QS0" secondAttribute="bottom" constant="12" id="6MN-t3-hat"/>
+                <constraint firstItem="Tmi-DB-cGA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="100" id="Bfo-jt-a5a"/>
+                <constraint firstAttribute="trailing" secondItem="Tmi-DB-cGA" secondAttribute="trailing" constant="100" id="HKJ-Ax-m9S"/>
+                <constraint firstAttribute="trailing" secondItem="3t0-Mf-QS0" secondAttribute="trailing" id="QcV-Ye-8gB"/>
+                <constraint firstItem="3t0-Mf-QS0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="aU1-Ty-zoF"/>
+                <constraint firstItem="3t0-Mf-QS0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="pUs-xT-PzG"/>
+                <constraint firstAttribute="bottom" secondItem="Tmi-DB-cGA" secondAttribute="bottom" constant="22" id="pex-JU-03L"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
         </view>
     </objects>
 </document>

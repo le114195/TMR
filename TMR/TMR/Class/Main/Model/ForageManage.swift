@@ -42,6 +42,7 @@ class ForageManage: NSObject {
             }
             tmrsql.sqlite_finalize(stmt)
         }
+        tmrsql.sqlite_close()
         return arrM
     }
     
@@ -82,6 +83,7 @@ class ForageManage: NSObject {
             }
             tmrsql.sqlite_finalize(stmt)
         }
+        tmrsql.sqlite_close()
         return arrM
     }
     

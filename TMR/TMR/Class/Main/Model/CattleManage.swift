@@ -47,6 +47,7 @@ class CattleManage: NSObject {
             }
             tmrsql.sqlite_finalize(stmt)
         }
+        tmrsql.sqlite_close()
         return arrM
     }
     

@@ -23,7 +23,8 @@ class ViewController: UIViewController {
         self.view.backgroundColor = UIColor.whiteColor()
         self.createSubView()
         self.createAllTable()
-
+        
+//        self.alamofireTest()
     }
 
     override func didReceiveMemoryWarning() {
@@ -114,7 +115,7 @@ class ViewController: UIViewController {
             print("打开数据库失败！！！")
             return
         }
-        let work_sheet = "create table if not exists work_sheet (worksheet_id integer primary key, sheet_name text, forage_name text, originWeight double, processedWeight double, percent text, status integer, uploadStatus integer)"
+        let work_sheet = "create table if not exists work_sheet (worksheet_id integer primary key, sheet_name text, forage_name text, originWeight double, processedWeight double, percent text, status integer, uploadStatus integer, subDate text, date text)"
         
         self.createTable(work_sheet, tmrsql: tmrsql)
         
@@ -148,12 +149,14 @@ class ViewController: UIViewController {
     private func alamofireTest(){
         
         
-        var jsonData:JSON = ["name":"success", "age":18]
-        jsonData["id"].int = 1005
+        let dict1:NSDictionary = ["name":"luxi", "age":18]
+        let dict2:NSDictionary = ["name":"jack", "age":19]
         
-        jsonData["array"].arrayObject = [1, 2, 3, 4, 5]
+        let array:NSArray = [dict1, dict2]
         
-        jsonData["dict"].dictionaryObject = ["kk":"aa", "age":14]
+        
+        var jsonData:JSON = ["name":"success", "age":18, "array":array]
+        
         
         let jsonObject: AnyObject = jsonData.rawString()!
         

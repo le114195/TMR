@@ -16,7 +16,9 @@ class TMRWorksheetMake: TMRBaseViewController, FSCalendarDelegate, FSCalendarDat
     @IBOutlet weak var showText: UITextView!
     
     var formatter:NSDateFormatter!
+    var subFormatter:NSDateFormatter!
     var worksheetTime:String = ""
+    var subDate:String = ""
     var alert:UIAlertController!
     
     
@@ -81,21 +83,21 @@ class TMRWorksheetMake: TMRBaseViewController, FSCalendarDelegate, FSCalendarDat
         switch index {
         case 0:
             originWeight = Double(cattle_model.morning_proportion) * foundation_model.forage_weight * Double(cattle_model.cattle_num) / 100
-            sql = "insert into work_sheet (worksheet_id, sheet_name, forage_name, originWeight, processedWeight, percent, status, uploadStatus) values (null, '\(worksheetTime)_0_\(cattle_model.cattle_name)_早', '\(foundation_model.forage_name)', \(originWeight), 0, '0%', 0, 0)"
+            sql = "insert into work_sheet (worksheet_id, sheet_name, forage_name, originWeight, processedWeight, percent, status, uploadStatus, subDate, date) values (null, '\(worksheetTime)_0_\(cattle_model.cattle_name)_早', '\(foundation_model.forage_name)', \(originWeight), 0, '0%', 0, 0, '\(self.subDate)', '\(self.worksheetTime)')"
             work_sheet = "\(worksheetTime)_0_\(cattle_model.cattle_name)_早\t\(foundation_model.forage_name)\t\(originWeight)"
             break
             
         case 1:
             
             originWeight = Double(cattle_model.nooning_proportion) * foundation_model.forage_weight * Double(cattle_model.cattle_num) / 100
-            sql = "insert into work_sheet (worksheet_id, sheet_name, forage_name, originWeight, processedWeight, percent, status, uploadStatus) values (null, '\(worksheetTime)_1_\(cattle_model.cattle_name)_中', '\(foundation_model.forage_name)', \(originWeight), 0, '0%', 0, 0)"
+            sql = "insert into work_sheet (worksheet_id, sheet_name, forage_name, originWeight, processedWeight, percent, status, uploadStatus, subDate, date) values (null, '\(worksheetTime)_1_\(cattle_model.cattle_name)_中', '\(foundation_model.forage_name)', \(originWeight), 0, '0%', 0, 0, '\(self.subDate)', '\(self.worksheetTime)')"
             work_sheet = "\(worksheetTime)_1_\(cattle_model.cattle_name)_中\t\(foundation_model.forage_name)\t\(originWeight)"
             break
             
         case 2:
             
             originWeight = Double(cattle_model.evening_proportion) * foundation_model.forage_weight * Double(cattle_model.cattle_num) / 100
-            sql = "insert into work_sheet (worksheet_id, sheet_name, forage_name, originWeight, processedWeight, percent, status, uploadStatus) values (null, '\(worksheetTime)_2_\(cattle_model.cattle_name)_晚', '\(foundation_model.forage_name)', \(originWeight), 0, '0%', 0, 0)"
+            sql = "insert into work_sheet (worksheet_id, sheet_name, forage_name, originWeight, processedWeight, percent, status, uploadStatus, subDate, date) values (null, '\(worksheetTime)_2_\(cattle_model.cattle_name)_晚', '\(foundation_model.forage_name)', \(originWeight), 0, '0%', 0, 0, '\(self.subDate)', '\(self.worksheetTime)')"
             work_sheet = "\(worksheetTime)_2_\(cattle_model.cattle_name)_晚\t\(foundation_model.forage_name)\t\(originWeight)"
             break
         default:
@@ -121,7 +123,11 @@ class TMRWorksheetMake: TMRBaseViewController, FSCalendarDelegate, FSCalendarDat
         self.formatter = NSDateFormatter.init()
         self.formatter.dateFormat = "yyyy-MM-dd"
         
+        self.subFormatter = NSDateFormatter.init()
+        self.subFormatter.dateFormat = "yyyy-MM"
+        
         self.worksheetTime = self.formatter.stringFromDate(NSDate.init())
+        self.subDate = self.subFormatter.stringFromDate(NSDate.init())
         
     }
     
@@ -143,7 +149,7 @@ class TMRWorksheetMake: TMRBaseViewController, FSCalendarDelegate, FSCalendarDat
     
     func calendar(calendar: FSCalendar, didSelectDate date: NSDate) {
         self.worksheetTime = self.formatter.stringFromDate(date)
-        
+        self.subDate = self.subFormatter.stringFromDate(date)
     }
     
     

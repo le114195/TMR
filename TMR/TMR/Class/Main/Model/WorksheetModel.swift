@@ -25,9 +25,7 @@ class WorksheetModel: NSObject {
         
         let arrM = NSMutableArray()
         var stmt:COpaquePointer = nil
-        
         let tmrsql = TMRSQLite()
-        
         if !tmrsql.openDatabase() {
             print("打开数据库失败！！！")
         }
@@ -51,6 +49,7 @@ class WorksheetModel: NSObject {
             }
             tmrsql.sqlite_finalize(stmt)
         }
+        tmrsql.sqlite_close()
         return arrM
     }
     
