@@ -121,8 +121,8 @@ class TMRForageManage: TMRBaseViewController, UITableViewDelegate, UITableViewDa
             })
         }
         forageAddView?.sureBlock = {(forage:ForageManage) -> ()in
-            if self.forageAddView?.isAdd == true {
-                self.arrayData?.addObject(forage)
+            if weakSelf!.forageAddView?.isAdd == true {
+                weakSelf!.arrayData?.addObject(forage)
                 weakSelf!.tableview.reloadData()
             }
             UIView.animateWithDuration(0.5, animations: {

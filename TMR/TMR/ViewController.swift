@@ -93,8 +93,8 @@ class ViewController: UIViewController {
             break
         case 2:
             
-            let worksheet = TMRWorksheet()
-            self.navigationController?.pushViewController(worksheet, animated: true)
+            let login = TMRLogin()
+            self.navigationController?.pushViewController(login, animated: true)
             
             break
             
@@ -115,7 +115,7 @@ class ViewController: UIViewController {
             print("打开数据库失败！！！")
             return
         }
-        let work_sheet = "create table if not exists work_sheet (worksheet_id integer primary key, sheet_name text, forage_name text, originWeight double, processedWeight double, percent text, status integer, uploadStatus integer, subDate text, date text)"
+        let work_sheet = "create table if not exists work_sheet (worksheet_id integer primary key, sheet_name text, forage_name text, originWeight double, processedWeight double, percent text, status integer, uploadStatus integer, subDate text, date text, facilityID text)"
         
         self.createTable(work_sheet, tmrsql: tmrsql)
         
@@ -155,7 +155,7 @@ class ViewController: UIViewController {
         let array:NSArray = [dict1, dict2]
         
         
-        var jsonData:JSON = ["name":"success", "age":18, "array":array]
+        let jsonData:JSON = ["name":"success", "age":18, "array":array]
         
         
         let jsonObject: AnyObject = jsonData.rawString()!

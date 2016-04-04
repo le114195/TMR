@@ -19,12 +19,10 @@ class Worksheet: NSObject {
     var percent:String = ""
     var status:Int32 = 0
     var uploadStatus:Int32 = 0
-    
     var date:String = ""
     var subDate:String = ""
     
     static func getJsonData(sql:String) -> String {
-        
         
         let arrM = NSMutableArray()
         var stmt:COpaquePointer = nil
@@ -49,6 +47,7 @@ class Worksheet: NSObject {
                 dictM.setValue(Int(tmrsql.sqlite_column_int(stmt, index: 7)), forKey: "uploadStatus")
                 dictM.setValue(tmrsql.sqlite_column_text(stmt, index: 8), forKey: "subDate")
                 dictM.setValue(tmrsql.sqlite_column_text(stmt, index: 9), forKey: "date")
+                dictM.setValue(tmrsql.sqlite_column_text(stmt, index: 10), forKey: "facilityID")
                 arrM.addObject(dictM)
             }
             tmrsql.sqlite_finalize(stmt)
@@ -58,13 +57,9 @@ class Worksheet: NSObject {
         return jsonData.rawString()!
     }
     
-    
-    
-    
-    static func getDate() -> NSMutableArray {
+    static func getDate(sql:String) -> NSMutableArray {
         let arrM = NSMutableArray()
-        let sql = "select distinct date from work_sheet where status=1"
-        
+//        let sql = "select distinct date from work_sheet where status=1"
         var stmt:COpaquePointer = nil
         let tmrsql = TMRSQLite()
         if !tmrsql.openDatabase() {
@@ -84,29 +79,7 @@ class Worksheet: NSObject {
         return arrM
     }
     
-    static func getSubDate() ->NSMutableArray {
-        let arrM = NSMutableArray()
-     
-        let sql = "select distinct subDate from work_sheet where status=1"
-        
-        var stmt:COpaquePointer = nil
-        let tmrsql = TMRSQLite()
-        if !tmrsql.openDatabase() {
-            print("打开数据库失败！！！")
-        }
-        let result = tmrsql.sqlite_prepared(sql, stmt: &stmt)
-        
-        if result == SQLITE_OK {
-            
-            while tmrsql.sqlite_step(stmt) == SQLITE_ROW {
-                let subDate:String = tmrsql.sqlite_column_text(stmt, index: 0)
-                arrM.addObject(subDate)
-            }
-            tmrsql.sqlite_finalize(stmt)
-        }
-        tmrsql.sqlite_close()
-        return arrM
-    }
+
 
     static func getData(sql:String) -> NSMutableArray {
         

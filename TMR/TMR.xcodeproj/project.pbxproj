@@ -70,6 +70,8 @@
 		75C242B11CAFA8600060197E /* WorksheetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C242B01CAFA8600060197E /* WorksheetModel.swift */; };
 		75C242B31CAFB5A10060197E /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C242B21CAFB5A10060197E /* ProcessingView.swift */; };
 		75C242B51CAFB5B60060197E /* ProcessingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75C242B41CAFB5B60060197E /* ProcessingView.xib */; };
+		75C9497B1CB151AF00F7EA2D /* TMRLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C949791CB151AF00F7EA2D /* TMRLogin.swift */; };
+		75C9497C1CB151AF00F7EA2D /* TMRLogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75C9497A1CB151AF00F7EA2D /* TMRLogin.xib */; };
 		75C9A9BF1CA8C89B00F95090 /* Worksheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C9A9BE1CA8C89B00F95090 /* Worksheet.swift */; };
 		75C9A9C11CA8C8BF00F95090 /* ForageManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C9A9C01CA8C8BF00F95090 /* ForageManage.swift */; };
 		75C9A9C31CA8C8DD00F95090 /* CattleManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C9A9C21CA8C8DD00F95090 /* CattleManage.swift */; };
@@ -181,6 +183,8 @@
 		75C242B01CAFA8600060197E /* WorksheetModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorksheetModel.swift; sourceTree = "<group>"; };
 		75C242B21CAFB5A10060197E /* ProcessingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessingView.swift; sourceTree = "<group>"; };
 		75C242B41CAFB5B60060197E /* ProcessingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessingView.xib; sourceTree = "<group>"; };
+		75C949791CB151AF00F7EA2D /* TMRLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMRLogin.swift; sourceTree = "<group>"; };
+		75C9497A1CB151AF00F7EA2D /* TMRLogin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMRLogin.xib; sourceTree = "<group>"; };
 		75C9A9BE1CA8C89B00F95090 /* Worksheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Worksheet.swift; sourceTree = "<group>"; };
 		75C9A9C01CA8C8BF00F95090 /* ForageManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForageManage.swift; sourceTree = "<group>"; };
 		75C9A9C21CA8C8DD00F95090 /* CattleManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CattleManage.swift; sourceTree = "<group>"; };
@@ -368,6 +372,8 @@
 			children = (
 				7563B3D51CA7CDA200BC84BB /* TMRNetwork.swift */,
 				7563B3D61CA7CDA200BC84BB /* TMRNetwork.xib */,
+				75C949791CB151AF00F7EA2D /* TMRLogin.swift */,
+				75C9497A1CB151AF00F7EA2D /* TMRLogin.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -700,6 +706,7 @@
 				7595C41A1CA913D0000EECAB /* ForageManageCell.xib in Resources */,
 				755C96F81CA8DC0600C83667 /* return_gray.png in Resources */,
 				75E369EA1CAA360400263D6D /* CattleManageDetailCell.xib in Resources */,
+				75C9497C1CB151AF00F7EA2D /* TMRLogin.xib in Resources */,
 				755C96F51CA8DC0600C83667 /* return_black.png in Resources */,
 				7543FBA61CA96B0A0041228D /* CattleManageCell.xib in Resources */,
 				755C96FA1CA8DC0600C83667 /* return_gray@3x.png in Resources */,
@@ -803,6 +810,7 @@
 				755C96FF1CA8E0F600C83667 /* TMRNavigationController.swift in Sources */,
 				755C97041CA8E34400C83667 /* TMRBaseViewController.swift in Sources */,
 				75C9A9C51CA8C8F300F95090 /* FoundationManage.swift in Sources */,
+				75C9497B1CB151AF00F7EA2D /* TMRLogin.swift in Sources */,
 				759D4B001CACAEC100B103A5 /* TMRWorksheetMake.swift in Sources */,
 				75C242A61CAF8F560060197E /* TMRProcessing.swift in Sources */,
 				755C96E81CA8D87900C83667 /* TMRForageManage.swift in Sources */,

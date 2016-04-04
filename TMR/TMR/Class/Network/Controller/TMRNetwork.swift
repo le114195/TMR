@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import MBProgressHUD
 
 class TMRNetwork: TMRBaseViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -17,10 +19,24 @@ class TMRNetwork: TMRBaseViewController, UITableViewDelegate, UITableViewDataSou
     
     private var arrayData = NSMutableArray()
     
+    lazy var alert:UIAlertController = {
+        let tempAlert = UIAlertController.init(title: "是否确定制作加工单", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let cancelAction = UIAlertAction.init(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil)
+        weak var weakSelf = self
+        let okAction = UIAlertAction.init(title: "确定", style: UIAlertActionStyle.Default) { (okAction) in
+            weakSelf!.uploadAllData()
+        }
+        tempAlert.addAction(cancelAction)
+        tempAlert.addAction(okAction)
+        return tempAlert
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.arrayData = Worksheet.getDate()
+        let sql = "select distinct date from work_sheet where status=1 and uploadStatus=0"
+        self.arrayData = Worksheet.getDate(sql)
         self.initTableView()
         
         // Do any additional setup after loading the view.
@@ -42,9 +58,30 @@ class TMRNetwork: TMRBaseViewController, UITableViewDelegate, UITableViewDataSou
     @IBAction func uploadAction(sender: AnyObject) {
         
         
+        if self.arrayData.count == 0 {
+            return
+        }
         
+        self.presentViewController(self.alert, animated: true, completion: nil)
         
+    }
+    
+    private func uploadAllData() {
         
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        
+        let sql:String = "select * from work_sheet where status=1 and uploadStatus=0"
+        let jsonObject: AnyObject = Worksheet.getJsonData(sql)
+        
+        Alamofire.request(.POST, "http://139.129.8.9:8080/TMRServerNew/TMRInsertData", parameters: ["foo": "gg", "data":jsonObject])
+            .responseJSON { response in
+                if response.result.isSuccess {
+                    print("上传成功！！！")
+                    let upSql = "update work_sheet set uploadStatus=1 where status=1'"
+                    TMRSQLite().updateData(upSql)
+                    MBProgressHUD.hideHUDForView(self.view, animated: true)
+                }
+        }
     }
     
     
@@ -57,14 +94,31 @@ class TMRNetwork: TMRBaseViewController, UITableViewDelegate, UITableViewDataSou
         let cell:NetWorkCell = self.tableView.dequeueReusableCellWithIdentifier("NetWorkCell", forIndexPath: indexPath) as! NetWorkCell
         
         cell.setModelData(self.arrayData[indexPath.row] as! String)
+        weak var weakSelf = self
         
+        weak var weakCell = cell
+        cell.uploadBlock = {()->() in
+            MBProgressHUD.showHUDAddedTo(weakSelf!.view, animated: true)
+            let sql:String = "select * from work_sheet where status=1 and uploadStatus=0 and date='\(weakCell!.date)'"
+            let jsonObject: AnyObject = Worksheet.getJsonData(sql)
+            
+            Alamofire.request(.POST, "http://139.129.8.9:8080/TMRServerNew/TMRInsertData", parameters: ["foo": "gg", "data":jsonObject])
+                .responseJSON { response in
+                    if response.result.isSuccess {
+                        
+                        let upSql = "update work_sheet set uploadStatus=1 where status=1 and date='\(weakCell!.date)'"
+                        TMRSQLite().updateData(upSql)
+                        weakSelf?.arrayData.removeObjectAtIndex(indexPath.row)
+                        weakSelf?.tableView.reloadData()
+                        MBProgressHUD.hideHUDForView(weakSelf!.view, animated: true)
+                    }
+            }
+        }
         return cell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 60
     }
-    
-    
     
 }

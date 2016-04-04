@@ -19,15 +19,23 @@ class TMRWorksheetMake: TMRBaseViewController, FSCalendarDelegate, FSCalendarDat
     var subFormatter:NSDateFormatter!
     var worksheetTime:String = ""
     var subDate:String = ""
-    var alert:UIAlertController!
-    
+    lazy var alert:UIAlertController = {
+        let tempAlert = UIAlertController.init(title: "是否确定制作加工单", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let cancelAction = UIAlertAction.init(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil)
+        weak var weakSelf = self
+        let okAction = UIAlertAction.init(title: "确定", style: UIAlertActionStyle.Default) { (okAction) in
+            weakSelf!.createSheet()
+        }
+        tempAlert.addAction(cancelAction)
+        tempAlert.addAction(okAction)
+        return tempAlert
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
         self.title = "开始制作加工单"
         self.createFSCalendar()
-        self.createAlert()
         // Do any additional setup after loading the view.
     }
 
@@ -38,9 +46,7 @@ class TMRWorksheetMake: TMRBaseViewController, FSCalendarDelegate, FSCalendarDat
         let workArray = Worksheet.getData(workSql)
         if workArray.count > 0 {
             print(self.worksheetTime + "的加工单已经存在")
-            
             TMRHintView.show(self.worksheetTime + "的加工单已经存在", view: self.view)
-            
             return
         }
         
@@ -69,9 +75,6 @@ class TMRWorksheetMake: TMRBaseViewController, FSCalendarDelegate, FSCalendarDat
                 self.createWorksheet(cattleModel, foundation_model: foundationModel, index: 2)
             }
         }
-
-        
-        
     }
     
     private func createWorksheet(cattle_model:CattleManage, foundation_model:FoundationManage, index:Int32) {
@@ -80,24 +83,27 @@ class TMRWorksheetMake: TMRBaseViewController, FSCalendarDelegate, FSCalendarDat
         var originWeight:Double = 0
         var work_sheet:String = ""
         
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let facilityID:String = defaults.valueForKey("facilityID") as! String
+        
         switch index {
         case 0:
             originWeight = Double(cattle_model.morning_proportion) * foundation_model.forage_weight * Double(cattle_model.cattle_num) / 100
-            sql = "insert into work_sheet (worksheet_id, sheet_name, forage_name, originWeight, processedWeight, percent, status, uploadStatus, subDate, date) values (null, '\(worksheetTime)_0_\(cattle_model.cattle_name)_早', '\(foundation_model.forage_name)', \(originWeight), 0, '0%', 0, 0, '\(self.subDate)', '\(self.worksheetTime)')"
+            sql = "insert into work_sheet (worksheet_id, sheet_name, forage_name, originWeight, processedWeight, percent, status, uploadStatus, subDate, date, facilityID) values (null, '\(worksheetTime)_0_\(cattle_model.cattle_name)_早', '\(foundation_model.forage_name)', \(originWeight), 0, '0%', 0, 0, '\(self.subDate)', '\(self.worksheetTime)', '\(facilityID)')"
             work_sheet = "\(worksheetTime)_0_\(cattle_model.cattle_name)_早\t\(foundation_model.forage_name)\t\(originWeight)"
             break
             
         case 1:
             
             originWeight = Double(cattle_model.nooning_proportion) * foundation_model.forage_weight * Double(cattle_model.cattle_num) / 100
-            sql = "insert into work_sheet (worksheet_id, sheet_name, forage_name, originWeight, processedWeight, percent, status, uploadStatus, subDate, date) values (null, '\(worksheetTime)_1_\(cattle_model.cattle_name)_中', '\(foundation_model.forage_name)', \(originWeight), 0, '0%', 0, 0, '\(self.subDate)', '\(self.worksheetTime)')"
+            sql = "insert into work_sheet (worksheet_id, sheet_name, forage_name, originWeight, processedWeight, percent, status, uploadStatus, subDate, date, facilityID) values (null, '\(worksheetTime)_1_\(cattle_model.cattle_name)_中', '\(foundation_model.forage_name)', \(originWeight), 0, '0%', 0, 0, '\(self.subDate)', '\(self.worksheetTime)', '\(facilityID)')"
             work_sheet = "\(worksheetTime)_1_\(cattle_model.cattle_name)_中\t\(foundation_model.forage_name)\t\(originWeight)"
             break
             
         case 2:
             
             originWeight = Double(cattle_model.evening_proportion) * foundation_model.forage_weight * Double(cattle_model.cattle_num) / 100
-            sql = "insert into work_sheet (worksheet_id, sheet_name, forage_name, originWeight, processedWeight, percent, status, uploadStatus, subDate, date) values (null, '\(worksheetTime)_2_\(cattle_model.cattle_name)_晚', '\(foundation_model.forage_name)', \(originWeight), 0, '0%', 0, 0, '\(self.subDate)', '\(self.worksheetTime)')"
+            sql = "insert into work_sheet (worksheet_id, sheet_name, forage_name, originWeight, processedWeight, percent, status, uploadStatus, subDate, date, facilityID) values (null, '\(worksheetTime)_2_\(cattle_model.cattle_name)_晚', '\(foundation_model.forage_name)', \(originWeight), 0, '0%', 0, 0, '\(self.subDate)', '\(self.worksheetTime)', '\(facilityID)')"
             work_sheet = "\(worksheetTime)_2_\(cattle_model.cattle_name)_晚\t\(foundation_model.forage_name)\t\(originWeight)"
             break
         default:
@@ -128,21 +134,9 @@ class TMRWorksheetMake: TMRBaseViewController, FSCalendarDelegate, FSCalendarDat
         
         self.worksheetTime = self.formatter.stringFromDate(NSDate.init())
         self.subDate = self.subFormatter.stringFromDate(NSDate.init())
-        
     }
     
-    private func createAlert(){
-        
-        self.alert = UIAlertController.init(title: "是否确定制作加工单", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-        let cancelAction = UIAlertAction.init(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil)
-        weak var weakSelf = self
-        let okAction = UIAlertAction.init(title: "确定", style: UIAlertActionStyle.Default) { (okAction) in
-            weakSelf!.createSheet()
-        }
-        self.alert.addAction(cancelAction)
-        self.alert.addAction(okAction)
-    }
-    
+
     func minimumDateForCalendar(calendar: FSCalendar) -> NSDate {
         return NSDate.init()
     }

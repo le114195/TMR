@@ -17,6 +17,10 @@ class NetWorkCell: UITableViewCell {
     
     @IBOutlet weak var uploadBtn: UIButton!
     
+    var successBlock:(()->())!
+    
+    var uploadBlock:(()->())!
+    
     var date:String = ""
     
     override func awakeFromNib() {
@@ -45,18 +49,11 @@ class NetWorkCell: UITableViewCell {
     @IBAction func uploadAction(sender: AnyObject) {
         
         
-        let sql:String = "select * from work_sheet where status=1 and uploadStatus=0 and date='\(self.date)'"
-        let jsonObject: AnyObject = Worksheet.getJsonData(sql)
-        Alamofire.request(.POST, "http://localhost:8080/TestMysql/Demo1", parameters: ["foo": "gg", "data":jsonObject])
-            .responseJSON { response in
-                if response.result.isSuccess {
-                    print("上传成功！！！")
-                }
-
+        if self.uploadBlock != nil {
+            self.uploadBlock()
         }
         
+                
     }
-    
-    
     
 }

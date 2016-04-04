@@ -18,5 +18,3 @@ let tableName_foundation:String = "foundation_manage"
 let tableName_worksheet:String = "work_sheet"
 let tableName_forage:String = "forage_manage"
 
-
-

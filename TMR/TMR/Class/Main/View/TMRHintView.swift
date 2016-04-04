@@ -20,9 +20,6 @@ class TMRHintView: UIView {
         super.init(frame: frame)
         
         self.backgroundColor = UIColor.clearColor()
-        
-        
-        
 
     }
     
