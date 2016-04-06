@@ -20,7 +20,7 @@ class TMRCattleManage: TMRBaseViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "牛舍管理"
-        self.rightBtn?.hidden = false
+        self.rightBtn.hidden = false
         self.view.backgroundColor = UIColor.whiteColor()
         
         let sql = "select * from \(tableName_cattle)"

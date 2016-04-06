@@ -142,33 +142,21 @@ class ViewController: UIViewController {
             print("sqlite_step error!!!")
         }
         tmrsql.sqlite_finalize(stmt)
-        
     }
     
     
     private func alamofireTest(){
-        
-        
         let dict1:NSDictionary = ["name":"luxi", "age":18]
         let dict2:NSDictionary = ["name":"jack", "age":19]
-        
         let array:NSArray = [dict1, dict2]
-        
-        
         let jsonData:JSON = ["name":"success", "age":18, "array":array]
-        
-        
         let jsonObject: AnyObject = jsonData.rawString()!
-        
         Alamofire.request(.POST, "http://localhost:8080/TestMysql/Demo1", parameters: ["foo": "gg", "data":jsonObject])
             .responseJSON { response in
                 
                 let json = JSON(response.result.value!)
                 print(json["name"].string!)
-
         }
-        
     }
-
 }
 

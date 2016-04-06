@@ -19,7 +19,7 @@ class TMRForageManage: TMRBaseViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "草料管理"
-        self.rightBtn?.hidden = false
+        self.rightBtn.hidden = false
         self.initTableView()
         self.createForageAddView()
         

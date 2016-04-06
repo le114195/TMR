@@ -11,7 +11,13 @@ import UIKit
 class TMRBaseViewController: UIViewController {
 
     var leftBtn:UIButton?
-    var rightBtn:UIButton?
+    lazy var rightBtn:UIButton = {
+        let tempBtn = UIButton.init(type: UIButtonType.ContactAdd)
+        tempBtn.addTarget(self, action: #selector(TMRForageManage.clickRightBtn), forControlEvents: UIControlEvents.TouchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: tempBtn)
+        tempBtn.hidden = true
+        return tempBtn
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,11 +44,7 @@ class TMRBaseViewController: UIViewController {
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: leftBtn!)
         
-        rightBtn = UIButton.init(type: UIButtonType.ContactAdd)
-        rightBtn!.addTarget(self, action: #selector(TMRForageManage.clickRightBtn), forControlEvents: UIControlEvents.TouchUpInside)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: rightBtn!)
-        rightBtn!.hidden = true
-    }
+        }
     
     func clickLeftBtn() {
         self.view.endEditing(true)

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMRProcessed" customModule="TMR" customModuleProvider="target">
+            <connections>
+                <outlet property="localBtn" destination="fX0-u5-la6" id="5R7-dL-885"/>
+                <outlet property="netWorkBtn" destination="KaP-zF-H0O" id="F1s-Pe-S1U"/>
+                <outlet property="originBtn" destination="1El-ib-arI" id="sNl-Ce-uFu"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fX0-u5-la6">
+                    <rect key="frame" x="89" y="128" width="236" height="77"/>
+                    <color key="backgroundColor" red="0.48973233486001355" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="77" id="4lg-8V-JUX"/>
+                    </constraints>
+                    <state key="normal" title="本地数据">
+                        <color key="titleColor" red="0.29378024301399208" green="1" blue="0.25302560592081558" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="localAction:" destination="-1" eventType="touchUpInside" id="TP8-Wx-5zb"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1El-ib-arI">
+                    <rect key="frame" x="89" y="289" width="236" height="77"/>
+                    <color key="backgroundColor" red="0.48973233490000001" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="77" id="1so-TN-alk"/>
+                    </constraints>
+                    <state key="normal" title="未加工数据">
+                        <color key="titleColor" red="0.29411764705882354" green="1" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="originAction:" destination="-1" eventType="touchUpInside" id="DLK-w9-pO8"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KaP-zF-H0O">
+                    <rect key="frame" x="89" y="450" width="236" height="77"/>
+                    <color key="backgroundColor" red="0.48973233490000001" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="77" id="7LD-kU-kAV"/>
+                    </constraints>
+                    <state key="normal" title="网络数据">
+                        <color key="titleColor" red="0.29411764705882354" green="1" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="networkAction:" destination="-1" eventType="touchUpInside" id="SqO-vZ-PRX"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="fX0-u5-la6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="128" id="E5d-Og-t3D"/>
+                <constraint firstItem="KaP-zF-H0O" firstAttribute="top" secondItem="1El-ib-arI" secondAttribute="bottom" constant="84" id="Ghq-lm-N4Q"/>
+                <constraint firstAttribute="trailing" secondItem="KaP-zF-H0O" secondAttribute="trailing" constant="89" id="JVR-VB-COF"/>
+                <constraint firstAttribute="trailing" secondItem="1El-ib-arI" secondAttribute="trailing" constant="89" id="ROB-3W-lno"/>
+                <constraint firstItem="1El-ib-arI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="89" id="SiB-EX-dMc"/>
+                <constraint firstItem="fX0-u5-la6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="89" id="VZS-LY-EDn"/>
+                <constraint firstAttribute="trailing" secondItem="fX0-u5-la6" secondAttribute="trailing" constant="89" id="bLi-cQ-VF6"/>
+                <constraint firstItem="1El-ib-arI" firstAttribute="top" secondItem="fX0-u5-la6" secondAttribute="bottom" constant="84" id="k0K-bx-0Jg"/>
+                <constraint firstItem="KaP-zF-H0O" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="89" id="kfz-dB-FDd"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+        </view>
+    </objects>
+</document>
