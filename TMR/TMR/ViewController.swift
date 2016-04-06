@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         self.createSubView()
         self.createAllTable()
         
-//        self.alamofireTest()
+        self.alamofireTest()
     }
 
     override func didReceiveMemoryWarning() {
@@ -146,16 +146,21 @@ class ViewController: UIViewController {
     
     
     private func alamofireTest(){
-        let dict1:NSDictionary = ["name":"luxi", "age":18]
-        let dict2:NSDictionary = ["name":"jack", "age":19]
-        let array:NSArray = [dict1, dict2]
-        let jsonData:JSON = ["name":"success", "age":18, "array":array]
-        let jsonObject: AnyObject = jsonData.rawString()!
-        Alamofire.request(.POST, "http://localhost:8080/TestMysql/Demo1", parameters: ["foo": "gg", "data":jsonObject])
+
+        
+        Alamofire.request(.POST, "http://localhost:8080/TMRServerNew/TMRQuery", parameters: ["date": "2016-04-03", "facilityID":"ab1001"])
             .responseJSON { response in
+                if response.result.isSuccess {
+                    let json = JSON(response.result.value!)
+                    if json["count"].int32Value > 0 {
+                        let array = json["data"].arrayValue
+                        let dict = array[0].dictionary
+                        print(dict!["worksheet_name"])
+                        
+                    }
+                    
+                }
                 
-                let json = JSON(response.result.value!)
-                print(json["name"].string!)
         }
     }
 }

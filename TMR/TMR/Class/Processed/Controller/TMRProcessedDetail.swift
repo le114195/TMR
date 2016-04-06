@@ -14,8 +14,8 @@ class TMRProcessedDetail: TMRBaseViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var tableView: UITableView!
     
     var arrayData = NSMutableArray()
-    var date:String = ""
     var sheet_nameArray = NSMutableArray()
+    var date:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()

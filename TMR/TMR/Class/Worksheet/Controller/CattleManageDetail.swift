@@ -21,6 +21,8 @@ class CattleManageDetail: TMRBaseViewController, UITableViewDelegate, UITableVie
     var offset:CGFloat = 0
     var currentIndexPath:NSIndexPath!
     
+    var isCattleNum:Bool = false
+    
     @IBOutlet weak var addBtn: UIButton!
     
     @IBOutlet weak var cattle_name: UITextField!
@@ -64,6 +66,10 @@ class CattleManageDetail: TMRBaseViewController, UITableViewDelegate, UITableVie
     
     
     func keyboardWillShow(notifcation:NSNotification) {
+        
+        if self.isCattleNum == true{
+            return
+        }
         
         let cell:CattleManageDetailCell = self.tableView.cellForRowAtIndexPath(self.currentIndexPath) as! CattleManageDetailCell
         self.cellY = self.tableView.convertPoint(cell.frame.origin, toView: self.view).y
@@ -193,6 +199,12 @@ class CattleManageDetail: TMRBaseViewController, UITableViewDelegate, UITableVie
         self.tableView.reloadData()
     }
     
+    func textFieldDidBeginEditing(textField: UITextField) {
+        
+        self.isCattleNum = true
+        
+    }
+    
     func textFieldDidEndEditing(textField: UITextField) {
         if Int32(self.cattle_num.text!) == nil {
             TMRHintView.show("牛群数量输入格式不正确", view: self.view)
@@ -202,6 +214,7 @@ class CattleManageDetail: TMRBaseViewController, UITableViewDelegate, UITableVie
         self.cattleModel.cattle_num = Int32(self.cattle_num.text!)!
         let sql = "update cattle_manage set cattle_num=\(self.cattleModel.cattle_num) where cattle_name='\(self.cattleModel.cattle_name)'"
         TMRSQLite().updateData(sql)
+        self.isCattleNum = false
     }
     
     

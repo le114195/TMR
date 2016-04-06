@@ -95,6 +95,8 @@
 		75E369E61CAA2CA000263D6D /* CattleManageDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75E369E41CAA2CA000263D6D /* CattleManageDetail.xib */; };
 		75E369E91CAA360400263D6D /* CattleManageDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E369E71CAA360400263D6D /* CattleManageDetailCell.swift */; };
 		75E369EA1CAA360400263D6D /* CattleManageDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75E369E81CAA360400263D6D /* CattleManageDetailCell.xib */; };
+		75F9540B1CB55643007A938F /* TMRNetworkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F954091CB55643007A938F /* TMRNetworkDetail.swift */; };
+		75F9540C1CB55643007A938F /* TMRNetworkDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75F9540A1CB55643007A938F /* TMRNetworkDetail.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -219,6 +221,8 @@
 		75E369E41CAA2CA000263D6D /* CattleManageDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CattleManageDetail.xib; sourceTree = "<group>"; };
 		75E369E71CAA360400263D6D /* CattleManageDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CattleManageDetailCell.swift; sourceTree = "<group>"; };
 		75E369E81CAA360400263D6D /* CattleManageDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CattleManageDetailCell.xib; sourceTree = "<group>"; };
+		75F954091CB55643007A938F /* TMRNetworkDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMRNetworkDetail.swift; sourceTree = "<group>"; };
+		75F9540A1CB55643007A938F /* TMRNetworkDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMRNetworkDetail.xib; sourceTree = "<group>"; };
 		89E5C04FCB28E3E37EF02375 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -449,6 +453,8 @@
 				757A0EE11CB4B53000B08075 /* TMRProcessedDetail.xib */,
 				757A0EE81CB4C4B100B08075 /* TMRProcessedNetWork.swift */,
 				757A0EE91CB4C4B100B08075 /* TMRProcessedNetWork.xib */,
+				75F954091CB55643007A938F /* TMRNetworkDetail.swift */,
+				75F9540A1CB55643007A938F /* TMRNetworkDetail.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -734,6 +740,7 @@
 				755C96FD1CA8DC0600C83667 /* return_white@3x.png in Resources */,
 				75C242B51CAFB5B60060197E /* ProcessingView.xib in Resources */,
 				755C96FC1CA8DC0600C83667 /* return_white@2x.png in Resources */,
+				75F9540C1CB55643007A938F /* TMRNetworkDetail.xib in Resources */,
 				759D4B051CACB27800B103A5 /* TMRFoundationMakeCell.xib in Resources */,
 				75C242A71CAF8F560060197E /* TMRProcessing.xib in Resources */,
 				7595C41A1CA913D0000EECAB /* ForageManageCell.xib in Resources */,
@@ -841,6 +848,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7543FBA81CA9794D0041228D /* CattleView.swift in Sources */,
+				75F9540B1CB55643007A938F /* TMRNetworkDetail.swift in Sources */,
 				7543FBA11CA9673D0041228D /* TMRCattleManage.swift in Sources */,
 				755C97021CA8E21600C83667 /* Controller.swift in Sources */,
 				75D168661CAAD4A000BAE849 /* FoundationMakeView.swift in Sources */,
