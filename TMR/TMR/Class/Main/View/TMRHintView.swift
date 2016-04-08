@@ -30,7 +30,7 @@ class TMRHintView: UIView {
         self.showLabel = UILabel()
         self.showLabel.font = UIFont.systemFontOfSize(13.0)
         let rect = str.boundingRectWithSize(CGSize.init(width: 200, height: 1000.0), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: NSDictionary(object: UIFont.systemFontOfSize(13.0), forKey: NSFontAttributeName) as? [String : AnyObject], context: nil)
-        self.showLabel.frame = CGRect.init(x: (screen_width - (rect.size.width + 10)) * 0.5, y: (screen_height - 60) * 0.5, width: rect.size.width + 10, height: 60)
+        self.showLabel.frame = CGRect.init(x: (screen_width - (rect.size.width + 10)) * 0.5, y: (screen_height - 60) * 0.5, width: rect.size.width + 10, height: 30)
 
         self.showLabel.textColor = UIColor.whiteColor()
         

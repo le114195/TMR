@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="calendar" destination="q3W-et-7Gk" id="XYm-pa-a5o"/>
                 <outlet property="sureBtn" destination="PgA-F4-JFO" id="joh-E9-kgQ"/>
+                <outlet property="tableView" destination="Ugv-RS-Yxb" id="HqX-pd-one"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -37,15 +38,23 @@
                         <action selector="sureAction:" destination="-1" eventType="touchUpInside" id="U0b-g9-lbm"/>
                     </connections>
                 </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ugv-RS-Yxb">
+                    <rect key="frame" x="0.0" y="376" width="414" height="268"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="q3W-et-7Gk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ESX-90-u7Y"/>
                 <constraint firstAttribute="trailing" secondItem="q3W-et-7Gk" secondAttribute="trailing" id="IPt-tf-xC3"/>
                 <constraint firstAttribute="trailing" secondItem="PgA-F4-JFO" secondAttribute="trailing" constant="80" id="OFC-hR-hEw"/>
+                <constraint firstItem="PgA-F4-JFO" firstAttribute="top" secondItem="Ugv-RS-Yxb" secondAttribute="bottom" constant="12" id="Oek-Xf-Km0"/>
                 <constraint firstAttribute="bottom" secondItem="PgA-F4-JFO" secondAttribute="bottom" constant="36" id="TQi-YT-htD"/>
                 <constraint firstItem="PgA-F4-JFO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="80" id="gXw-0E-yXT"/>
                 <constraint firstItem="q3W-et-7Gk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="iHq-pG-31K"/>
+                <constraint firstItem="Ugv-RS-Yxb" firstAttribute="top" secondItem="q3W-et-7Gk" secondAttribute="bottom" constant="12" id="sds-1y-Egt"/>
+                <constraint firstAttribute="trailing" secondItem="Ugv-RS-Yxb" secondAttribute="trailing" id="xyd-yr-7s0"/>
+                <constraint firstItem="Ugv-RS-Yxb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zfa-He-pgl"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
         </view>

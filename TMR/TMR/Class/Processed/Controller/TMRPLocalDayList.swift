@@ -22,7 +22,7 @@ class TMRPLocalDayList: TMRBaseViewController, UITableViewDelegate, UITableViewD
         
         self.initTableView()
         
-        let sql = "select distinct date from work_sheet where status=1 and subDate='\(self.subDate)'"
+        let sql = "select distinct date from work_sheet where status=1 and subDate='\(self.subDate)' and facilityID='\(facilityID)'"
         self.arrayData = Worksheet.getDate(sql)
         // Do any additional setup after loading the view.
     }

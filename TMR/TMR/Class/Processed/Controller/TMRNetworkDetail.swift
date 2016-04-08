@@ -19,16 +19,12 @@ class TMRNetworkDetail: TMRBaseViewController, UITableViewDelegate, UITableViewD
     var arrayData = NSMutableArray()
     var sheet_nameArray = NSMutableArray()
     var date:String = ""
+    var facilityID:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.initTableView()
-        
         self.getData()
-        
-
-
         
         
         // Do any additional setup after loading the view.
@@ -44,7 +40,8 @@ class TMRNetworkDetail: TMRBaseViewController, UITableViewDelegate, UITableViewD
     
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
-        Alamofire.request(.POST, "http://139.129.8.9:8080/TMRServerNew/TMRQuery", parameters: ["date": self.date, "facilityID":"ab1001"])
+        
+        Alamofire.request(.POST, "http://139.129.8.9:8080/TMRServerNew/TMRQuery", parameters: ["date": self.date, "facilityID":self.facilityID])
             .responseJSON { response in
                 if response.result.isSuccess {
                     let json = JSON(response.result.value!)

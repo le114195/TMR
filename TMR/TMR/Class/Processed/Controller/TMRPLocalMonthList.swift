@@ -14,13 +14,26 @@ class TMRPLocalMonthList: TMRBaseViewController, UITableViewDataSource, UITableV
     
     var arrayData = NSMutableArray()
     
+    lazy var alert:UIAlertController = {
+        let tempAlert = UIAlertController.init(title: "是否清空所有数据", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let cancelAction = UIAlertAction.init(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil)
+        
+        let okAction = UIAlertAction.init(title: "确定", style: UIAlertActionStyle.Default) { (okAction) in
+            let sql = "delete from work_sheet"
+            TMRSQLite().updateData(sql)
+        }
+        tempAlert.addAction(cancelAction)
+        tempAlert.addAction(okAction)
+        return tempAlert
+    }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.initTableView()
         
-        let sql = "select distinct subDate from work_sheet where status=1"
+        let sql = "select distinct subDate from work_sheet where status=1 and facilityID='\(facilityID)'"
         
         self.arrayData = Worksheet.getDate(sql)
         
@@ -69,4 +82,12 @@ class TMRPLocalMonthList: TMRBaseViewController, UITableViewDataSource, UITableV
     }
     
 
+    @IBAction func clearData(sender: AnyObject) {
+        
+        self.presentViewController(self.alert, animated: true, completion: nil)
+        
+    }
+    
+    
+    
 }

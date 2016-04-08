@@ -81,6 +81,10 @@
 		75C9A9C11CA8C8BF00F95090 /* ForageManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C9A9C01CA8C8BF00F95090 /* ForageManage.swift */; };
 		75C9A9C31CA8C8DD00F95090 /* CattleManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C9A9C21CA8C8DD00F95090 /* CattleManage.swift */; };
 		75C9A9C51CA8C8F300F95090 /* FoundationManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C9A9C41CA8C8F300F95090 /* FoundationManage.swift */; };
+		75CEC01F1CB7689300DDC45D /* TMRRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CEC01D1CB7689300DDC45D /* TMRRegister.swift */; };
+		75CEC0201CB7689300DDC45D /* TMRRegister.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75CEC01E1CB7689300DDC45D /* TMRRegister.xib */; };
+		75CEC0231CB785E000DDC45D /* TMRFacilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CEC0211CB785E000DDC45D /* TMRFacilityCell.swift */; };
+		75CEC0241CB785E000DDC45D /* TMRFacilityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75CEC0221CB785E000DDC45D /* TMRFacilityCell.xib */; };
 		75D168661CAAD4A000BAE849 /* FoundationMakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D168651CAAD4A000BAE849 /* FoundationMakeView.swift */; };
 		75D1686B1CAAD66000BAE849 /* FoundationMakeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D168691CAAD66000BAE849 /* FoundationMakeCell.swift */; };
 		75D1686C1CAAD66000BAE849 /* FoundationMakeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75D1686A1CAAD66000BAE849 /* FoundationMakeCell.xib */; };
@@ -207,6 +211,10 @@
 		75C9A9C01CA8C8BF00F95090 /* ForageManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForageManage.swift; sourceTree = "<group>"; };
 		75C9A9C21CA8C8DD00F95090 /* CattleManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CattleManage.swift; sourceTree = "<group>"; };
 		75C9A9C41CA8C8F300F95090 /* FoundationManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationManage.swift; sourceTree = "<group>"; };
+		75CEC01D1CB7689300DDC45D /* TMRRegister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMRRegister.swift; sourceTree = "<group>"; };
+		75CEC01E1CB7689300DDC45D /* TMRRegister.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMRRegister.xib; sourceTree = "<group>"; };
+		75CEC0211CB785E000DDC45D /* TMRFacilityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMRFacilityCell.swift; sourceTree = "<group>"; };
+		75CEC0221CB785E000DDC45D /* TMRFacilityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMRFacilityCell.xib; sourceTree = "<group>"; };
 		75D168651CAAD4A000BAE849 /* FoundationMakeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationMakeView.swift; sourceTree = "<group>"; };
 		75D168691CAAD66000BAE849 /* FoundationMakeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationMakeCell.swift; sourceTree = "<group>"; };
 		75D1686A1CAAD66000BAE849 /* FoundationMakeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoundationMakeCell.xib; sourceTree = "<group>"; };
@@ -471,6 +479,8 @@
 			children = (
 				757A0EE41CB4B63700B08075 /* ProcessedDetailCell.swift */,
 				757A0EE51CB4B63700B08075 /* ProcessedDetailCell.xib */,
+				75CEC0211CB785E000DDC45D /* TMRFacilityCell.swift */,
+				75CEC0221CB785E000DDC45D /* TMRFacilityCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -537,6 +547,8 @@
 				759D4AFB1CACAEA300B103A5 /* TMRFoundationMake.xib */,
 				759D4AFE1CACAEC100B103A5 /* TMRWorksheetMake.swift */,
 				759D4AFF1CACAEC100B103A5 /* TMRWorksheetMake.xib */,
+				75CEC01D1CB7689300DDC45D /* TMRRegister.swift */,
+				75CEC01E1CB7689300DDC45D /* TMRRegister.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -749,6 +761,7 @@
 				75E369EA1CAA360400263D6D /* CattleManageDetailCell.xib in Resources */,
 				75C9497C1CB151AF00F7EA2D /* TMRLogin.xib in Resources */,
 				755C96F51CA8DC0600C83667 /* return_black.png in Resources */,
+				75CEC0241CB785E000DDC45D /* TMRFacilityCell.xib in Resources */,
 				7543FBA61CA96B0A0041228D /* CattleManageCell.xib in Resources */,
 				755C96FA1CA8DC0600C83667 /* return_gray@3x.png in Resources */,
 				755C96F91CA8DC0600C83667 /* return_gray@2x.png in Resources */,
@@ -772,6 +785,7 @@
 				75E369E61CAA2CA000263D6D /* CattleManageDetail.xib in Resources */,
 				755C96E91CA8D87900C83667 /* TMRForageManage.xib in Resources */,
 				75E28D8F1CB2293F009F2F51 /* TMRProcessed.xib in Resources */,
+				75CEC0201CB7689300DDC45D /* TMRRegister.xib in Resources */,
 				7563B3D81CA7CDA200BC84BB /* TMRNetwork.xib in Resources */,
 				759D4AFD1CACAEA300B103A5 /* TMRFoundationMake.xib in Resources */,
 				7543FBAA1CA9795C0041228D /* CattleView.xib in Resources */,
@@ -863,9 +877,11 @@
 				755C96E81CA8D87900C83667 /* TMRForageManage.swift in Sources */,
 				75C242B11CAFA8600060197E /* WorksheetModel.swift in Sources */,
 				7595C4191CA913D0000EECAB /* ForageManageCell.swift in Sources */,
+				75CEC0231CB785E000DDC45D /* TMRFacilityCell.swift in Sources */,
 				75E369E91CAA360400263D6D /* CattleManageDetailCell.swift in Sources */,
 				757A0EE21CB4B53000B08075 /* TMRProcessedDetail.swift in Sources */,
 				75C2429D1CAEC7400060197E /* SDBallProgressView.m in Sources */,
+				75CEC01F1CB7689300DDC45D /* TMRRegister.swift in Sources */,
 				75C242A11CAEC7400060197E /* SDPieProgressView.m in Sources */,
 				7563B3D31CA7CD8700BC84BB /* TMRWorksheet.swift in Sources */,
 				75C9A9C11CA8C8BF00F95090 /* ForageManage.swift in Sources */,

@@ -15,7 +15,6 @@ class TMRWorksheet: TMRBaseViewController {
         self.title = "加工单的制作"
         self.createSubView()
         
-        
         // Do any additional setup after loading the view.
     }
 
@@ -23,8 +22,7 @@ class TMRWorksheet: TMRBaseViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
+        
     private func createSubView() {
         
         let height:CGFloat = (screen_height - 64) / 4
@@ -84,16 +82,13 @@ class TMRWorksheet: TMRBaseViewController {
             
             let foundation = TMRFoundationMake()
             self.navigationController?.pushViewController(foundation, animated: true)
-            
             break
             
         case 3:
             
             let worksheetMake = TMRWorksheetMake()
             self.navigationController?.pushViewController(worksheetMake, animated: true)
-            
             break
-            
             
         default:
             break

@@ -16,17 +16,27 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UyH-jH-tEv">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UyH-jH-tEv">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="626"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLz-Ws-b4Z">
+                    <rect key="frame" x="143" y="672" width="128" height="44"/>
+                    <color key="backgroundColor" red="1" green="0.61290409482758612" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="128" id="Rq5-Yb-Z0h"/>
+                        <constraint firstAttribute="height" constant="44" id="v48-Z2-Ypm"/>
+                    </constraints>
+                    <state key="normal" title="清除缓存"/>
+                    <connections>
+                        <action selector="clearData:" destination="-1" eventType="touchUpInside" id="V6a-0L-grB"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="UyH-jH-tEv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="78x-Lx-rr3"/>
-                <constraint firstAttribute="bottom" secondItem="UyH-jH-tEv" secondAttribute="bottom" id="KdN-Pq-6YB"/>
-                <constraint firstAttribute="trailing" secondItem="UyH-jH-tEv" secondAttribute="trailing" id="cUZ-8Y-7sr"/>
-                <constraint firstItem="UyH-jH-tEv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kmP-rF-Lfg"/>
+                <constraint firstItem="ZLz-Ws-b4Z" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ODD-vO-Vcu"/>
+                <constraint firstAttribute="bottom" secondItem="ZLz-Ws-b4Z" secondAttribute="bottom" constant="20" id="u48-2Q-5PY"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
         </view>

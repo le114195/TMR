@@ -122,7 +122,7 @@ class ProcessingView: UIView {
         self.worksheet.status = 1
         self.worksheet.percent = NSString(format: "%.0f", self.currentWeight / self.worksheet.origin_weight * 100) as String + "%"
         self.model.allRealityWeight = self.currentTotalWeight
-        let sql = "update work_sheet set processedWeight=\(self.worksheet.processed_weight), percent='\(self.worksheet.percent)', status=1 where worksheet_id=\(self.worksheet.worksheet_id)"
+        let sql = "update work_sheet set processedWeight=\(self.worksheet.processed_weight), percent='\(self.worksheet.percent)', status=1 where worksheet_id=\(self.worksheet.worksheet_id) and facilityID='\(facilityID)'"
         TMRSQLite().updateData(sql)
     }
     

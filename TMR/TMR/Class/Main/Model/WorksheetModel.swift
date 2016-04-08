@@ -21,7 +21,7 @@ class WorksheetModel: NSObject {
         let formatter = NSDateFormatter.init()
         formatter.dateFormat = "yyyy-MM-dd"
         let today = formatter.stringFromDate(NSDate.init())
-        let sql:String = "select distinct sheet_name from work_sheet  where sheet_name like '\(today)_\(index)%'"
+        let sql:String = "select distinct sheet_name from work_sheet  where sheet_name like '\(today)_\(index)%' and facilityID='\(facilityID)'"
         
         let arrM = NSMutableArray()
         var stmt:COpaquePointer = nil
@@ -37,7 +37,7 @@ class WorksheetModel: NSObject {
                 let model = WorksheetModel()
                 
                 model.sheet_name = tmrsql.sqlite_column_text(stmt, index: 0)
-                let modelSql = "select * from work_sheet where sheet_name='\(model.sheet_name)'"
+                let modelSql = "select * from work_sheet where sheet_name='\(model.sheet_name)' and facilityID='\(facilityID)'"
                 model.worksheetArray = Worksheet.getData(modelSql)
                 
                 for i in 0...model.worksheetArray.count-1 {

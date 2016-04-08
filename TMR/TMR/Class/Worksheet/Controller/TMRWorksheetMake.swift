@@ -42,7 +42,8 @@ class TMRWorksheetMake: TMRBaseViewController, FSCalendarDelegate, FSCalendarDat
     
     @IBAction func makeAction(sender: AnyObject) {
         
-        let workSql = "select * from work_sheet where sheet_name like '\(self.worksheetTime)%'"
+        let facilityID:String = NSUserDefaults.standardUserDefaults().valueForKey("facilityID") as! String
+        let workSql = "select * from work_sheet where sheet_name like '\(self.worksheetTime)%' and facility='\(facilityID)'"
         let workArray = Worksheet.getData(workSql)
         if workArray.count > 0 {
             print(self.worksheetTime + "的加工单已经存在")

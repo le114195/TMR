@@ -33,14 +33,14 @@ class TMRProcessedDetail: TMRBaseViewController, UITableViewDelegate, UITableVie
     
     private func initData() {
         
-        let sql = "select distinct sheet_name from work_sheet where status=1 and date='\(self.date)'"
+        let sql = "select distinct sheet_name from work_sheet where status=1 and date='\(self.date)' and facilityID='\(facilityID)'"
         self.sheet_nameArray = Worksheet.getDate(sql)
         if self.sheet_nameArray.count == 0 {
             return
         }
         for i in 0...self.sheet_nameArray.count-1 {
             let sheetName:String = self.sheet_nameArray[i] as! String
-            let modelSql = "select * from work_sheet where status=1 and date='\(self.date)' and sheet_name='\(sheetName)'"
+            let modelSql = "select * from work_sheet where status=1 and date='\(self.date)' and sheet_name='\(sheetName)' and facilityID='\(facilityID)'"
             self.arrayData.addObject(Worksheet.getData(modelSql))
         }
     }

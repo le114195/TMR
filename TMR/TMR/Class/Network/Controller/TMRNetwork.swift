@@ -35,7 +35,7 @@ class TMRNetwork: TMRBaseViewController, UITableViewDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let sql = "select distinct date from work_sheet where status=1 and uploadStatus=0"
+        let sql = "select distinct date from work_sheet where status=1 and uploadStatus=0 and facilityID='\(facilityID)'"
         self.arrayData = Worksheet.getDate(sql)
         self.initTableView()
         
@@ -70,14 +70,14 @@ class TMRNetwork: TMRBaseViewController, UITableViewDelegate, UITableViewDataSou
         
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
-        let sql:String = "select * from work_sheet where status=1 and uploadStatus=0"
+        let sql:String = "select * from work_sheet where status=1 and uploadStatus=0 and facilityID='\(facilityID)'"
         let jsonObject: AnyObject = Worksheet.getJsonData(sql)
         
         Alamofire.request(.POST, "http://139.129.8.9:8080/TMRServerNew/TMRInsertData", parameters: ["foo": "gg", "data":jsonObject])
             .responseJSON { response in
                 if response.result.isSuccess {
                     print("上传成功！！！")
-                    let upSql = "update work_sheet set uploadStatus=1 where status=1'"
+                    let upSql = "update work_sheet set uploadStatus=1 where status=1' and facilityID='\(facilityID)'"
                     TMRSQLite().updateData(upSql)
                     MBProgressHUD.hideHUDForView(self.view, animated: true)
                 }
@@ -99,14 +99,14 @@ class TMRNetwork: TMRBaseViewController, UITableViewDelegate, UITableViewDataSou
         weak var weakCell = cell
         cell.uploadBlock = {()->() in
             MBProgressHUD.showHUDAddedTo(weakSelf!.view, animated: true)
-            let sql:String = "select * from work_sheet where status=1 and uploadStatus=0 and date='\(weakCell!.date)'"
+            let sql:String = "select * from work_sheet where status=1 and uploadStatus=0 and date='\(weakCell!.date)' and facilityID='\(facilityID)'"
             let jsonObject: AnyObject = Worksheet.getJsonData(sql)
             
             Alamofire.request(.POST, "http://139.129.8.9:8080/TMRServerNew/TMRInsertData", parameters: ["foo": "gg", "data":jsonObject])
                 .responseJSON { response in
                     if response.result.isSuccess {
                         
-                        let upSql = "update work_sheet set uploadStatus=1 where status=1 and date='\(weakCell!.date)'"
+                        let upSql = "update work_sheet set uploadStatus=1 where status=1 and date='\(weakCell!.date)' and facilityID='\(facilityID)'"
                         TMRSQLite().updateData(upSql)
                         weakSelf?.arrayData.removeObjectAtIndex(indexPath.row)
                         weakSelf?.tableView.reloadData()

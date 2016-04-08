@@ -10,26 +10,60 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-
+var facilityID:String = ""
 
 class ViewController: UIViewController {
 
     private var name = String?()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let facility = NSUserDefaults.standardUserDefaults().valueForKey("facilityID")
+        if facility == nil {
+            let login = TMRLogin()
+            self.navigationController?.pushViewController(login, animated: false)
+        }else {
+            facilityID = facility as! String
+        }
+        
+        
         print(sqlite_path)
         self.view.backgroundColor = UIColor.whiteColor()
         self.createSubView()
         self.createAllTable()
         
-        self.alamofireTest()
+        self.createRightBtn()
+//        self.alamofireTest()
     }
-
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = false
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func createRightBtn() {
+        
+        let rightBtn = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 55, height: 44))
+        
+        rightBtn.titleLabel?.font = UIFont.systemFontOfSize(13)
+        rightBtn.setTitle("退出登录", forState: UIControlState.Normal)
+        rightBtn.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
+        rightBtn.setTitleColor(UIColor.blackColor(), forState: UIControlState.Highlighted)
+        rightBtn.addTarget(self, action: #selector(ViewController.rightAction), forControlEvents: UIControlEvents.TouchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: rightBtn)
+    }
+    
+    func rightAction() {
+        
+        let login = TMRLogin()
+        self.navigationController?.pushViewController(login, animated: false)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setValue(nil, forKey: "facilityID")
     }
     
     
@@ -73,9 +107,6 @@ class ViewController: UIViewController {
         }
     }
     
-
-    
-    
     func clickBtn(btn:UIButton) {
         
         
@@ -92,10 +123,10 @@ class ViewController: UIViewController {
             
             break
         case 2:
-            
-            let login = TMRLogin()
-            self.navigationController?.pushViewController(login, animated: true)
-            
+
+            let worksheet = TMRWorksheet()
+            self.navigationController?.pushViewController(worksheet, animated: true)
+
             break
             
         case 3:
@@ -148,20 +179,17 @@ class ViewController: UIViewController {
     private func alamofireTest(){
 
         
-        Alamofire.request(.POST, "http://localhost:8080/TMRServerNew/TMRQuery", parameters: ["date": "2016-04-03", "facilityID":"ab1001"])
+        Alamofire.request(.POST, "http://139.129.8.9:8080/TMRServerNew/TMRLoginQuery", parameters: nil)
             .responseJSON { response in
                 if response.result.isSuccess {
-                    let json = JSON(response.result.value!)
-                    if json["count"].int32Value > 0 {
-                        let array = json["data"].arrayValue
-                        let dict = array[0].dictionary
-                        print(dict!["worksheet_name"])
-                        
+                    
+                        let json = JSON(response.result.value!)
+                        print(json)
+                    
                     }
                     
                 }
                 
-        }
     }
 }
 
