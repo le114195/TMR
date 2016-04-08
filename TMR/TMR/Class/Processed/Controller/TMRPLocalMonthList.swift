@@ -17,10 +17,11 @@ class TMRPLocalMonthList: TMRBaseViewController, UITableViewDataSource, UITableV
     lazy var alert:UIAlertController = {
         let tempAlert = UIAlertController.init(title: "是否清空所有数据", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         let cancelAction = UIAlertAction.init(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil)
-        
+        weak var weakSelf = self
         let okAction = UIAlertAction.init(title: "确定", style: UIAlertActionStyle.Default) { (okAction) in
             let sql = "delete from work_sheet"
             TMRSQLite().updateData(sql)
+            weakSelf!.navigationController?.popToRootViewControllerAnimated(true)
         }
         tempAlert.addAction(cancelAction)
         tempAlert.addAction(okAction)
@@ -85,9 +86,6 @@ class TMRPLocalMonthList: TMRBaseViewController, UITableViewDataSource, UITableV
     @IBAction func clearData(sender: AnyObject) {
         
         self.presentViewController(self.alert, animated: true, completion: nil)
-        
     }
-    
-    
     
 }
