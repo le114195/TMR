@@ -85,8 +85,8 @@ class TMRProcessedNetWork: TMRBaseViewController, FSCalendarDelegate, FSCalendar
         
         if self.facilityID.characters.count == 0 {
             TMRHintView.show("请选择加工厂", view: self.view)
+            return
         }
-        
         
         let detail = TMRNetworkDetail()
         detail.date = self.date

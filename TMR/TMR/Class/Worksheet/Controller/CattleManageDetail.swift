@@ -153,7 +153,7 @@ class CattleManageDetail: TMRBaseViewController, UITableViewDelegate, UITableVie
         
         if editingStyle == UITableViewCellEditingStyle.Delete {
             let dataModel = self.arrayData[indexPath.row] as! FoundationManage
-            let sql = "delete from \(tableName_foundation) where forage_name='\(dataModel.forage_name)'"
+            let sql = "delete from \(tableName_foundation) where forage_name='\(dataModel.forage_name)' and cattle_name = '\(dataModel.cattle_name)'"
             TMRSQLite().updateData(sql)
             self.arrayData.removeObjectAtIndex(indexPath.row)
             self.tableView.reloadData()
