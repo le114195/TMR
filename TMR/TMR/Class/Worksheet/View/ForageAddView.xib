@@ -26,7 +26,7 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="库存" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyI-rT-gYO">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="权重" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyI-rT-gYO">
                             <rect key="frame" x="207" y="0.0" width="103.5" height="35"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -146,7 +146,7 @@
                 <outlet property="forageID" destination="Q1h-al-IZV" id="rgm-B4-YXt"/>
                 <outlet property="forageName" destination="VCJ-a9-PSH" id="46v-Ly-SO9"/>
                 <outlet property="forage_type" destination="1xH-KX-4mu" id="6dQ-rN-Pn6"/>
-                <outlet property="repository" destination="I7K-mI-6QL" id="Xn5-Pl-w40"/>
+                <outlet property="proportoin" destination="I7K-mI-6QL" id="nd5-ez-W49"/>
             </connections>
             <point key="canvasLocation" x="317" y="-39.5"/>
         </view>

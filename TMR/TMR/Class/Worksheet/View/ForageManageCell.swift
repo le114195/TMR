@@ -29,7 +29,7 @@ class ForageManageCell: UITableViewCell {
     func setModel(model:ForageManage) {
         forageName.text = model.forage_name
         forageID.text = String(model.forage_id)
-        repository.text = String(model.repertory)
+        repository.text = String(model.proportoin)
         forage_type.text = model.forage_type
     }
     

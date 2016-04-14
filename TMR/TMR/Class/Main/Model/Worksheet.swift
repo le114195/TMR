@@ -17,6 +17,7 @@ class Worksheet: NSObject {
     var origin_weight:Double = 0
     var processed_weight:Double = 0
     var percent:String = ""
+    var difference:Double = 0
     var status:Int32 = 0
     var uploadStatus:Int32 = 0
     var date:String = ""
@@ -43,11 +44,12 @@ class Worksheet: NSObject {
                 dictM.setValue(tmrsql.sqlite_column_double(stmt, index: 3), forKey: "origin_weight")
                 dictM.setValue(tmrsql.sqlite_column_double(stmt, index: 4), forKey: "processed_weight")
                 dictM.setValue(tmrsql.sqlite_column_text(stmt, index: 5), forKey: "percent")
-                dictM.setValue(Int(tmrsql.sqlite_column_int(stmt, index: 6)), forKey: "status")
-                dictM.setValue(Int(tmrsql.sqlite_column_int(stmt, index: 7)), forKey: "uploadStatus")
-                dictM.setValue(tmrsql.sqlite_column_text(stmt, index: 8), forKey: "subDate")
-                dictM.setValue(tmrsql.sqlite_column_text(stmt, index: 9), forKey: "date")
-                dictM.setValue(tmrsql.sqlite_column_text(stmt, index: 10), forKey: "facilityID")
+                dictM.setValue(tmrsql.sqlite_column_double(stmt, index: 6), forKey: "difference")
+                dictM.setValue(Int(tmrsql.sqlite_column_int(stmt, index: 7)), forKey: "status")
+                dictM.setValue(Int(tmrsql.sqlite_column_int(stmt, index: 8)), forKey: "uploadStatus")
+                dictM.setValue(tmrsql.sqlite_column_text(stmt, index: 9), forKey: "subDate")
+                dictM.setValue(tmrsql.sqlite_column_text(stmt, index: 10), forKey: "date")
+                dictM.setValue(tmrsql.sqlite_column_text(stmt, index: 11), forKey: "facilityID")
                 arrM.addObject(dictM)
             }
             tmrsql.sqlite_finalize(stmt)
@@ -103,10 +105,11 @@ class Worksheet: NSObject {
                 model.origin_weight = tmrsql.sqlite_column_double(stmt, index: 3)
                 model.processed_weight = tmrsql.sqlite_column_double(stmt, index: 4)
                 model.percent = tmrsql.sqlite_column_text(stmt, index: 5)
-                model.status = tmrsql.sqlite_column_int(stmt, index: 6)
-                model.uploadStatus = tmrsql.sqlite_column_int(stmt, index: 7)
-                model.subDate = tmrsql.sqlite_column_text(stmt, index: 8)
-                model.date = tmrsql.sqlite_column_text(stmt, index: 9)
+                model.difference = tmrsql.sqlite_column_double(stmt, index: 6)
+                model.status = tmrsql.sqlite_column_int(stmt, index: 7)
+                model.uploadStatus = tmrsql.sqlite_column_int(stmt, index: 8)
+                model.subDate = tmrsql.sqlite_column_text(stmt, index: 9)
+                model.date = tmrsql.sqlite_column_text(stmt, index: 10)
                 
                 arrM.addObject(model)
             }

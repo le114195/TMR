@@ -21,7 +21,10 @@ class ForageAddView: UIView {
     
     @IBOutlet weak var forageName: UITextField!
     @IBOutlet weak var forageID: UITextField!
-    @IBOutlet weak var repository: UITextField!
+
+    @IBOutlet weak var proportoin: UITextField!
+    
+    
     @IBOutlet weak var forage_type: UITextField!
     
     @IBAction func cancel(sender: AnyObject) {
@@ -36,7 +39,7 @@ class ForageAddView: UIView {
         
         if self.forageName.text?.characters.count == 0 ||
              self.forageID.text?.characters.count == 0 ||
-           self.repository.text?.characters.count == 0 ||
+           self.proportoin.text?.characters.count == 0 ||
         self.forage_type.text?.characters.count == 0
         {
             
@@ -47,7 +50,7 @@ class ForageAddView: UIView {
         }
         
         if Int32(self.forageID.text!) == nil ||
-            Double(self.repository.text!) == nil
+            Double(self.proportoin.text!) == nil
         {
             if self.showError != nil {
                 self.showError()
@@ -61,14 +64,14 @@ class ForageAddView: UIView {
             forage = ForageManage()
         }
         self.endEditing(true)
-        forage!.repertory = Int32(repository.text!)!
+        forage!.proportoin = Int32(proportoin.text!)!
         if isAdd == true {
             forage!.forage_name = forageName.text!
             forage!.forage_id = Int32(forageID.text!)!
             forage!.forage_type = forage_type.text!
             self.insertData(forage!)
         }else if isAdd == false {
-            let sql = "update forage_manage set repertory=\(forage!.repertory) where forage_id=\(forage!.forage_id)"
+            let sql = "update forage_manage set proportion=\(forage!.proportoin) where forage_id=\(forage!.forage_id)"
             TMRSQLite().updateData(sql)
         }
         
@@ -82,7 +85,7 @@ class ForageAddView: UIView {
         self.forageName.keyboardType = UIKeyboardType.Default
         self.forageID.keyboardType = UIKeyboardType.NumberPad
         self.forage_type.keyboardType = UIKeyboardType.Default
-        self.repository.keyboardType = UIKeyboardType.NumberPad
+        self.proportoin.keyboardType = UIKeyboardType.NumberPad
     }
     
     private func insertData(model:ForageManage){
@@ -115,7 +118,7 @@ class ForageAddView: UIView {
         self.forageName.text = model.forage_name
         self.forageID.text = String(model.forage_id)
         self.forage_type.text = model.forage_type
-        self.repository.text = String(model.repertory)
+        self.proportoin.text = String(model.proportoin)
         
     }
     
@@ -123,7 +126,7 @@ class ForageAddView: UIView {
         self.forageName.text = ""
         self.forageID.text = ""
         self.forage_type.text = ""
-        self.repository.text = ""
+        self.proportoin.text = ""
     }
     
     

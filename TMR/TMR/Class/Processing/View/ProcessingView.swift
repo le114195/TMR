@@ -53,10 +53,10 @@ class ProcessingView: UIView {
         self.index += 1
         
         self.updateDataToDB()
-        
-        
-        
         if self.index >= self.model.worksheetArray.count {
+           
+            //计算difference
+            self.difference()
             self.updateTime.invalidate()
             if self.lastBlock != nil {
                 self.lastBlock()
@@ -67,6 +67,26 @@ class ProcessingView: UIView {
 
     }
     
+    private func difference() {
+        
+        var diff:Double = 0
+        var abs:Double = 0
+        for i in 0...self.model.worksheetArray.count - 1 {
+            let model:Worksheet = self.model.worksheetArray[i] as! Worksheet
+            if model.processed_weight > model.origin_weight {
+                abs = model.processed_weight - model.origin_weight
+            }else {
+                abs = model.origin_weight - model.processed_weight
+            }
+            let sql = "select * from \(tableName_forage) where forage_name='\(model.forage_name)'"
+            let arrM:NSMutableArray = ForageManage .getData(sql)
+            let workmodel:ForageManage = arrM.firstObject as! ForageManage
+            
+            diff += abs * Double(workmodel.proportoin) / model.origin_weight
+        }
+        let sql = "update work_sheet set difference=\(diff) where sheet_name='\(self.model.sheet_name)' and facilityID='\(facilityID)'"
+        TMRSQLite().updateData(sql)
+    }
 
     func setModelData(modelData:WorksheetModel) {
         

@@ -81,6 +81,13 @@ class TMRProcessedNetWork: TMRBaseViewController, FSCalendarDelegate, FSCalendar
     }
     
     
+    @IBAction func analyzeAction(sender: AnyObject) {
+        
+        let analyze = TMRAnalyze()
+        self.navigationController?.pushViewController(analyze, animated: true)
+    }
+    
+    
     @IBAction func sureAction(sender: AnyObject) {
         
         if self.facilityID.characters.count == 0 {

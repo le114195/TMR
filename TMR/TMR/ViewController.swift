@@ -146,7 +146,7 @@ class ViewController: UIViewController {
             print("打开数据库失败！！！")
             return
         }
-        let work_sheet = "create table if not exists work_sheet (worksheet_id integer primary key, sheet_name text, forage_name text, originWeight double, processedWeight double, percent text, status integer, uploadStatus integer, subDate text, date text, facilityID text)"
+        let work_sheet = "create table if not exists work_sheet (worksheet_id integer primary key, sheet_name text, forage_name text, originWeight double, processedWeight double, percent text, difference double, status integer, uploadStatus integer, subDate text, date text, facilityID text)"
         
         self.createTable(work_sheet, tmrsql: tmrsql)
         
@@ -179,10 +179,9 @@ class ViewController: UIViewController {
     private func alamofireTest(){
 
         
-        Alamofire.request(.POST, "http://139.129.8.9:8080/TMRServerNew/TMRLoginQuery", parameters: nil)
+        Alamofire.request(.POST, "http://139.129.8.9:8080/TMRServerNew/TMRAnalyze", parameters: ["beginDate":"2016-04-11", "endDate":"2016-04-15", "facilityID":facilityID])
             .responseJSON { response in
                 if response.result.isSuccess {
-                    
                         let json = JSON(response.result.value!)
                         print(json)
                     

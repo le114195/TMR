@@ -61,7 +61,7 @@ class CattleManageDetailCell: UITableViewCell, UITextFieldDelegate {
             self.forage_weight.text = "\(self.model.forage_weight)"
             return
         }
-        let sql = "update foundation_manage set forage_weight=\(model.forage_weight) where forage_name='\(model.forage_name)'"
+        let sql = "update foundation_manage set forage_weight=\(model.forage_weight) where forage_name='\(model.forage_name)' and cattle_name='\(model.cattle_name)'"
         TMRSQLite().updateData(sql)
     }
     
