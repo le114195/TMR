@@ -53,7 +53,42 @@ class WorksheetModel: NSObject {
         return arrM
     }
     
-    
+    static func getData() -> NSMutableArray {
+        
+        let formatter = NSDateFormatter.init()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        let sql:String = "select distinct sheet_name from work_sheet  where status=0 and facilityID='\(facilityID)'"
+        
+        let arrM = NSMutableArray()
+        var stmt:COpaquePointer = nil
+        let tmrsql = TMRSQLite()
+        if !tmrsql.openDatabase() {
+            print("打开数据库失败！！！")
+        }
+        let result = tmrsql.sqlite_prepared(sql, stmt: &stmt)
+        
+        if result == SQLITE_OK {
+            
+            while tmrsql.sqlite_step(stmt) == SQLITE_ROW {
+                let model = WorksheetModel()
+                
+                model.sheet_name = tmrsql.sqlite_column_text(stmt, index: 0)
+                let modelSql = "select * from work_sheet where sheet_name='\(model.sheet_name)' and facilityID='\(facilityID)'"
+                model.worksheetArray = Worksheet.getData(modelSql)
+                
+                for i in 0...model.worksheetArray.count-1 {
+                    let workModel:Worksheet = model.worksheetArray[i] as! Worksheet
+                    model.allShouldWeight += workModel.origin_weight
+                    model.allRealityWeight += workModel.processed_weight
+                }
+                arrM.addObject(model)
+            }
+            tmrsql.sqlite_finalize(stmt)
+        }
+        tmrsql.sqlite_close()
+        return arrM
+    }
     
     
 }

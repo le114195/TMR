@@ -104,6 +104,16 @@
 		75E369E61CAA2CA000263D6D /* CattleManageDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75E369E41CAA2CA000263D6D /* CattleManageDetail.xib */; };
 		75E369E91CAA360400263D6D /* CattleManageDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E369E71CAA360400263D6D /* CattleManageDetailCell.swift */; };
 		75E369EA1CAA360400263D6D /* CattleManageDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75E369E81CAA360400263D6D /* CattleManageDetailCell.xib */; };
+		75F2B8EE1CC11C1A00AB0FBD /* TMROriginWorksheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F2B8EC1CC11C1A00AB0FBD /* TMROriginWorksheet.swift */; };
+		75F2B8EF1CC11C1A00AB0FBD /* TMROriginWorksheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75F2B8ED1CC11C1A00AB0FBD /* TMROriginWorksheet.xib */; };
+		75F2B8F21CC11FC600AB0FBD /* TMROriginDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F2B8F01CC11FC600AB0FBD /* TMROriginDetail.swift */; };
+		75F2B8F31CC11FC600AB0FBD /* TMROriginDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75F2B8F11CC11FC600AB0FBD /* TMROriginDetail.xib */; };
+		75F2B8F61CC1207F00AB0FBD /* TMROriginDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F2B8F41CC1207F00AB0FBD /* TMROriginDetailCell.swift */; };
+		75F2B8F71CC1207F00AB0FBD /* TMROriginDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75F2B8F51CC1207F00AB0FBD /* TMROriginDetailCell.xib */; };
+		75F2B8FA1CC12AF300AB0FBD /* TMROriginListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F2B8F81CC12AF300AB0FBD /* TMROriginListCell.swift */; };
+		75F2B8FB1CC12AF300AB0FBD /* TMROriginListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75F2B8F91CC12AF300AB0FBD /* TMROriginListCell.xib */; };
+		75F2B8FD1CC1391C00AB0FBD /* TMRSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F2B8FC1CC1391C00AB0FBD /* TMRSplitView.swift */; };
+		75F2B8FF1CC1398600AB0FBD /* TMRSplitView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75F2B8FE1CC1398600AB0FBD /* TMRSplitView.xib */; };
 		75F9540B1CB55643007A938F /* TMRNetworkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F954091CB55643007A938F /* TMRNetworkDetail.swift */; };
 		75F9540C1CB55643007A938F /* TMRNetworkDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75F9540A1CB55643007A938F /* TMRNetworkDetail.xib */; };
 /* End PBXBuildFile section */
@@ -239,6 +249,16 @@
 		75E369E41CAA2CA000263D6D /* CattleManageDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CattleManageDetail.xib; sourceTree = "<group>"; };
 		75E369E71CAA360400263D6D /* CattleManageDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CattleManageDetailCell.swift; sourceTree = "<group>"; };
 		75E369E81CAA360400263D6D /* CattleManageDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CattleManageDetailCell.xib; sourceTree = "<group>"; };
+		75F2B8EC1CC11C1A00AB0FBD /* TMROriginWorksheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMROriginWorksheet.swift; sourceTree = "<group>"; };
+		75F2B8ED1CC11C1A00AB0FBD /* TMROriginWorksheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMROriginWorksheet.xib; sourceTree = "<group>"; };
+		75F2B8F01CC11FC600AB0FBD /* TMROriginDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMROriginDetail.swift; sourceTree = "<group>"; };
+		75F2B8F11CC11FC600AB0FBD /* TMROriginDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMROriginDetail.xib; sourceTree = "<group>"; };
+		75F2B8F41CC1207F00AB0FBD /* TMROriginDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMROriginDetailCell.swift; sourceTree = "<group>"; };
+		75F2B8F51CC1207F00AB0FBD /* TMROriginDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMROriginDetailCell.xib; sourceTree = "<group>"; };
+		75F2B8F81CC12AF300AB0FBD /* TMROriginListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMROriginListCell.swift; sourceTree = "<group>"; };
+		75F2B8F91CC12AF300AB0FBD /* TMROriginListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMROriginListCell.xib; sourceTree = "<group>"; };
+		75F2B8FC1CC1391C00AB0FBD /* TMRSplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMRSplitView.swift; sourceTree = "<group>"; };
+		75F2B8FE1CC1398600AB0FBD /* TMRSplitView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMRSplitView.xib; sourceTree = "<group>"; };
 		75F954091CB55643007A938F /* TMRNetworkDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMRNetworkDetail.swift; sourceTree = "<group>"; };
 		75F9540A1CB55643007A938F /* TMRNetworkDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMRNetworkDetail.xib; sourceTree = "<group>"; };
 		89E5C04FCB28E3E37EF02375 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -475,6 +495,10 @@
 				75F9540A1CB55643007A938F /* TMRNetworkDetail.xib */,
 				75CD92741CBE83AB0031A711 /* TMRAnalyze.swift */,
 				75CD92751CBE83AB0031A711 /* TMRAnalyze.xib */,
+				75F2B8EC1CC11C1A00AB0FBD /* TMROriginWorksheet.swift */,
+				75F2B8ED1CC11C1A00AB0FBD /* TMROriginWorksheet.xib */,
+				75F2B8F01CC11FC600AB0FBD /* TMROriginDetail.swift */,
+				75F2B8F11CC11FC600AB0FBD /* TMROriginDetail.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -496,6 +520,12 @@
 				75851EB21CBF2FB200BF8D61 /* TMRAnalyzeView.swift */,
 				75851EB41CBF385800BF8D61 /* AnalyzeDifference.swift */,
 				75851EB61CBF520D00BF8D61 /* AnalyzePercent.swift */,
+				75F2B8F41CC1207F00AB0FBD /* TMROriginDetailCell.swift */,
+				75F2B8F51CC1207F00AB0FBD /* TMROriginDetailCell.xib */,
+				75F2B8F81CC12AF300AB0FBD /* TMROriginListCell.swift */,
+				75F2B8F91CC12AF300AB0FBD /* TMROriginListCell.xib */,
+				75F2B8FC1CC1391C00AB0FBD /* TMRSplitView.swift */,
+				75F2B8FE1CC1398600AB0FBD /* TMRSplitView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -776,6 +806,7 @@
 				757A0EE31CB4B53000B08075 /* TMRProcessedDetail.xib in Resources */,
 				75E369EA1CAA360400263D6D /* CattleManageDetailCell.xib in Resources */,
 				75C9497C1CB151AF00F7EA2D /* TMRLogin.xib in Resources */,
+				75F2B8FB1CC12AF300AB0FBD /* TMROriginListCell.xib in Resources */,
 				755C96F51CA8DC0600C83667 /* return_black.png in Resources */,
 				75CEC0241CB785E000DDC45D /* TMRFacilityCell.xib in Resources */,
 				7543FBA61CA96B0A0041228D /* CattleManageCell.xib in Resources */,
@@ -790,14 +821,18 @@
 				759D4B011CACAEC100B103A5 /* TMRWorksheetMake.xib in Resources */,
 				7501E1781CA7BDFB0047B6D0 /* Assets.xcassets in Resources */,
 				757A0EEB1CB4C4B100B08075 /* TMRProcessedNetWork.xib in Resources */,
+				75F2B8F31CC11FC600AB0FBD /* TMROriginDetail.xib in Resources */,
 				75C242AF1CAF9F810060197E /* TMRProcessingCell.xib in Resources */,
 				755C96FB1CA8DC0600C83667 /* return_white.png in Resources */,
 				75D1686C1CAAD66000BAE849 /* FoundationMakeCell.xib in Resources */,
+				75F2B8F71CC1207F00AB0FBD /* TMROriginDetailCell.xib in Resources */,
 				755C96F61CA8DC0600C83667 /* return_black@2x.png in Resources */,
 				75E28D931CB22BC7009F2F51 /* TMRPLocalMonthList.xib in Resources */,
 				757A0EE71CB4B63700B08075 /* ProcessedDetailCell.xib in Resources */,
+				75F2B8FF1CC1398600AB0FBD /* TMRSplitView.xib in Resources */,
 				7501E1761CA7BDFB0047B6D0 /* Main.storyboard in Resources */,
 				75A957951CB1025600A6EE9C /* NetWorkCell.xib in Resources */,
+				75F2B8EF1CC11C1A00AB0FBD /* TMROriginWorksheet.xib in Resources */,
 				75E369E61CAA2CA000263D6D /* CattleManageDetail.xib in Resources */,
 				755C96E91CA8D87900C83667 /* TMRForageManage.xib in Resources */,
 				75E28D8F1CB2293F009F2F51 /* TMRProcessed.xib in Resources */,
@@ -883,6 +918,7 @@
 				755C97021CA8E21600C83667 /* Controller.swift in Sources */,
 				75D168661CAAD4A000BAE849 /* FoundationMakeView.swift in Sources */,
 				75C242A01CAEC7400060197E /* SDPieLoopProgressView.m in Sources */,
+				75F2B8FD1CC1391C00AB0FBD /* TMRSplitView.swift in Sources */,
 				755C96FF1CA8E0F600C83667 /* TMRNavigationController.swift in Sources */,
 				755C97041CA8E34400C83667 /* TMRBaseViewController.swift in Sources */,
 				75C9A9C51CA8C8F300F95090 /* FoundationManage.swift in Sources */,
@@ -907,6 +943,8 @@
 				75C2429E1CAEC7400060197E /* SDBaseProgressView.m in Sources */,
 				75C242A21CAEC7400060197E /* SDRotationLoopProgressView.m in Sources */,
 				759D4AFC1CACAEA300B103A5 /* TMRFoundationMake.swift in Sources */,
+				75F2B8F21CC11FC600AB0FBD /* TMROriginDetail.swift in Sources */,
+				75F2B8F61CC1207F00AB0FBD /* TMROriginDetailCell.swift in Sources */,
 				75C9A9BF1CA8C89B00F95090 /* Worksheet.swift in Sources */,
 				757A0EE61CB4B63700B08075 /* ProcessedDetailCell.swift in Sources */,
 				75975B731CAE17B400839BC2 /* TMRString.swift in Sources */,
@@ -914,6 +952,7 @@
 				757A0EEA1CB4C4B100B08075 /* TMRProcessedNetWork.swift in Sources */,
 				759D4B041CACB27800B103A5 /* TMRFoundationMakeCell.swift in Sources */,
 				75851EB51CBF385800BF8D61 /* AnalyzeDifference.swift in Sources */,
+				75F2B8FA1CC12AF300AB0FBD /* TMROriginListCell.swift in Sources */,
 				7501E1731CA7BDFB0047B6D0 /* ViewController.swift in Sources */,
 				75E28D921CB22BC7009F2F51 /* TMRPLocalMonthList.swift in Sources */,
 				75C242AE1CAF9F810060197E /* TMRProcessingCell.swift in Sources */,
@@ -924,6 +963,7 @@
 				75E369E51CAA2CA000263D6D /* CattleManageDetail.swift in Sources */,
 				75E28D8E1CB2293F009F2F51 /* TMRProcessed.swift in Sources */,
 				75C242A31CAEC7400060197E /* SDTransparentPieProgressView.m in Sources */,
+				75F2B8EE1CC11C1A00AB0FBD /* TMROriginWorksheet.swift in Sources */,
 				75D1686B1CAAD66000BAE849 /* FoundationMakeCell.swift in Sources */,
 				7501E1711CA7BDFB0047B6D0 /* AppDelegate.swift in Sources */,
 				7595C41C1CA91962000EECAB /* ForageAddView.swift in Sources */,

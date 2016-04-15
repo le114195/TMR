@@ -42,7 +42,8 @@ class TMRProcessed: TMRBaseViewController {
     
     @IBAction func originAction(sender: AnyObject) {
         
-        
+        let origin = TMROriginWorksheet()
+        self.navigationController?.pushViewController(origin, animated: true)
         
     }
     
