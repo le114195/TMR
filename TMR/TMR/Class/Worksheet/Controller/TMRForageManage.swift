@@ -61,9 +61,7 @@ class TMRForageManage: TMRBaseViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let cell:ForageManageCell = self.tableview.dequeueReusableCellWithIdentifier("ForageManageCell", forIndexPath: indexPath) as! ForageManageCell
-        
         let model:ForageManage = self.arrayData![indexPath.row] as! ForageManage
-        
         cell.setModel(model)
         
         return cell

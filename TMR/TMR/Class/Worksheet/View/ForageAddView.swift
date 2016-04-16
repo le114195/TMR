@@ -57,27 +57,30 @@ class ForageAddView: UIView {
             }
             return
         }
-        
-        
-        
-        if forage == nil {
-            forage = ForageManage()
-        }
         self.endEditing(true)
-        forage!.proportoin = Int32(proportoin.text!)!
+        
         if isAdd == true {
-            forage!.forage_name = forageName.text!
-            forage!.forage_id = Int32(forageID.text!)!
-            forage!.forage_type = forage_type.text!
-            self.insertData(forage!)
+            let forageModel = ForageManage()
+            forageModel.proportoin = Int32(proportoin.text!)!
+            forageModel.forage_name = forageName.text!
+            forageModel.forage_id = Int32(forageID.text!)!
+            forageModel.forage_type = forage_type.text!
+            self.insertData(forageModel)
+            
+            if (sureBlock != nil) {
+                sureBlock!(forage: forageModel)
+            }
         }else if isAdd == false {
+            forage!.proportoin = Int32(proportoin.text!)!
             let sql = "update forage_manage set proportion=\(forage!.proportoin) where forage_id=\(forage!.forage_id)"
             TMRSQLite().updateData(sql)
+            
+            if (sureBlock != nil) {
+                sureBlock!(forage: forage!)
+            }
         }
         
-        if (sureBlock != nil) {
-            sureBlock!(forage: forage!)
-        }
+
     }
     
     override func awakeFromNib() {
