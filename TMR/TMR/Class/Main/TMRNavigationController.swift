@@ -8,11 +8,14 @@
 
 import UIKit
 
-class TMRNavigationController: UINavigationController {
+class TMRNavigationController: UINavigationController,UINavigationControllerDelegate, UIGestureRecognizerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        self.interactivePopGestureRecognizer?.delegate = self
+        
         // Do any additional setup after loading the view.
     }
 
@@ -20,5 +23,16 @@ class TMRNavigationController: UINavigationController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    override func pushViewController(viewController: UIViewController, animated: Bool) {
+        
+        super.pushViewController(viewController, animated: animated)
+        self.interactivePopGestureRecognizer?.enabled = true
+        
+    }
+    
+    
+    
 
 }

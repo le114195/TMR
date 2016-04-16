@@ -41,6 +41,12 @@ class ViewController: UIViewController {
         self.navigationController?.navigationBarHidden = false
     }
     
+    override func viewDidAppear(animated: Bool) {
+        
+        self.navigationController?.interactivePopGestureRecognizer?.enabled = false
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
