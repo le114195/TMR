@@ -17,6 +17,8 @@ class TMROriginListCell: UITableViewCell {
     
     @IBOutlet weak var button: UIButton!
     
+    var clickBtvBlock:(()->())!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,7 +45,9 @@ class TMROriginListCell: UITableViewCell {
     
     @IBAction func btnAction(sender: AnyObject) {
         
-        
+        if clickBtvBlock != nil {
+            self.clickBtvBlock()
+        }
         
     }
     

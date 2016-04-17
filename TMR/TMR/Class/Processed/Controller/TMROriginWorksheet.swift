@@ -16,6 +16,31 @@ class TMROriginWorksheet: TMRBaseViewController,UITableViewDelegate, UITableView
     
     var capacityD:Double = 0
     
+    lazy private var splitView:TMRSplitView = {
+        
+        let temp = NSBundle.mainBundle().loadNibNamed("TMRSplitView", owner: nil, options: nil).first as! TMRSplitView
+        temp.frame = CGRect.init(x: 0, y: 0, width: screen_width, height: screen_height)
+        self.view.addSubview(temp)
+        
+        weak var weakTemp = temp
+        weak var weakSelf = self
+        temp.cancelBlock = {()->() in
+            
+            UIView.animateWithDuration(0.25, animations: { 
+                weakTemp?.alpha = 0
+            })
+            weakSelf?.navigationController?.navigationBarHidden = false
+        }
+        temp.sureBlock = {()->() in
+            UIView.animateWithDuration(0.25, animations: {
+                weakTemp?.alpha = 0
+            })
+            weakSelf?.navigationController?.navigationBarHidden = false
+        }
+        
+        return temp
+        
+    }()
     
     
     private var arrayData = NSMutableArray()
@@ -25,6 +50,7 @@ class TMROriginWorksheet: TMRBaseViewController,UITableViewDelegate, UITableView
         self.initTableView()
         self.arrayData = WorksheetModel.getData()
         self.capacity.delegate = self
+        
         
         
         let capacity = NSUserDefaults.standardUserDefaults().valueForKey("capacity")
@@ -37,6 +63,11 @@ class TMROriginWorksheet: TMRBaseViewController,UITableViewDelegate, UITableView
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(animated: Bool) {
+        self.tableView.reloadData()
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -64,6 +95,17 @@ class TMROriginWorksheet: TMRBaseViewController,UITableViewDelegate, UITableView
             cell.button.hidden = false
         }else {
             cell.button.hidden = true
+        }
+        
+        weak var weakSelf = self
+        cell.clickBtvBlock = {()->() in
+            
+            UIView.animateWithDuration(0.25, animations: {
+                weakSelf?.splitView.alpha = 0.99
+            })
+            weakSelf?.splitView.model = model
+            weakSelf?.navigationController?.navigationBarHidden = true
+            weakSelf?.splitView.tableView.reloadData()
         }
         
         return cell

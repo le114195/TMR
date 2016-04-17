@@ -15,6 +15,8 @@
 		7501E17B1CA7BDFB0047B6D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7501E1791CA7BDFB0047B6D0 /* LaunchScreen.storyboard */; };
 		7501E1861CA7BDFB0047B6D0 /* TMRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7501E1851CA7BDFB0047B6D0 /* TMRTests.swift */; };
 		7501E1911CA7BDFB0047B6D0 /* TMRUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7501E1901CA7BDFB0047B6D0 /* TMRUITests.swift */; };
+		750E734F1CC3C79600C7768E /* TMRSpliteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750E734D1CC3C79600C7768E /* TMRSpliteCell.swift */; };
+		750E73501CC3C79600C7768E /* TMRSpliteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 750E734E1CC3C79600C7768E /* TMRSpliteCell.xib */; };
 		7543FBA11CA9673D0041228D /* TMRCattleManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543FB9F1CA9673D0041228D /* TMRCattleManage.swift */; };
 		7543FBA21CA9673D0041228D /* TMRCattleManage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7543FBA01CA9673D0041228D /* TMRCattleManage.xib */; };
 		7543FBA51CA96B0A0041228D /* CattleManageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543FBA31CA96B0A0041228D /* CattleManageCell.swift */; };
@@ -151,6 +153,8 @@
 		7501E18C1CA7BDFB0047B6D0 /* TMRUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMRUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7501E1901CA7BDFB0047B6D0 /* TMRUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMRUITests.swift; sourceTree = "<group>"; };
 		7501E1921CA7BDFB0047B6D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		750E734D1CC3C79600C7768E /* TMRSpliteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMRSpliteCell.swift; sourceTree = "<group>"; };
+		750E734E1CC3C79600C7768E /* TMRSpliteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMRSpliteCell.xib; sourceTree = "<group>"; };
 		7543FB9F1CA9673D0041228D /* TMRCattleManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMRCattleManage.swift; sourceTree = "<group>"; };
 		7543FBA01CA9673D0041228D /* TMRCattleManage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMRCattleManage.xib; sourceTree = "<group>"; };
 		7543FBA31CA96B0A0041228D /* CattleManageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CattleManageCell.swift; sourceTree = "<group>"; };
@@ -526,6 +530,8 @@
 				75F2B8F91CC12AF300AB0FBD /* TMROriginListCell.xib */,
 				75F2B8FC1CC1391C00AB0FBD /* TMRSplitView.swift */,
 				75F2B8FE1CC1398600AB0FBD /* TMRSplitView.xib */,
+				750E734D1CC3C79600C7768E /* TMRSpliteCell.swift */,
+				750E734E1CC3C79600C7768E /* TMRSpliteCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -831,6 +837,7 @@
 				757A0EE71CB4B63700B08075 /* ProcessedDetailCell.xib in Resources */,
 				75F2B8FF1CC1398600AB0FBD /* TMRSplitView.xib in Resources */,
 				7501E1761CA7BDFB0047B6D0 /* Main.storyboard in Resources */,
+				750E73501CC3C79600C7768E /* TMRSpliteCell.xib in Resources */,
 				75A957951CB1025600A6EE9C /* NetWorkCell.xib in Resources */,
 				75F2B8EF1CC11C1A00AB0FBD /* TMROriginWorksheet.xib in Resources */,
 				75E369E61CAA2CA000263D6D /* CattleManageDetail.xib in Resources */,
@@ -938,6 +945,7 @@
 				7563B3D31CA7CD8700BC84BB /* TMRWorksheet.swift in Sources */,
 				75C9A9C11CA8C8BF00F95090 /* ForageManage.swift in Sources */,
 				7563B3D71CA7CDA200BC84BB /* TMRNetwork.swift in Sources */,
+				750E734F1CC3C79600C7768E /* TMRSpliteCell.swift in Sources */,
 				75851EB31CBF2FB200BF8D61 /* TMRAnalyzeView.swift in Sources */,
 				75E061BD1CAD8C2900CF1E9A /* TMRHintView.swift in Sources */,
 				75C2429E1CAEC7400060197E /* SDBaseProgressView.m in Sources */,
